@@ -1,9 +1,22 @@
-<h1>Noticias</h1>
-<div class="noticia">
+<section class="header">
+    <h1>Noticias</h1>
+    <div class="social">
+        <a 
+            [href]="'https://www.facebook.com/sharer/sharer.php?u=http://localhost:4200/noticias/' + noticia.title" target="_blanck" 
+            class="social-link facebook">
+        </a>
+        <a [href]="'https://twitter.com/intent/tweet?text=Mira%20esta%20noticia&url=http://localhost:4200/noticias/' + noticia.title + '&hashtags=agrodatAi'" target="_blanck" class="social-link twitter"></a>
+        <a 
+            [href]="'https://api.whatsapp.com/send?text=Mira%20esta%20noticia%20http://localhost:4200/noticias/' + noticia.title" target="_blanck" 
+            class="social-link whatsapp">
+        </a>
+    </div>
+</section>
+<section class="noticia">
     <div>{{ noticia.date }} - {{ noticia.source }}</div>
     <div class="centro">
     <img [src]="noticia.img" alt="">
     <h2>{{ noticia.title }}</h2>
     </div>
     <p>{{ noticia.content }}</p>
-</div>
+</section>

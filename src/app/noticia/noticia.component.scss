@@ -4,8 +4,34 @@
     grid-column-end: 3;
     grid-row-start: 2;
 }
+.header {
+    display: flex;
+    justify-content: space-between;
+}
 h1 {
     color: #007262;
+}
+.social {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 80px;
+}
+.social-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    margin: 0 7px;
+}
+.social-link.facebook {
+    background-image: url('../../assets/images/facebook.png');
+}
+.social-link.twitter {
+    background-image: url('../../assets/images/twitter.png');
+}
+.social-link.whatsapp {
+    background-image: url('../../assets/images/whatsapp.png');
 }
 .noticia {
     display: flex;
