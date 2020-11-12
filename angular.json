@@ -127,6 +127,10 @@
   },
   "defaultProject": "AgroDatAI",
   "cli": {
+<<<<<<< HEAD
     "analytics": "02a41dc9-159d-4559-967e-68b3d210bf10"
+=======
+    "analytics": "82952d8b-c45f-4336-bf0b-5258a189c462"
+>>>>>>> ce2da8417b570a4fe5da15b749ec3b67310b68c1
   }
 }
