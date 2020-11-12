@@ -14,7 +14,7 @@ export class MaquetaComponent implements OnInit {
     this.noticias = this.noticiasSrv.noticias;
   }
 
-  title = 'NOTICIAS';
+  title = 'Intereses';
   Popup = null;
 
   exit(){
