@@ -5,17 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
-import { InteresesComponent } from './intereses/intereses.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
+import { ProductorComponent } from './productor/productor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaquetaComponent,
     NoticiaComponent,
-    InteresesComponent,
+    ProveedorComponent,
+    ProductorComponent
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

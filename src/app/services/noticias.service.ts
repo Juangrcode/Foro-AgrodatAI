@@ -12,7 +12,7 @@ export class NoticiasService {
       title: '¿Cómo será el trabajo en el campo después de la pandemia?',
       content: 'El mundo tiene un reto enorme para garantizar la seguridad alimentaria cuando llegue la nueva normalidad el decir, cuando se supere la pandemia generada por el coronavirus. En Al Campo, de Caracol Radio, preguntamos a empresarios, dirigentes gremiales, docentes, investigadores, sobre qué puede pasar con la producción agropecuaria en la postpandemia y cuál será el impacto sobre los campesinos colombianos. Las opiniones las iniciamos con un saludo a los campesinos de Colombia, enviado por el ministro de Agricultura, Rodolfo Zea Navarro\:',
       date: '05 Jun 2020',
-      source: 'El Tiempo'
+      source: 'El Tiempo' 
     },
     {
       img: '../../assets/images/campesinos.jpeg',
