@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
+import { ProductorComponent } from './productor/productor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaquetaComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    ProveedorComponent,
+    ProductorComponent
   ],
   imports: [
     BrowserModule,
