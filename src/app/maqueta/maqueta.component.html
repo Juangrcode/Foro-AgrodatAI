@@ -7,14 +7,14 @@
         <img [src]="news.img" alt="">
         <h3><a (click)="showPopup(news)">{{ news.title }}</a></h3>
         <p>{{ news.content | slice:0:125 }}</p>
-    </div>
+    </div>  
 
     <div *ngFor="let news of noticias" class="noticia">
         {{ news.date }} - {{ news.source }}
-        <img [src]="news.img" alt="">
+        <img [src]="news.img" alt="">   
         <h3><a (click)="showPopup(news)">{{ news.title }}</a></h3>
         <p>{{ news.content | slice:0:125}}</p>
-    </div>
+    </div>  
 
     <div *ngFor="let news of noticias" class="noticia">
         {{ news.date }} - {{ news.source }}
@@ -34,6 +34,3 @@
     <div class="centro"><img [src]="Popup.img" alt="" class="imagen"><h2>{{ Popup.title }}</h2></div>
     <p class="parrafo">{{Popup.content}}</p>
 </section>
-
-
-

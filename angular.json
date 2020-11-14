@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "AgroDatAI"
+    }
+  },
+  "defaultProject": "AgroDatAI",
+  "cli": {
+    "analytics": "4b835dae-e52c-4c7e-8f78-b5f1d38df249"
+  }
 }
