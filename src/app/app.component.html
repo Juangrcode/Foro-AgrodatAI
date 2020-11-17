@@ -1,5 +1,4 @@
 <div class="header">
-    
     <div class="header__logo">
         <img src="../assets/images/borde.png" alt="Logo">
     </div>
@@ -24,13 +23,12 @@
         <div class="profile--senting">
             <h3>Usuario</h3>
             <div>
-                <select (change)="perfil($event)" name="Perfil" id="">
-                <!-- <select [(ngModel)]="data" (ngModelChange)="dataChanged($event)" name="data"> -->
-                    <option [value]="food.viewValue" *ngFor="let food of perfiles" >{{food.value}}</option>
-                </select>
-                
-                
-            </div>
+                <select [(ngModel)]="valor">
+                        <option value=0>sesleccione...</option>
+                        <option [value]="perfil.viewValue" *ngFor="let perfil of perfiles">{{perfil.value}}</option>
+                    </select>
+                    <button (click)="perfil(valor)">click</button>
+                </div>
         </div>  
         
     </div>
@@ -69,3 +67,4 @@
 <router-outlet></router-outlet>
 
 
+    
