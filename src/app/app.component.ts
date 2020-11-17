@@ -10,14 +10,9 @@ import {FormControl} from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  disableSelect = new FormControl(false);
-  
-    caja:number;
   
   
-  
-
-
+  caja:number;
   public noticias: any[];
   
   
@@ -43,12 +38,8 @@ export class AppComponent implements OnInit {
   perfil(e)
   { 
     console.log(e)
-    // this.valor=e.target.value esta linea funciona 
-    // console.log(this.valor)
-    // if(this.valor==0)
     if(e=='1')
     {
-      // this._router.navigate(['/entidadpublica',e.target.value]) ;
       this._router.navigate(['/proveedor'])   
     }
     else if(e=='2'){

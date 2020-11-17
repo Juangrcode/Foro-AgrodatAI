@@ -16,7 +16,6 @@ const routes: Routes = [
     path: 'noticias/:title',
     component: NoticiaComponent
   },
-  // path: 'entidadpublica/:value', value es el nombre que viene en como parametro en app.component.ts
   {
     
     path: 'entidadpublica/:value',
