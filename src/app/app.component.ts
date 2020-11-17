@@ -13,8 +13,7 @@ export class AppComponent implements OnInit {
   disableSelect = new FormControl(false);
   
     caja:number;
-  // @Input('value') value='default'
-  // perfiles:string[]=['proveedor','entidadpublica','productor']; 
+  
   
   
 

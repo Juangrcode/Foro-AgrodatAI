@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +93,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -127,10 +129,6 @@
   },
   "defaultProject": "AgroDatAI",
   "cli": {
-<<<<<<< HEAD
     "analytics": "4b835dae-e52c-4c7e-8f78-b5f1d38df249"
-=======
-    "analytics": "0b7eba71-3b99-45a4-a9c2-8fd8d9ac1486"
->>>>>>> 4c271263f6dc12f6402e4ac3b223aedc538b6e93
   }
 }
