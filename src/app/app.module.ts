@@ -7,6 +7,7 @@ import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ProductorComponent } from './productor/productor.component';
     MaquetaComponent,
     NoticiaComponent,
     ProveedorComponent,
-    ProductorComponent
+    ProductorComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
