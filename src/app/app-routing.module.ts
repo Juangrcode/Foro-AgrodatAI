@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MaquetaComponent } from '../app/maqueta/maqueta.component';
-import { NoticiaComponent } from './noticia/noticia.component';//esta linea lo redirige a noticias
+import { NoticiaComponent } from './noticia/noticia.component'
 import { PerfilComponent } from './perfil/perfil.component'
 import { ProveedorComponent } from './proveedor/proveedor.component'
 import { ProductorComponent } from './productor/productor.component'
@@ -17,11 +17,12 @@ const routes: Routes = [
     component: NoticiaComponent
   },
   {
+    
     path: 'entidadpublica/:value',
     component: PerfilComponent
   },
   {
-    path: 'proveedor/:value',
+    path: 'proveedor',
     component: ProveedorComponent
   },
   {
