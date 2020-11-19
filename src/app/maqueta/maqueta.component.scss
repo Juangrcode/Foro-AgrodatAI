@@ -1,193 +1,193 @@
 :host {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  display: grid;
-  margin-left: 20px;
-  overflow-y: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    display: grid;
+    margin-left: 20px;
+    overflow-y: auto;
 }
 .bloque__noticias {
-  height: 480px;
-  display: grid;
-  grid-gap: 50px;
-  margin-right: 50px;
-  grid-template-columns: repeat(3, 1fr);
+    height: 480px;
+    display: grid;
+    grid-gap: 50px;
+    margin-right: 50px;
+    grid-template-columns: repeat(3, 1fr);
 }
 .noticia {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: justify;
-  border-bottom: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    border-bottom: 1px solid grey;
 }
 .noticia h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .noticia a {
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
 .noticia a:hover {
-  color: #009a74;
+    color: #009a74;
 }
 .noticia p {
-  font-size: 14px;
-  margin-top: 0px;
-  margin-bottom: 0px;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .noticia img {
-  width: 100%;
+    width: 100%;
 }
 h1 {
-  color: #007262;
+    color: #007262;
 }
 .noticia_Emergente {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 60%;
-  height: 62vh;
-  padding: 30px;
-  background-color: white;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 62vh;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .superior {
-  width: 90%;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-around;
+    width: 90%;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-around;
 }
 .superior button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 .centro {
-  width: 88%;
-  display: flex;
-  margin-bottom: 15px;
+    width: 88%;
+    display: flex;
+    margin-bottom: 15px;
 }
 .imagen {
-  width: 270px;
-  height: 220px;
-  margin-right: auto;
+    width: 270px;
+    height: 220px;
+    margin-right: auto;
 }
 .noticia_Emergente h2 {
-  margin-top: auto;
-  margin-bottom: 0px;
-  margin-left: 20px;
+    margin-top: auto;
+    margin-bottom: 0px;
+    margin-left: 20px;
 }
 .parrafo {
-  width: 90%;
-  padding-right: 5px;
-  font-size: 12px;
-  text-align: justify;
-  overflow-y: auto;
+    width: 90%;
+    padding-right: 5px;
+    font-size: 12px;
+    text-align: justify;
+    overflow-y: auto;
 }
 .source {
-  font-size: 12px;
-  text-align: left;
-  margin-left: auto;
+    font-size: 12px;
+    text-align: left;
+    margin-left: auto;
 }
 .sombra {
-  position: fixed;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 @media screen and (max-width: 650px) {
-  .bloque__noticias {
-      height: 480px;
-      display: grid;
-      grid-gap: 50px;
-      margin-right: 50px;
-      grid-template-columns: repeat(2, 1fr);
-  }
-  .noticia_Emergente {
-      top: 55%;
-      height: 70vh;
-      padding: 15px;
-  }
-  .centro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0px;
-  }
-  .imagen {
-      width: 70%;
-      height: 100px;
-      margin-right: auto;
-      margin-left: auto;
-      margin-bottom: 5px;
-  }
-  .noticia_Emergente h2 {
-      margin-left: auto;
-      font-size: 13px;
-      text-align: justify;
-  }
-  .parrafo {
-      width: 90%;
-      height: 50px;
-      overflow-y: auto;
-  }
-  .superior button img {
-      width: 20px;
-  }
-  .superior {
-      margin-bottom: 0px;
-  }
-  .sombra {
-      top: 0px;
-  }
+    .bloque__noticias {
+        height: 480px;
+        display: grid;
+        grid-gap: 50px;
+        margin-right: 50px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .noticia_Emergente {
+        top: 55%;
+        height: 70vh;
+        padding: 15px;
+    }
+    .centro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    .imagen {
+        width: 70%;
+        height: 100px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 5px;
+    }
+    .noticia_Emergente h2 {
+        margin-left: auto;
+        font-size: 13px;
+        text-align: justify;
+    }
+    .parrafo {
+        width: 90%;
+        height: 50px;
+        overflow-y: auto;
+    }
+    .superior button img {
+        width: 20px;
+    }
+    .superior {
+        margin-bottom: 0px;
+    }
+    .sombra {
+        top: 0px;
+    }
 }        
 @media screen and (max-width: 375px) {
-  .bloque__noticias {
-      height: 480px;
-      display: grid;
-      grid-gap: 50px;
-      margin-right: 50px;
-      grid-template-columns: 1fr;
-  }
-  .noticia_Emergente {
-      top: 50%;
-      height: 60vh;
-      padding: 15px;
-  }
-  .superior {
-      margin-bottom: 15px;
-  }
-  .imagen {
-      width: 100%;
-      height: 130px;
-      margin-right: auto;
-      margin-left: auto;
-  }
-  .noticia_Emergente h2 {
-      margin-top: 6px;
-      margin-left: auto;
-      font-size: 17px;
-      text-align: justify;
-  }
-  .centro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 0px;
-  }
-  .parrafo {
-      width: 90%;
-      height: 80px;
-      overflow-y: auto;
-  }
+    .bloque__noticias {
+        height: 480px;
+        display: grid;
+        grid-gap: 50px;
+        margin-right: 50px;
+        grid-template-columns: 1fr;
+    }
+    .noticia_Emergente {
+        top: 50%;
+        height: 60vh;
+        padding: 15px;
+    }
+    .superior {
+        margin-bottom: 15px;
+    }
+    .imagen {
+        width: 100%;
+        height: 130px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .noticia_Emergente h2 {
+        margin-top: 6px;
+        margin-left: auto;
+        font-size: 17px;
+        text-align: justify;
+    }
+    .centro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0px;
+    }
+    .parrafo {
+        width: 90%;
+        height: 80px;
+        overflow-y: auto;
+    }
 
 }

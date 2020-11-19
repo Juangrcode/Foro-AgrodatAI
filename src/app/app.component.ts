@@ -1,20 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from './services/noticias.service';
 import { Router, ActivatedRoute } from '@angular/router'
+import {FormControl} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // @Input('value') value='default'
-  // perfiles:string[]=['proveedor','entidadpublica','productor']; 
-  perfiles: any[] = [
-    {value: 'proveedor', viewValue:0},
-    {value: 'entidad publica', viewValue: 1},
-    {value: 'productor', viewValue: 2}
-  ];
+export class AppComponent implements OnInit {
+  
+  
+  caja:number;
   public noticias: any[];
   
   
@@ -27,23 +25,28 @@ export class AppComponent {
   scroll = false;
   img = '../assets/images/icons8-corneta-blanca-morada.png';
   i = 2;
-  valor;
+  valor:number;
+  perfiles:any[];
+  ngOnInit(){
+    this.perfiles = [
+      {value: 'proveedor', viewValue:1},
+      {value: 'entidad publica', viewValue:2},
+      {value: 'productor', viewValue:3}
+    ];
+    this.valor=0
+  }
   perfil(e)
   { 
-    
-    this.valor=e.target.value
-    console.log(this.valor)
-    if(this.valor==0)
+    console.log(e)
+    if(e=='1')
     {
-      this._router.navigate(['/entidadpublica',e.target.value]) ;
-      
+      this._router.navigate(['/proveedor'])   
     }
-    else if(this.valor==1){
-      this._router.navigate(['/proveedor',e.target.value])   
-      
+    else if(e=='2'){
+      this._router.navigate(['/entidadpublica',e]) ;  
     }
-    else if(this.valor==2){
-      this._router.navigate(['/productor',e.target.value])   
+    else if(e=='3'){
+      this._router.navigate(['/productor',e])   
       
     }
   
