@@ -1,20 +1,20 @@
 <h1>{{ title }}</h1>
 
-<section class="filter-card">
+<section class="bloque__noticias">
     
     <div *ngFor="let news of noticias" class="noticia">
         {{ news.date }} - {{ news.source }}
         <img [src]="news.img" alt="">
         <h3><a (click)="showPopup(news)">{{ news.title }}</a></h3>
         <p>{{ news.content | slice:0:125 }}</p>
-    </div>
+    </div>  
 
     <div *ngFor="let news of noticias" class="noticia">
         {{ news.date }} - {{ news.source }}
-        <img [src]="news.img" alt="">
+        <img [src]="news.img" alt="">   
         <h3><a (click)="showPopup(news)">{{ news.title }}</a></h3>
         <p>{{ news.content | slice:0:125}}</p>
-    </div>
+    </div>  
 
     <div *ngFor="let news of noticias" class="noticia">
         {{ news.date }} - {{ news.source }}
@@ -24,7 +24,7 @@
     </div> 
 </section>
 
-
+<div class="sombra" *ngIf="Popup != null"></div>
 
 <section class="noticia_Emergente" *ngIf="Popup != null">
     <div class="superior">
@@ -34,6 +34,3 @@
     <div class="centro"><img [src]="Popup.img" alt="" class="imagen"><h2>{{ Popup.title }}</h2></div>
     <p class="parrafo">{{Popup.content}}</p>
 </section>
-
-
-
