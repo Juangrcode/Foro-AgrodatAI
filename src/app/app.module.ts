@@ -2,20 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule}from '@angular/common/http'
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { InterestsComponent } from './components/interests/interests.component'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-
+import { InterestsComponent } from './components/interests/interests.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
     NoticiaComponent,
     ProveedorComponent,
     ProductorComponent,
-    InterestsComponent
+    InterestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +35,6 @@ import { MatSelectModule } from '@angular/material/select';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
