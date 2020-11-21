@@ -96,6 +96,8 @@ body {
   margin: auto;
   border-radius: 10px;
   border: 0;
+  display: inline-block;
+  
 }
 
 .interests__table--body {
@@ -110,6 +112,7 @@ body {
   padding: 0;
   text-align: center;
   border: 0;
+  // display: inline-block;
 }
 
 .interests__body--name p {
@@ -117,4 +120,8 @@ body {
 }
 .interests__body--name {
   border: 0;
+}
+
+.Principal_Intereses {
+  
 }
