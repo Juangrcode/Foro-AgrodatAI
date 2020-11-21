@@ -1,11 +1,12 @@
-<head
-<section class="perfil">
 
-</section>
 <section class="main">
     <input class="input" type="text" placeholder="Buscar intereses">
 </section>
 <section class="intereses">
+    <div >
+        <p *ngFor="let intere of intereses">{{intere}}</p>
+    </div>
+    
     <h3>Perfil: productor</h3>
     <table border="1">
         <thead>
@@ -19,22 +20,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let intere of intereses">
                 <td><input type="checkbox" id="check1"></td>
-                <td><p>Acuo cola</p></td>
+                <td><p >{{intere}}</p></td>
             </tr>
-            <tr>
-                <td><input type="checkbox" id="check1"></td>
-                <td><p>Bovino</p></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" id="check1"></td>
-                <td><p>Agrícola</p></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" id="check1"></td>
-                <td><p>Porcino</p></td>
-            </tr>
+            
         </tbody>
     </table>
 </section>  
