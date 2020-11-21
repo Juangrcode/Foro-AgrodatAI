@@ -1,0 +1,82 @@
+<div>
+  <div class="search">
+    <input type="text" class="search__input" placeholder="Buscar intereses" />
+  </div>
+
+  <!------------- Perfil----------->
+
+  <div class="perfil_completo">
+    <h3>Mi perfil</h3>
+    <div class="photo_perfil">
+      <img src="../../../assets/images/profile-nav.png" alt="perfil" />
+    </div>
+    <div class="conjunto">
+      <button class="boton1">Mis datos</button>
+      <button class="boton2">Cambio de contraseña</button>
+    </div>
+    <h6 class="rotulo">Nombres:</h6>
+    <input class="name" type="text" />
+    <h6 class="rotulo">Apellidos:</h6>
+    <input class="name" type="text" />
+    <h6 class="rotulo">Correo electronico:</h6>
+    <input class="name" type="email" />
+    <h6 class="rotulo">Numero de telefono movil:</h6>
+    <input class="name" type="text" />
+  </div>
+
+  <!-- -------------------Mis Intereses----------- -->
+  <div class="interests">
+    <table border="1" class="interests__table">
+      <thead class="interests__table--head">
+        <tr>
+          <h2 class="title">Intereses</h2>
+        </tr>
+      </thead>
+      <tbody class="interests__table--body">
+        <tr class="interests__body--container">
+          <td class="interests__body--checkbox">
+            <input type="checkbox" id="check1" />
+          </td>
+          <td class="interests__body--name"><p>Nombre</p></td>
+        </tr>
+        <!-- <tr
+          class="interests__body--container"
+          *ngFor="let interest of interestsService.interests"
+        >
+          <td class="interests__body--checkbox">
+            <input type="checkbox" id="check1" (click)="seePost()" />
+          </td>
+          <td class="interests__body--name">
+            <p>{{ interest.name }}</p>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- -------------------Intereses----------- -->
+
+  <div class="interests">
+    <table border="1" class="interests__table">
+      <thead class="interests__table--head">
+        <tr>
+          <h2 class="title">Mis Intereses</h2>
+        </tr>
+      </thead>
+      <tbody class="interests__table--body">
+        <tr class="interests__body--container">
+          <td class="interests__body--checkbox">
+            <input type="checkbox" id="check1" />
+          </td>
+          <td class="interests__body--name"><p>Nombreeeeeeeeeee</p></td>
+        </tr>
+        <tr class="interests__body--container">
+          <td class="interests__body--checkbox">
+            <input type="checkbox" name="completed" id="check1" />
+          </td>
+          <td class="interests__body--name"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
