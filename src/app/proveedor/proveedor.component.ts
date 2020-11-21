@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router'
   styleUrls: ['./proveedor.component.scss']
 })
 export class ProveedorComponent implements OnInit {
-  
+  imageSrc = '../iconos/eliminar.png'  
   temaInteres:Array<any>=[
     {id:0,tipo:false,nombre:'uno'},
     {id:1,tipo:false,nombre:'dos'},
@@ -22,9 +22,6 @@ export class ProveedorComponent implements OnInit {
     {id:8,tipo:false,nombre:'nueve'},
     {id:9,tipo:false,nombre:'ochenta'},
     {id:8,tipo:false,nombre:'unoche'},
-    {id:10,tipo:false,nombre:'ochenta uno'},
-
-
   ]
   
   @ViewChild('busca') busca;
@@ -36,6 +33,8 @@ export class ProveedorComponent implements OnInit {
   found:any
   constructor(
     private ruta:ActivatedRoute
+    
+
     
     ) { 
     this.ruta.params.subscribe(params=>{

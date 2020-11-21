@@ -10,3 +10,4 @@ export class InteresesComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 }
+ 

@@ -1,77 +1,84 @@
-<h1>Perfil: proveedor</h1>
-<input   name="filterPost" type="search" class="search" [(ngModel)]="filterPost">
-
-<table >
-    <thead>
-        <tr>
-            <th>
-                action
-            </th>
-            <th>
-                nombre
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <tr *ngFor="let tema of temaInteres | filter:filterPost " >
-            
-            <td>
-                <input  #numero type="checkbox" [checked]="tema.tipo" (click)="seleccion(tema.nombre,tema.id)"> 
-            </td>
-            <td>
-                {{tema.nombre}}
-            </td>
-        
-        </tr>
-        
-    </tbody>
-</table>
-
-
-
-<table *ngIf="mostrar" border="border" >
-    <thead>
-        <tr>
-            <td>action</td>
-            <td>nombre</td>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
-            <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> 
-            <td>
-                <input type="checkbox" checked />
-            </td>
-            <td>
-                {{frutas.tema}}
-            </td>
-            <td>
-                <img (click)="eliminar(frutas.tema,i)" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
-            </td>   
-            
-
-        </tr>
-
-    </tbody>
-
-
-
-
-
-<div>
-    <div>
-        bloque uno
+<div class="contenedor-padre">
+    <div class="perfil_completo">
+        <h2>Mi perfil</h2>
+        <div class="photo_perfil">
+            <img src="assets/iconos/avatar.png" alt="perfil" alt="" width="49" height="35"/>
+        </div>
+        <div class="conjunto">
+            <button class="boton1">Mis datos</button>
+            <button class="boton2">Cambio de contraseña</button>
+        </div>
+        <label>Nombres:</label>
+        <input disabled class="name" type="text" value="Maye" />
+        <label>Apellidos:</label>
+        <input disabled class="name" type="text" value="Prieto" />
+        <label>Correo electronico:</label>
+        <input disabled class="name" type="email" value="maye@nose.com"/>
+        <label>Numero de telefono movil:</label>
+        <input disabled class="name" type="text" value="numero privado" />
     </div>
-    
-    <div>
-        bloque dos 
+
+
+    <div class="perfil">
+
+        <h1>Perfil: proveedor</h1>
+        <input   name="filterPost" type="search" class="search" [(ngModel)]="filterPost">
+
+        <table >
+            <thead>
+                <tr>
+                    <th>
+                        action
+                    </th>
+                    <th>
+                        nombre
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let tema of temaInteres | filter:filterPost " >
+                    
+                    <td>
+                        <input  #numero type="checkbox" [checked]="tema.tipo" (click)="seleccion(tema.nombre,tema.id)"> 
+                    </td>
+                    <td>
+                        {{tema.nombre}}
+                    </td>
+                
+                </tr>
+                
+            </tbody>
+        </table>
+
+
+
+        <table *ngIf="mostrar" border="border" >
+            <thead>
+                <tr>
+                    <td>action</td>
+                    <td>nombre</td>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
+                    <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> 
+                    <td>
+                        <input type="checkbox" checked disabled />
+                    </td>
+                    <td>
+                        {{frutas.tema}}
+                    </td>
+                    <td>
+                        <img (click)="eliminar(frutas.tema,i)" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
+                    </td>   
+                    
+
+                </tr>
+
+            </tbody>
+
+
+        </table>
     </div>
 </div>
-
-
-
-
-
-
-</table>

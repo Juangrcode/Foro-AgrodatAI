@@ -1,8 +1,19 @@
 :host {
-  height: 100vh;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
   display: grid;
-  grid-template: 10% 1fr / auto 1fr auto;
+  margin-left: 20px;
+  overflow-y: auto;
 }
+.sombra {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 .header {
   grid-column-start: 1;
   grid-column-end: 4;
@@ -14,7 +25,7 @@
   background-color: white;
   border-top: 1.5px solid grey;
   border-bottom: 1.5px solid grey;
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 10px black; 
 }
 .header__logo img {
   margin-left: 40px;

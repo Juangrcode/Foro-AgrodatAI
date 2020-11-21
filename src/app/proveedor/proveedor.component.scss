@@ -1,10 +1,13 @@
 :host {
     grid-column-start: 2;
-    grid-column-end: 3;
+    grid-column-end: 4;
     grid-row-start: 2;
     display: grid;
     margin-left: 20px;
     overflow-y: auto;
+}
+*{
+    background-color: #fffafb;
 }
 
 .sombra {
@@ -25,3 +28,149 @@ table{
     width: 580px;
     border-radius: 10px;
 }   
+
+
+// interses
+
+.perfil_completo {
+    border-radius: 20px;
+    box-shadow: 5px 6px 3px 3px #ccc;
+
+    width: 70%;
+    height: 70%;
+    padding: 40px 20px;
+    padding-left: 5px;
+    margin-left: 5px;
+    margin-bottom: 100px;
+    margin-right: 5px;
+    h2 {
+      color: rgb(79, 49, 112);
+
+    }
+  }
+  .photo_perfil {
+    
+    display: block;
+    margin:0 auto;  
+    margin-bottom: 10px;
+    margin-top: 30px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .conjunto {
+    display: flex;
+    }
+    .boton1 {
+      margin-top: 20px;
+      margin-left: 5px;
+      margin-right: 7px;
+      padding: 5px;
+      background-color: transparent;
+      border: none;
+    }
+    .boton2 {
+      margin-top: 20px;
+      margin-left: 7px;
+      margin-right: 7px;
+      padding: 5px;
+      background-color: transparent;
+      border: none;
+    }
+  
+  label{
+      width: 100%;
+      display: block;
+      margin-top: 15px;
+  }
+  .name {
+    border-radius: 10px;
+    height: 30px;
+    width: 85%;
+    border-top: 0px ;  
+    border-left: 0;
+    box-shadow: 5px 3px gray;
+  }
+  
+  .search {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .interests__table--head {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .title {
+    color: blueviolet;
+  }
+  
+  .interests {
+    border: 2px solid black;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 15px;
+  }
+  
+  .interests__table {
+    width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    border: 0;
+    display: inline-block;
+    
+  }
+  
+  .interests__table--body {
+  }
+  .interests__body--container {
+    height: 30px;
+    border: 2px solid black;
+  }
+  
+  .interests__body--checkbox {
+    width: 6%;
+    padding: 0;
+    text-align: center;
+    border: 0;   
+  }
+  
+  .interests__body--name p {
+    margin: 0 2px;
+  }
+  .interests__body--name {
+    border: 0;
+  }
+  
+  .contenedor-padre {
+    width: 100%;
+    display: inline-flex;
+  }
+  .contenedor-padre .perfil{
+      width: 100%;
+      margin-left: 15px;
+  }
+  @media only screen and (max-width: 680px) {
+    .contenedor-padre{
+        display: block;
+    }  
+    .perfil_completo{
+        width: 100%; 
+        padding : 0px;
+        margin: 0px;
+        box-shadow: none;
+    }  
+    .contenedor-padre .perfil{
+        margin-left: 0px;
+    }
+    .photo_perfil{
+        display: block;
+        margin:0 auto;
+    }
+  }
