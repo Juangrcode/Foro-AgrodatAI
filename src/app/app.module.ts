@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {HttpClientModule}from '@angular/common/http'
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,11 +10,11 @@ import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { InterestsComponent } from './components/interests/interests.component'
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MatSelectModule } from '@angular/material/select';
     MaquetaComponent,
     NoticiaComponent,
     ProveedorComponent,
-    ProductorComponent
+    ProductorComponent,
+    InterestsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

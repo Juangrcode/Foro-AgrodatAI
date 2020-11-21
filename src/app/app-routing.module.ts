@@ -30,7 +30,7 @@ const routes: Routes = [
     component: ProductorComponent,
   },
   {
-    path: 'intereses',
+    path: 'interests',
     component: InterestsComponent,
   },
   {
