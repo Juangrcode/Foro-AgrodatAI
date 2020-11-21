@@ -11,76 +11,32 @@ import {ActivatedRoute} from '@angular/router'
 export class ProveedorComponent implements OnInit {
   
   temaInteres:Array<any>=[
-    {tipo:false,nombre:'uno'},
-    {tipo:false,nombre:'dos'},
-    {tipo:false,nombre:'tres'},
-    {tipo:false,nombre:'cuatro'},
-    {tipo:false,nombre:'cinco'},
-    {tipo:false,nombre:'seis'},
-    {tipo:false,nombre:'siete'},
-    {tipo:false,nombre:'ocho'},
-    {tipo:false,nombre:'nueve'},
-    {tipo:false,nombre:'diez'},
-    {tipo:false,nombre:'once'},
-    {tipo:false,nombre:'cator'},
-    {tipo:false,nombre:'uno'},
-    {tipo:false,nombre:'dos'},
-    {tipo:false,nombre:'tres'},
-    {tipo:false,nombre:'cuatro'},
-    {tipo:false,nombre:'cinco'},
-    {tipo:false,nombre:'seis'},
-    {tipo:false,nombre:'siete'},
-    {tipo:false,nombre:'ocho'},
-    {tipo:false,nombre:'nueve'},
-    {tipo:false,nombre:'diez'},
-    {tipo:false,nombre:'once'},
-    {tipo:false,nombre:'cator'},
-    {tipo:false,nombre:'uno'},
-    {tipo:false,nombre:'dos'},
-    {tipo:false,nombre:'tres'},
-    {tipo:false,nombre:'cuatro'},
-    {tipo:false,nombre:'cinco'},
-    {tipo:false,nombre:'seis'},
-    {tipo:false,nombre:'siete'},
-    {tipo:false,nombre:'ocho'},
-    {tipo:false,nombre:'nueve'},
-    {tipo:false,nombre:'diez'},
-    {tipo:false,nombre:'once'},
-    {tipo:false,nombre:'cator'},
-    {tipo:false,nombre:'uno'},
-    {tipo:false,nombre:'dos'},
-    {tipo:false,nombre:'tres'},
-    {tipo:false,nombre:'cuatro'},
-    {tipo:false,nombre:'cinco'},
-    {tipo:false,nombre:'seis'},
-    {tipo:false,nombre:'siete'},
-    {tipo:false,nombre:'ocho'},
-    {tipo:false,nombre:'nueve'},
-    {tipo:false,nombre:'diez'},
-    {tipo:false,nombre:'once'},
-    {tipo:false,nombre:'cator'},
-    {tipo:false,nombre:'uno'},
-    {tipo:false,nombre:'dos'},
-    {tipo:false,nombre:'tres'},
-    {tipo:false,nombre:'cuatro'},
-    {tipo:false,nombre:'cinco'},
-    {tipo:false,nombre:'seis'},
-    {tipo:false,nombre:'siete'},
-    {tipo:false,nombre:'ocho'},
-    {tipo:false,nombre:'nueve'},
-    {tipo:false,nombre:'diez'},
-    {tipo:false,nombre:'once'},
-    {tipo:false,nombre:'cator'},
+    {id:0,tipo:false,nombre:'uno'},
+    {id:1,tipo:false,nombre:'dos'},
+    {id:2,tipo:false,nombre:'tres'},
+    {id:3,tipo:false,nombre:'cuatro'},
+    {id:4,tipo:false,nombre:'cinco'},
+    {id:5,tipo:false,nombre:'seis'},
+    {id:6,tipo:false,nombre:'siete'},
+    {id:7,tipo:false,nombre:'ocho'},
+    {id:8,tipo:false,nombre:'nueve'},
+    {id:9,tipo:false,nombre:'ochenta'},
+    {id:8,tipo:false,nombre:'unoche'},
+    {id:10,tipo:false,nombre:'ochenta uno'},
+
 
   ]
   
-  @ViewChild('numero') p1;
+  @ViewChild('busca') busca;
+  filterPost:string=""
+  search:string
   checkind:boolean
   frutas_seleccionadas:any[]=[]
   mostrar:boolean=false
   found:any
   constructor(
     private ruta:ActivatedRoute
+    
     ) { 
     this.ruta.params.subscribe(params=>{
           
@@ -115,6 +71,7 @@ export class ProveedorComponent implements OnInit {
      } 
   }
   seleccion(tema, numero){
+    
     this.mostrar=true
     let valor=this.busqueda(tema, numero)
     if(valor===true)
@@ -132,7 +89,5 @@ export class ProveedorComponent implements OnInit {
       this.mostrar=false
     }
   }
-  buscador(){
-    console.log("hola")
-  }
+  
 }

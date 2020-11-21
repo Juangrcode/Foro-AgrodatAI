@@ -1,5 +1,5 @@
 <h1>Perfil: proveedor</h1>
-<input  type="search" class="search">
+<input   name="filterPost" type="search" class="search" [(ngModel)]="filterPost">
 
 <table >
     <thead>
@@ -14,13 +14,13 @@
     </thead>
     <tbody>
         
-        <tr *ngFor="let tema of temaInteres;index as i" >
+        <tr *ngFor="let tema of temaInteres | filter:filterPost " >
             
             <td>
-                <input  #numero  type="checkbox" [checked]="tema.tipo" (click)="seleccion(tema.nombre,i)"> 
+                <input  #numero type="checkbox" [checked]="tema.tipo" (click)="seleccion(tema.nombre,tema.id)"> 
             </td>
             <td>
-                {{tema.nombre}}{{i}}
+                {{tema.nombre}}
             </td>
         
         </tr>
@@ -38,7 +38,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let frutas of frutas_seleccionadas;index as i">
+        <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
+            <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> 
             <td>
                 <input type="checkbox" checked />
             </td>
@@ -51,5 +52,26 @@
             
 
         </tr>
+
     </tbody>
+
+
+
+
+
+<div>
+    <div>
+        bloque uno
+    </div>
+    
+    <div>
+        bloque dos 
+    </div>
+</div>
+
+
+
+
+
+
 </table>
