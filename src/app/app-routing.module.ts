@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { InterestsComponent } from './components/interests/interests.component';
 import { PostsComponent } from './components/posts/posts.component';
@@ -30,7 +29,7 @@ const routes: Routes = [
     component: ProductorComponent,
   },
   {
-    path: 'interests',
+    path: 'intereses',
     component: InterestsComponent,
   },
   {
