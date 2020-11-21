@@ -6,12 +6,12 @@ import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { LoaderComponent } from './loader/loader.component';
+import { InterestsComponent } from './components/interests/interests.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { LoaderComponent } from './loader/loader.component';
     NoticiaComponent,
     ProveedorComponent,
     ProductorComponent,
-    LoaderComponent
+    InterestsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +32,6 @@ import { LoaderComponent } from './loader/loader.component';
     MatSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

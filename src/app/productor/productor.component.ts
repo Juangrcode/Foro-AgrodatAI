@@ -7,6 +7,7 @@ import {ActivatedRoute} from '@angular/router'
   styleUrls: ['./productor.component.scss']
 })
 export class ProductorComponent implements OnInit {
+  intereses:String[]=["platano","manas","uvas","banano","lechuga"]
   url:String
   constructor(
     private ruta:ActivatedRoute

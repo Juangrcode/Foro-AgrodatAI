@@ -1,70 +1,119 @@
 
 <div class="header">
-    <div class="header__logo">
-        <img src="../assets/images/borde.png" alt="Logo">
+  <div class="header__logo">
+    <img src="../assets/images/borde.png" alt="Logo" />
+  </div>
+  <div class="header__profile">
+    <button type="button" class="Boton--noticias" (click)="bannerShow()">
+      <img id="boton--img" [src]="img" alt="Noticias" />
+    </button>
+    <button type="button" (click)="notification()">
+      <img src="../assets/images/icons8-despertador-24.png" alt="Campana" />
+    </button>
+    <p>Usuario</p>
+    <div class="profile--icon">
+      <img src="../assets/images/profile-header.png" alt="" />
     </div>
-    <div class="header__profile">
-        <button type="button" class="Boton--noticias" (click)="bannerShow()"> 
-            <img id="boton--img" [src]="img" alt="Noticias">
-        </button>
-        <button type="button" (click)="notification()">
-            <img src="../assets/images/icons8-despertador-24.png" alt="Campana">
-        </button>
-        <p>Usuario</p>
-        <div class="profile--icon">
-            <img src="../assets/images/profile-header.png" alt="">
-        </div>
-    </div>
+  </div>
 </div>
 <nav class="menu">
-    <div class="menu__profile">
-        <div class="profile">
-            <img src="../assets/images/profile-nav.png" alt="">
-        </div>
-        <div class="profile--senting">
-            <h3>Usuario</h3>
-            <div>
-                <select [(ngModel)]="valor">
-                        <option value=0>sesleccione...</option>
-                        <option [value]="perfil.viewValue" *ngFor="let perfil of perfiles">{{perfil.value}}</option>
-                    </select>
-                    <button (click)="perfil(valor)">click</button>
-                </div>
-        </div>  
-        
+  <div class="menu__profile">
+    <div class="profile">
+      <img src="../assets/images/profile-nav.png" alt="" />
     </div>
-
-    <ul>
-        <li><img src="../assets/images/AgrodatIconos-01.svg" alt=""><p class="Keys-word">Tableros</p></li>
-        <li><img src="../assets/images/AgrodatIconos-02.svg" alt=""><p class="Keys-word">Mejor Opción Venta</p></li>
-        <li><img src="../assets/images/AgrodatIconos-03.svg" alt=""><p class="Keys-word">Producción</p></li>
-        <li><img src="../assets/images/AgrodatIconos-04.svg" alt=""><p class="Keys-word">Clima</p></li>
-        <li><img src="../assets/images/AgrodatIconos-05.svg" alt=""><p class="Keys-word">Mapas</p></li>
-        <li><img src="../assets/images/AgrodatIconos-06.svg" alt=""><p class="Keys-word">Suelos</p></li>
-        <li><img src="../assets/images/AgrodatIconos-07.svg" alt=""><p class="Keys-word">Mercado</p></li>
-        <li><img src="../assets/images/AgrodatIconos-08.svg" alt=""><p class="Keys-word">Financiero</p></li>
-        <li><img src="../assets/images/AgrodatIconos-09.svg" alt=""><p class="Keys-word">Sanitario</p></li>
-        <li><img src="../assets/images/AgrodatIconos-10.svg" alt=""><p class="Keys-word">Alertas</p></li>
-        <li><img src="../assets/images/AgrodatIconos-11.svg" alt=""><p class="Keys-word">Comparar</p></li>
-        <li><img src="../assets/images/icons8-corneta-blanca.png" alt=""><a routerLink="/noticias"  class="Keys-word">Noticias</a></li>
-    </ul>
+    <div class="profile--senting">
+      <h3>Usuario</h3>
+      <div>
+        <select [(ngModel)]="valor">
+          <option value="0">sesleccione...</option>
+          <option [value]="perfil.viewValue" *ngFor="let perfil of perfiles">
+            {{ perfil.value }}
+          </option>
+        </select>
+        <button (click)="perfil(valor)">click</button>
+      </div>
+    </div>
+  </div>
+  <ul>
+    <li>
+      <img src="../assets/images/AgrodatIconos-01.svg" alt="" />
+      <p class="Keys-word">Tableros</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-02.svg" alt="" />
+      <p class="Keys-word">Mejor Opción Venta</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-03.svg" alt="" />
+      <p class="Keys-word">Producción</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-04.svg" alt="" />
+      <p class="Keys-word">Clima</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-05.svg" alt="" />
+      <p class="Keys-word">Mapas</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-06.svg" alt="" />
+      <p class="Keys-word">Suelos</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-07.svg" alt="" />
+      <p class="Keys-word">Mercado</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-08.svg" alt="" />
+      <p class="Keys-word">Financiero</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-09.svg" alt="" />
+      <p class="Keys-word">Sanitario</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-10.svg" alt="" />
+      <p class="Keys-word">Alertas</p>
+    </li>
+    <li>
+      <img src="../assets/images/AgrodatIconos-11.svg" alt="" />
+      <p class="Keys-word">Comparar</p>
+    </li>
+    <li>
+      <img src="../assets/images/icons8-corneta-blanca.png" alt="" /><a
+        routerLink="/noticias"
+        class="Keys-word"
+        >Noticias</a
+      >
+    </li>
+    <li>
+      <a routerLink="/intereses" class="Keys-word">Intereses</a>
+    </li>
+  </ul>
 </nav>
 
-<section *ngIf="banner !=false" class="Banner__noticias">
-    <div class="Superior"> 
-        <h2>Noticias</h2>
-        
-        <button type="button" (click)="exit()"><img src="../../assets/images/x.png" alt=""></button>
+<section *ngIf="banner != false" class="Banner__noticias">
+  <div class="Superior">
+    <h2>Noticias</h2>
+
+    <button type="button" (click)="exit()">
+      <img src="../../assets/images/x.png" alt="" />
+    </button>
+  </div>
+  <div class="contenedor__noticias" [ngClass]="{ active: scroll != false }">
+    <div *ngFor="let news of noticias" class="noticia">
+      <p>{{ news.date }} - {{ news.source }}</p>
+      <h5>
+        <a [routerLink]="['/noticias', news.title]"> {{ news.title }}</a>
+      </h5>
+      <p>{{ news.content | slice: 0:125 }}</p>
     </div>
-    <div class="contenedor__noticias" [ngClass]="{'active':scroll != false}">
-        <div *ngFor="let news of noticias" class="noticia">
-            <p>{{ news.date }} - {{ news.source }}</p>
-            <h5><a [routerLink]="['/noticias', news.title]"> {{ news.title }}</a></h5>
-            <p>{{ news.content | slice:0:125}}</p>
-        </div>
-    </div>
-    <button type="button" (click)="scrollShow()"><p>Más noticias</p></button>
+  </div>
+  <button type="button" (click)="scrollShow()"><p>Más noticias</p></button>
 </section>
 
 <router-outlet></router-outlet>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 796e738cc5d45e272c8ffb7efc5c62e4ce10d832

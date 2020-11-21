@@ -1,9 +1,11 @@
 <h1>Perfil: proveedor</h1>
-<table border="1">
+<input  type="search" class="search">
+
+<table >
     <thead>
         <tr>
             <th>
-
+                action
             </th>
             <th>
                 nombre
@@ -11,21 +13,43 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><input type="checkbox" id="check1"></td>
-            <td><p>Acuocola</p></td>
+        
+        <tr *ngFor="let tema of temaInteres;index as i" >
+            
+            <td>
+                <input  #numero  type="checkbox" [checked]="tema.tipo" (click)="seleccion(tema.nombre,i)"> 
+            </td>
+            <td>
+                {{tema.nombre}}{{i}}
+            </td>
+        
         </tr>
+        
+    </tbody>
+</table>
+
+
+
+<table *ngIf="mostrar" border="border" >
+    <thead>
         <tr>
-            <td><input type="checkbox" id="check1"></td>
-            <td><p>Bovino</p></td>
+            <td>action</td>
+            <td>nombre</td>
         </tr>
-        <tr>
-            <td><input type="checkbox" id="check1"></td>
-            <td><p>Agrícola</p></td>
-        </tr>
-        <tr>
-            <td><input type="checkbox" id="check1"></td>
-            <td><p>Porcino</p></td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let frutas of frutas_seleccionadas;index as i">
+            <td>
+                <input type="checkbox" checked />
+            </td>
+            <td>
+                {{frutas.tema}}
+            </td>
+            <td>
+                <img (click)="eliminar(frutas.tema,i)" src="https://img.icons8.com/ios/50/000000/trash--v1.png"/>
+            </td>   
+            
+
         </tr>
     </tbody>
 </table>
