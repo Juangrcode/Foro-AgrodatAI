@@ -4,6 +4,7 @@ import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { ProductorComponent } from './productor/productor.component';
+import { ProveedorComponent } from './proveedor/proveedor.component';
 import { InterestsComponent } from './components/interests/interests.component';
 import { PostsComponent } from './components/posts/posts.component';
 

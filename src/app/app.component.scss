@@ -1,7 +1,7 @@
 :host {
   height: 100vh;
   display: grid;
-  grid-template: 10% 1fr / auto 0fr 1fr;
+  grid-template: 10% 1fr / auto 1fr auto;
 }
 .header {
   grid-column-start: 1;
