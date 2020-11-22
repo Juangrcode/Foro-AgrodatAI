@@ -25,58 +25,82 @@
   </div>
 
   <!-- -------------------Mis Intereses----------- -->
-  <div class="interests">
-    <table border="1" class="interests__table">
-      <thead class="interests__table--head">
-        <tr>
-          <h2 class="title">Intereses</h2>
-        </tr>
-      </thead>
-      <tbody class="interests__table--body">
-        <tr class="interests__body--container">
-          <td class="interests__body--checkbox">
-            <input type="checkbox" id="check1" />
-          </td>
-          <td class="interests__body--name"><p>Nombre</p></td>
-        </tr>
-        <!-- <tr
-          class="interests__body--container"
-          *ngFor="let interest of interestsService.interests"
-        >
-          <td class="interests__body--checkbox">
-            <input type="checkbox" id="check1" (click)="seePost()" />
-          </td>
-          <td class="interests__body--name">
-            <p>{{ interest.name }}</p>
-          </td>
-        </tr> -->
-      </tbody>
-    </table>
-  </div>
+  <div class="Principal_Intereses">
 
-  <!-- -------------------Intereses----------- -->
+    <div class="interests">
+      <table border="1" class="interests__table">
+        <thead class="interests__table--head">
+          <tr>
+            <h2 class="title">Intereses</h2>
+          </tr>
+        </thead>
+        <tbody class="interests__table--body">
+          <tr class="interests__body--container">
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>Agricola</p>
+            </td>
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>Ganadero</p>
+            </td>
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>Porcino</p>
+            </td>
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>Avicola</p>
+            </td>
+            <td class="interests__body--checkbox">
+            </td>
+          </tr>
 
-  <div class="interests">
-    <table border="1" class="interests__table">
-      <thead class="interests__table--head">
-        <tr>
-          <h2 class="title">Mis Intereses</h2>
-        </tr>
-      </thead>
-      <tbody class="interests__table--body">
-        <tr class="interests__body--container">
-          <td class="interests__body--checkbox">
-            <input type="checkbox" id="check1" />
-          </td>
-          <td class="interests__body--name"><p>Nombreeeeeeeeeee</p></td>
-        </tr>
-        <tr class="interests__body--container">
-          <td class="interests__body--checkbox">
-            <input type="checkbox" name="completed" id="check1" />
-          </td>
-          <td class="interests__body--name"></td>
-        </tr>
-      </tbody>
-    </table>
+          <tr class="interests__body--container" *ngFor="let interest of interestsService.interests">
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>{{ interest.name }}</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- -------------------Intereses----------- -->
+
+    <div class="interests">
+      <table border="1" class="interests__table">
+        <thead class="interests__table--head">
+          <tr>
+            <h2 class="title">Mis Intereses</h2>
+          </tr>
+        </thead>
+        <tbody class="interests__table--body">
+          <tr class="interests__body--container">
+            <td class="interests__body--checkbox">
+              <input type="checkbox" id="check1" />
+            </td>
+            <td class="interests__body--name">
+              <p>Nombreeeeeeeeeee</p>
+            </td>
+          </tr>
+          <tr class="interests__body--container">
+            <td class="interests__body--checkbox">
+              <input type="checkbox" name="completed" id="check1" />
+            </td>
+            <td class="interests__body--name"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>

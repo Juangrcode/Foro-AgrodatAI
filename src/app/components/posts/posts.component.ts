@@ -11,14 +11,14 @@ export class PostsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private interestsService: InterestsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
-      const interests = this.interestsService.getInterest(id);
+      // const interests = this.interestsService.getInterest(id);
       console.log(id);
-      console.log(interests);
+      // console.log(interests);
     });
   }
 }

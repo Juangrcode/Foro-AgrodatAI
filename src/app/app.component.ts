@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     this.valor = 0;
   }
   perfil(e) {
-    console.log(e);
+    console.log(e); 
     if (e == '1') {
       this._router.navigate(['/proveedor']);
     } else if (e == '2') {

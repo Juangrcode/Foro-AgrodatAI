@@ -5,7 +5,41 @@
   display: grid;
   margin-left: 20px;
   overflow-y: auto;
-} 
+}
+.sombra {
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-top: 1.5px solid grey;
+  border-bottom: 1.5px solid grey;
+  box-shadow: 0px 0px 10px black; 
+}
+.header__logo img {
+  margin-left: 40px;
+  width: 30%;
+}
+.header__profile {
+  width: 25%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .card-interest {
   border-radius: 2px;
 }
