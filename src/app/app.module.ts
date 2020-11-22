@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { InterestsComponent } from './components/interests/interests.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
