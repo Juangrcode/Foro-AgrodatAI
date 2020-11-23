@@ -7,7 +7,7 @@
     overflow-y: auto;
 }
 * {
-    background-color: #fffafb;
+    background-color: #ffffff;
 }
 
 .sombra {
@@ -27,22 +27,32 @@ table {
     width: 580px;
     border-radius: 10px;
 }
+.perfil_completo input {
+    background-color: #e9ecef;
+    border: solid 1px;
+    border-color: #502975;
+    color: #212122;
+    border-radius: 15px;
+    box-shadow: 3px 3px grey;
+    padding: 5px 12px;
+}
 
-// interses
+// Perfil
 
 .perfil_completo {
     border-radius: 20px;
     box-shadow: 5px 6px 3px 3px #ccc;
-
     width: 70%;
     height: 70%;
     padding: 40px 20px;
     padding-left: 5px;
-    margin-left: 5px;
-    margin-bottom: 100px;
-    margin-right: 5px;
+    margin: 10px 20px 10px 10px;
+
     h2 {
         color: rgb(79, 49, 112);
+    }
+    p {
+        color: #502975;
     }
 }
 .photo_perfil {
@@ -84,6 +94,30 @@ label {
     display: block;
     margin-top: 15px;
 }
+
+.boton1 {
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 7px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+}
+.boton2 {
+    margin-top: 20px;
+    margin-left: 7px;
+    margin-right: 7px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+}
+
+label {
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+}
+
 .name {
     border-radius: 10px;
     height: 30px;
@@ -93,18 +127,40 @@ label {
     box-shadow: 5px 3px gray;
 }
 
+//intereses
+
 .search {
     width: 80%;
     margin: auto;
+    background-color: #e9ecef;
+    border: solid 1px;
+    border-color: #502975;
+    color: #212122;
+    border-radius: 15px;
+    box-shadow: 3px 3px grey;
+    padding: 5px 12px;
+    outline: none;
+}
+.checksyle input {
+    border: 2px solid #502975;
 }
 
 .interests__table--head {
     width: 80%;
     margin: auto;
 }
+table {
+    width: 100%;
+}
+td {
+    color: #502975;
+}
 
-.title {
-    color: blueviolet;
+th,
+td {
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+    padding: 6px;
 }
 
 .interests {
@@ -122,8 +178,6 @@ label {
     display: inline-block;
 }
 
-.interests__table--body {
-}
 .interests__body--container {
     height: 30px;
     border: 2px solid black;
@@ -132,6 +186,7 @@ label {
 .interests__body--checkbox {
     width: 6%;
     padding: 0;
+    color: #502975;
     text-align: center;
     border: 0;
 }
@@ -151,6 +206,21 @@ label {
     width: 100%;
     margin-left: 15px;
 }
+
+.container_interest {
+    border-radius: 20px;
+    box-shadow: 5px 6px 3px 3px #ccc;
+    width: 100%;
+    height: 70%;
+    padding: 40px 20px;
+    padding-left: 5px;
+    margin: 10px 5px 100px 5px;
+
+    h2 {
+        color: rgb(79, 49, 112);
+    }
+}
+
 @media only screen and (max-width: 680px) {
     .contenedor-padre {
         display: block;

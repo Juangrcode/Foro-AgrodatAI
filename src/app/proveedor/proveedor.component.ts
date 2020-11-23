@@ -12,17 +12,17 @@ import { InterestsService } from '../services/interests.service'
 export class ProveedorComponent implements OnInit {
   imageSrc = '../iconos/eliminar.png'
   temaInteres: Array<any> = [
-    { id: 0, tipo: false, nombre: 'uno' },
-    { id: 1, tipo: false, nombre: 'dos' },
-    { id: 2, tipo: false, nombre: 'tres' },
-    { id: 3, tipo: false, nombre: 'cuatro' },
-    { id: 4, tipo: false, nombre: 'cinco' },
-    { id: 5, tipo: false, nombre: 'seis' },
-    { id: 6, tipo: false, nombre: 'siete' },
-    { id: 7, tipo: false, nombre: 'ocho' },
-    { id: 8, tipo: false, nombre: 'nueve' },
-    { id: 9, tipo: false, nombre: 'ochenta' },
-    { id: 8, tipo: false, nombre: 'unoche' },
+    { id: 0, tipo: false, nombre: 'Agrícola' },
+    { id: 1, tipo: false, nombre: 'Pecuario' },
+    { id: 2, tipo: false, nombre: 'Comercio' },
+    { id: 3, tipo: false, nombre: 'Costos' },
+    { id: 4, tipo: false, nombre: 'Gremios' },
+    { id: 5, tipo: false, nombre: 'Insumos' },
+    { id: 6, tipo: false, nombre: 'Proveedores' },
+    { id: 7, tipo: false, nombre: 'Créditos' },
+    { id: 8, tipo: false, nombre: 'Clima' },
+    { id: 9, tipo: false, nombre: 'Producción' },
+    { id: 8, tipo: false, nombre: 'Subsidios' },
   ]
 
   @ViewChild('busca') busca;
