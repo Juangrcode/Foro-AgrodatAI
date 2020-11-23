@@ -7,6 +7,7 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { InterestsComponent } from './interests/interests.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { CommonComponent } from './common/common.component';
+import { NewCommonComponent } from './new-common/new-common.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'comunidad',
     component: CommonComponent,
+  },
+  {
+    path: 'comunidad/crear-comunidad',
+    component: NewCommonComponent,
   },
   {
     path: 'post/:id',

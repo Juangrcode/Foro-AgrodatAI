@@ -15,7 +15,7 @@ export class CommonService {
   constructor(private http: HttpClient) { }
 
   getAllCommon(): Observable<Common[]> {
-    return this.http.get<Common[]>(this.URL_API);
+    return this.http.get<Common[]>(this.URL_API)
   }
 
   getCommon(id: string) {

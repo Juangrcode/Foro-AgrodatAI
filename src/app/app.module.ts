@@ -19,7 +19,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { InterestComponent } from './interest/interest.component';
-import { CommonComponent } from './common/common.component'
+import { CommonComponent } from './common/common.component';
+import { CreateCommonComponent } from './create-common/create-common.component';
+import { NewCommonComponent } from './new-common/new-common.component'
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { CommonComponent } from './common/common.component'
     BannerComponent,
     InterestComponent,
     CommonComponent,
+    CreateCommonComponent,
+    NewCommonComponent,
   ],
   imports: [
     BrowserModule,
