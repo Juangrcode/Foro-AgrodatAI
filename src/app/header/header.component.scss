@@ -1,0 +1,50 @@
+.header__logo img {
+    margin-left: 40px;
+    width: 30%;
+}
+.header__profile {
+    width: 25%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Boton--noticias {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.Boton--noticias img {
+    width: 34px;
+    margin-top: -3px;
+}
+.header__profile button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.header__profile p {
+    color: #4f317a;
+    font-weight: bolder;
+}
+
+@media only screen and (max-width: 680p x) {
+    .header__logo img {
+        width: 35%;
+        margin-top: 6px;
+    }
+    .header__profile {
+        display: none;
+    }
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    max-width: 600px;
+}

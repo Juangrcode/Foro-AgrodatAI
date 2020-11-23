@@ -2,11 +2,11 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
-import { PerfilComponent } from './perfil/perfil.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
-import { InterestsComponent } from './components/interests/interests.component';
+import { InterestsComponent } from './interests/interests.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { CommonComponent } from './common/common.component';
 
 const routes: Routes = [
   {
@@ -16,10 +16,6 @@ const routes: Routes = [
   {
     path: 'noticias/:title',
     component: NoticiaComponent,
-  },
-  {
-    path: 'entidadpublica/:value',
-    component: PerfilComponent,
   },
   {
     path: 'proveedor',
@@ -32,6 +28,10 @@ const routes: Routes = [
   {
     path: 'intereses',
     component: InterestsComponent,
+  },
+  {
+    path: 'comunidad',
+    component: CommonComponent,
   },
   {
     path: 'post/:id',

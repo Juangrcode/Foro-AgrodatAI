@@ -1,0 +1,21 @@
+<section *ngIf="banner != false" class="Banner__noticias">
+  <div class="Superior">
+    <h2>Noticias</h2>
+
+    <button type="button" (click)="exit()">
+      <img src="../../assets/images/x.png" alt="" />
+    </button>
+  </div>
+  <div class="contenedor__noticias" [ngClass]="{ active: scroll != false }">
+    <div *ngFor="let news of noticias" class="noticia">
+      <p>{{ news.date }} - {{ news.source }}</p>
+      <h5>
+        <a [routerLink]="['/noticias', news.title]"> {{ news.title }}</a>
+      </h5>
+      <p>{{ news.content | slice: 0:125 }}</p>
+    </div>
+  </div>
+  <button type="button" (click)="scrollShow()">
+    <p>Más noticias</p>
+  </button>
+</section>
