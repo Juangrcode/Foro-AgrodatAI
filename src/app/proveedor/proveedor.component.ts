@@ -45,17 +45,17 @@ export class ProveedorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllInterests()
+   // this.getAllInterests()
   }
-  getAllInterests() {
-    this.interestsService.getAllInterests().subscribe(
-      (res) => {
-        console.log(res)
-        this.interestsService.interests = res;
-      },
-      (err) => console.error(err)
-    );
-  }
+  //getAllInterests() {
+ //   this.interestsService.getAllInterests().subscribe(
+   //   (res) => {
+     //   console.log(res)
+   //     this.interestsService.interests = res;
+    //  },
+   //   (err) => console.error(err)
+   // );
+  //}
 
   busqueda(tema, numero) {
 
