@@ -4,6 +4,7 @@
     grid-column-end: 3;
     grid-row-start: 2;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -25,13 +26,13 @@ h1 {
     margin: 0 7px;
 }
 .social-link.facebook {
-    background-image: url('../../assets/images/facebook.png');
+    background-image: url("../../assets/images/facebook.png");
 }
 .social-link.twitter {
-    background-image: url('../../assets/images/twitter.png');
+    background-image: url("../../assets/images/twitter.png");
 }
 .social-link.whatsapp {
-    background-image: url('../../assets/images/whatsapp.png');
+    background-image: url("../../assets/images/whatsapp.png");
 }
 .noticia {
     display: flex;
@@ -44,7 +45,7 @@ h1 {
 }
 .noticia img {
     width: 30%;
-    height: 40vh
+    height: 40vh;
 }
 .noticia h2 {
     width: 60%;
@@ -57,7 +58,6 @@ h1 {
     margin-right: auto;
     width: 90%;
     text-align: justify;
-
 }
 .centro {
     display: flex;

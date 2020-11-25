@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { InterestsService } from '../../services/interests.service';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { Interest } from '../models/interests';
+import { InterestsService } from '../services/interests.service';
 
 @Component({
   selector: 'app-interests',
@@ -9,6 +10,37 @@ import { InterestsService } from '../../services/interests.service';
 })
 export class InterestsComponent implements OnInit {
   // post: Boolean = false;
+imageSrc = '../iconos/eliminar.png'
+  interests: Interest[] = [
+    {
+      id:1,
+      name:'Papa',
+      completed:false
+    },
+    {
+      id:1,
+      name:'Arroz',
+      completed:false
+    },
+    {
+      id:1,
+      name:'Platano',
+      completed:false
+    },
+    {
+      id:1,
+      name:'Cacao',
+      completed:false
+    },
+  ];
+
+  @ViewChild('busca') busca;
+  filterPost: string = ""
+  search: string
+  checkind: boolean
+  frutas_seleccionadas: any[] = []
+  mostrar: boolean = false
+  found: any
 
   constructor(public interestsService: InterestsService) { }
 
@@ -20,10 +52,17 @@ export class InterestsComponent implements OnInit {
     this.interestsService.getAllInterests().subscribe(
       (res) => {
         this.interestsService.interests = res;
+        console.log(this.interestsService.interests)
       },
       (err) => console.error(err)
     );
   }
+
+  clickInterest(id:number){
+    console.log('interest')
+    console.log(id)
+  }
+
 
   // addInterest(id: any) {
   //   console.log(id);

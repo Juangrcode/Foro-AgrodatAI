@@ -1,22 +1,7 @@
+<app-header class="app-header"></app-header>
 
-<div class="header">
-  <div class="header__logo">
-    <img src="../assets/images/borde.png" alt="Logo" />
-  </div>
-  <div class="header__profile">
-    <button type="button" class="Boton--noticias" (click)="bannerShow()">
-      <img id="boton--img" [src]="img" alt="Noticias" />
-    </button>
-    <button type="button" (click)="notification()">
-      <img src="../assets/images/icons8-despertador-24.png" alt="Campana" />
-    </button>
-    <p>Usuario</p>
-    <div class="profile--icon">
-      <img src="../assets/images/profile-header.png" alt="" />
-    </div>
-  </div>
-</div>
-<nav class="menu">
+<app-navbar class="menu"></app-navbar>
+<!-- <nav class="menu">
   <div class="menu__profile">
     <div class="profile">
       <img src="../assets/images/profile-nav.png" alt="" />
@@ -34,7 +19,14 @@
       </div>
     </div>
   </div>
+
   <ul>
+    <li><img src="../assets/images/assignment-white-18dp.svg" alt="Intereses">
+      <a routerLink="/intereses" class="Keys-word">Intereses</a>
+    </li>
+    <li><img src="../assets/images/groups-white-18dp.svg" alt="Comunidades">
+      <a routerLink="/communities" class="Keys-word">Comunidades</a>
+    </li>
     <li>
       <img src="../assets/images/AgrodatIconos-01.svg" alt="" />
       <p class="Keys-word">Tableros</p>
@@ -80,36 +72,13 @@
       <p class="Keys-word">Comparar</p>
     </li>
     <li>
-      <img src="../assets/images/icons8-corneta-blanca.png" alt="" /><a
-        routerLink="/noticias"
-        class="Keys-word"
-        >Noticias</a
-      >
+      <img src="../assets/images/icons8-corneta-blanca.png" alt="" /><a routerLink="/noticias"
+        class="Keys-word">Noticias</a>
     </li>
-    <li>
-      <a routerLink="/intereses" class="Keys-word">Intereses</a>
-    </li>
+
   </ul>
-</nav>
+</nav> -->
 
-<section *ngIf="banner != false" class="Banner__noticias">
-  <div class="Superior">
-    <h2>Noticias</h2>
 
-    <button type="button" (click)="exit()">
-      <img src="../../assets/images/x.png" alt="" />
-    </button>
-  </div>
-  <div class="contenedor__noticias" [ngClass]="{ active: scroll != false }">
-    <div *ngFor="let news of noticias" class="noticia">
-      <p>{{ news.date }} - {{ news.source }}</p>
-      <h5>
-        <a [routerLink]="['/noticias', news.title]"> {{ news.title }}</a>
-      </h5>
-      <p>{{ news.content | slice: 0:125 }}</p>
-    </div>
-  </div>
-  <button type="button" (click)="scrollShow()"><p>Más noticias</p></button>
-</section> 
 
 <router-outlet></router-outlet>

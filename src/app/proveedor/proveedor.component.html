@@ -9,7 +9,7 @@
       <button class="boton2">Cambio de contraseña</button>
     </div>
     <label>Nombres:</label>
-    <input disabled class="name" type="text" name="nombre" value="John"/>  
+    <input disabled class="name" type="text" name="nombre" value="John"/>
     <label>Apellidos:</label>
     <input disabled class="name" type="text" value="Prieto" />
     <label>Correo electrónico:</label>
@@ -29,7 +29,7 @@
             <thead>
               <tr>
                 <th>
-                
+
                 </th>
               <th>
                 Nombre interes
@@ -40,23 +40,23 @@
             </tr>
           </thead>
           <tbody>
-    
+
             <tr *ngFor="let tema of temaInteres | filter:filterPost ">
-    
+
               <td>
                 <input #numero type="checkbox" class="checksyle"[checked]="tema.tipo" (click)="seleccion(tema.nombre,tema.id)">
               </td>
               <td>
                 {{tema.nombre}}
               </td>
-    
+
             </tr>
-    
+
           </tbody>
         </table>
-    
-    
-    
+
+
+
         <table *ngIf="mostrar" border="border">
           <thead>
             <tr>
@@ -77,7 +77,7 @@
                   <img (click)="eliminar(frutas.tema,i)" src="https://img.icons8.com/ios/50/000000/trash--v1.png" />
                 </td>
               </tr>
-      
+
             </tbody>
           </table>
         </div>

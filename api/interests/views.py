@@ -1,4 +1,4 @@
-# Django 
+# Django
 from django.shortcuts import render
 from django.http import JsonResponse
 
@@ -16,9 +16,9 @@ from .models import Interest
 class InterestViewSet(viewsets.ModelViewSet):
     queryset = Interest.objects.all()
     serializer_class = InterestSerializer
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly, 
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,
     #                       IsOwnerOrReadOnly]
-    
+
     # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
     # def highlight(self, request, *args, **kwargs):
     #     interest = self.get_object()

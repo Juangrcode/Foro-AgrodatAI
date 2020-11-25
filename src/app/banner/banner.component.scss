@@ -1,0 +1,69 @@
+.Banner__noticias {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 240px;
+    height: auto;
+    padding: 0px 10px;
+    padding-right: 0px;
+    border-left: 1px solid grey;
+    background-color: white;
+}
+.Banner__noticias button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.Banner__noticias h2 {
+    color: #007262;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.Banner__noticias button p {
+    font-size: 12px;
+    font-weight: bold;
+}
+.Banner__noticias button p:hover {
+    color: #009a74;
+}
+.Superior {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px;
+    margin-top: 5px;
+}
+.Superior button {
+    margin-right: 8px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.contenedor__noticias {
+    height: 77vh;
+    overflow: hidden;
+}
+.noticia {
+    padding: 5px;
+    margin-right: 8px;
+    border-bottom: 1px solid grey;
+}
+.noticia p {
+    font-size: 12px;
+}
+.noticia h5 {
+    margin-top: -8px;
+    margin-bottom: -8px;
+}
+.noticia a {
+    text-decoration: none;
+    color: black;
+}
+.noticia a:hover {
+    color: #009a74;
+}
+.active {
+    height: 77vh;
+    overflow: auto;
+}
