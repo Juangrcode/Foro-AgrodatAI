@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # apps
     'interests',
     'common',
+    'administracion',
     #
     'rest_framework',
 ]
@@ -161,3 +162,8 @@ CORS_ALLOW_METHODS = (
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Pagination limit offset
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
+}

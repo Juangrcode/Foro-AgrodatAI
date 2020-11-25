@@ -1,0 +1,80 @@
+<div class="section with__shadow">
+    <div class="section__title">
+        <h3>Edición de empresa</h3>
+    </div>
+    <form [formGroup]="frmEmpresa" (submit)="onSubmit()">
+        <div class="section__content">
+            <div class="section__content--title">
+                <h3>1. Datos básicos de la empresa</h3>
+            </div>
+            <div class="form__empresa">
+                <div class="form__input__group">
+                    <div class="form__input">
+                        <label for="nombre"
+                            ><span class="required">*</span>Nombre:</label
+                        >
+                        <input type="text" [formControl]="nombre" required />
+                        <div
+                            class="from__input--errors"
+                            *ngIf="
+                                (nombre.dirty || nombre.touched) &&
+                                nombre.invalid
+                            "
+                        >
+                            <span *ngIf="nombre.hasError('required')">
+                                El nombre de la empresa es requerido.
+                            </span>
+                            <span *ngIf="nombre.hasError('unique')">
+                                El nombre de la empresa ya se encuentra
+                                registrado.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form__input">
+                        <label for="nit"
+                            ><span class="required">*</span>Nit:</label
+                        >
+                        <input type="text" [formControl]="nit" required />
+                        <div
+                            class="from__input--errors"
+                            *ngIf="(nit.dirty || nit.touched) && nit.invalid"
+                        >
+                            <span *ngIf="nombre.hasError('required')">
+                                El nit de la empresa es requerido.
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form__input">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" [formControl]="telefono" />
+                    </div>
+
+                    <!-- Es admin -->
+                    <div class="form__input">
+                        <label for="is_admin">¿Administrador?</label>
+                        <select
+                            [formControl]="is_admin"
+                            required
+                            placeholder="Seleccione"
+                        >
+                            <option value="0">No</option>
+                            <option value="1">Si</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section__actions">
+            <button
+                type="submit"
+                class="btn btn__save"
+                [disabled]="!frmEmpresa.valid"
+            >
+                Guardar
+            </button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+</div>

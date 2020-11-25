@@ -1,0 +1,60 @@
+<div class="section with__shadow">
+    <div class="section__title">
+        <h3>Creación de actividad agropecuaria</h3>
+    </div>
+    <form [formGroup]="frmActividad" (submit)="onSubmit()">
+        <div class="section__content">
+            <div class="section__content--title">
+                <h3>1. Datos básicos de la actividad agropecuaria</h3>
+            </div>
+            <div class="form__empresa">
+                <div class="form__input__group">
+                    <div class="form__input">
+                        <label for="nombre"
+                            ><span class="required">*</span>Nombre:</label
+                        >
+                        <input type="text" [formControl]="nombre" required />
+                        <div
+                            class="from__input--errors"
+                            *ngIf="
+                                (nombre.dirty || nombre.touched) &&
+                                nombre.invalid
+                            "
+                        >
+                            <span *ngIf="nombre.hasError('required')">
+                                El nombre de la actividad es requerido.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form__input">
+                        <label for="nit"
+                            ><span class="required">*</span>Tipo:</label
+                        >
+                        <select [formControl]="tipo" placehoder="Seleccionar">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                        </select>
+                        <div
+                            class="from__input--errors"
+                            *ngIf="(tipo.dirty || tipo.touched) && tipo.invalid"
+                        >
+                            <span *ngIf="tipo.hasError('required')">
+                                El tipo de actividad es requerido.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section__actions">
+            <button
+                type="submit"
+                class="btn btn__save"
+                [disabled]="!frmActividad.valid"
+            >
+                Guardar
+            </button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+</div>

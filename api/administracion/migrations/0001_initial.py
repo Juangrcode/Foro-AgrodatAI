@@ -12,11 +12,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Interest',
+            name='Empresa',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=80)),
-                ('completed', models.BooleanField(blank=True, default=False, null=True)),
+                ('nombre_empresa', models.CharField(max_length=150, unique=True)),
+                ('nit', models.CharField(max_length=100)),
+                ('is_admin', models.IntegerField()),
+                ('telefono', models.CharField(max_length=100)),
+                ('tipo', models.CharField(max_length=1)),
             ],
         ),
     ]

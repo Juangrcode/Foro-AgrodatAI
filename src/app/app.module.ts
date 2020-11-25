@@ -1,3 +1,4 @@
+import { PostsComponent } from './components/posts/posts.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,6 +40,7 @@ import { NewCommonComponent } from './new-common/new-common.component'
     InterestComponent,
     CommonComponent,
     CreateCommonComponent,
+    PostsComponent,
     NewCommonComponent,
   ],
   imports: [

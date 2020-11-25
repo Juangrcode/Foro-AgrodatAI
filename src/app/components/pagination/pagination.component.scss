@@ -1,0 +1,42 @@
+li.active {
+  background-color: #00936a;
+  a {
+    color: #fff !important;
+  }
+}
+
+.pagination {
+  float: right;
+  list-style: none;
+  
+  li {
+    display: inline;
+    padding: 5px 8px;
+    margin: 2px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    a {
+      color: #00936a;
+      text-decoration: none;
+    }
+
+    &.disabled {
+      &:hover {
+        cursor: default;
+      }
+
+      a {
+        color: #A9A9A9;
+        cursor: default;
+      }
+    }
+  }
+ 
+  &::after{
+    content: "";
+    clear: both;
+  }
+}
