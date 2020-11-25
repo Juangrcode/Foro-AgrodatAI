@@ -82,14 +82,10 @@ export class EditarEmpresaComponent implements OnInit, OnDestroy {
         const empresaToSave = this.getFormValues();
         this.service.updateEmpresa(empresaToSave).subscribe(
             (r) => {
-                this.alert
-                    .showSuccesMessage(
-                        'Empresa editada',
-                        'La empresa se ha editado satisfactoriamente.'
-                    )
-                    .then(() => {
-                        this.frmEmpresa.reset();
-                    });
+                this.alert.showSuccesMessage(
+                    'Empresa editada',
+                    'La empresa se ha editado satisfactoriamente.'
+                );
             },
             (e) => {
                 if (e.status === 400 && e.error.nombre_empresa) {

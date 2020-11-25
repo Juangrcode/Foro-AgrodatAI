@@ -39,14 +39,10 @@ export class EditarActividadAgropecuariaComponent implements OnInit, OnDestroy {
         const actividad = this.getFormValues();
         this.service.updateActividad(actividad).subscribe(
             (r) => {
-                this.alert
-                    .showSuccesMessage(
-                        'Actividad agropecuaria editata',
-                        'La actividad agropecuaria se ha editado satisfactoriamente.'
-                    )
-                    .then(() => {
-                        this.frmActividad.reset();
-                    });
+                this.alert.showSuccesMessage(
+                    'Actividad agropecuaria editata',
+                    'La actividad agropecuaria se ha editado satisfactoriamente.'
+                );
             },
             (e) => {
                 this.alert.showErrorMessage(
@@ -61,20 +57,27 @@ export class EditarActividadAgropecuariaComponent implements OnInit, OnDestroy {
         this.route.paramMap.subscribe((p) => {
             this.subscription$ = this.service
                 .findSingleActividad(Number(p.get('id')))
-                .subscribe((a) => {
-                    this.id = a.id;
-                    this.frmActividad.patchValue({
-                        nombre: a.nombre_actividad,
-                        tipo: a.tipo,
-                    });
-                }, (e) => {
-                    this.alert.showErrorMessage(
-                        'Error',
-                        'No se puede encontrar la actividad agropecuaria solicitada'
-                    ).then(() => {
-                        this.router.navigate(['/admin/actividades-agropecuarias/list']);
-                    });
-                });
+                .subscribe(
+                    (a) => {
+                        this.id = a.id;
+                        this.frmActividad.patchValue({
+                            nombre: a.nombre_actividad,
+                            tipo: a.tipo,
+                        });
+                    },
+                    (e) => {
+                        this.alert
+                            .showErrorMessage(
+                                'Error',
+                                'No se puede encontrar la actividad agropecuaria solicitada'
+                            )
+                            .then(() => {
+                                this.router.navigate([
+                                    '/admin/actividades-agropecuarias/list',
+                                ]);
+                            });
+                    }
+                );
         });
     }
 

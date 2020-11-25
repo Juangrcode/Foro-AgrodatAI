@@ -5,7 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 const ACTIVIDADES_ENDPOINT =
-    'http://localhost:8000/administracion/actividades/';
+    'http://localhost:8000/api/admin/actividades/';
 
 @Injectable({
     providedIn: 'root',

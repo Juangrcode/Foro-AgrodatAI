@@ -4,7 +4,7 @@ import { Empresa } from './../models/empresa';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
-const EMPRESAS_ENDPOINT = 'http://localhost:8000/administracion/empresas/';
+const EMPRESAS_ENDPOINT = 'http://localhost:8000/api/admin/empresas/';
 
 @Injectable({
     providedIn: 'root',

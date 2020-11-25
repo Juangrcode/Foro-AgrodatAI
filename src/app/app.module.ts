@@ -30,7 +30,6 @@ import { MyInterestComponent } from './my-interest/my-interest.component';
 import { CommunityDetailComponent } from './community-detail/community-detail.component';
 
 @NgModule({
-<<<<<<< HEAD
     declarations: [
         AppComponent,
         MaquetaComponent,
@@ -51,6 +50,7 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
         ViewNewCommunityComponent,
         MyInterestComponent,
         CommunityDetailComponent,
+        PostsComponent
     ],
     imports: [
         BrowserModule,
@@ -64,37 +64,5 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
     ],
     providers: [],
     bootstrap: [AppComponent],
-=======
-  declarations: [
-    AppComponent,
-    MaquetaComponent,
-    NoticiaComponent,
-    ProveedorComponent,
-    ProductorComponent,
-    InterestsComponent,
-    FilterPipe,
-    PerfilComponent,
-    NavbarComponent,
-    HeaderComponent,
-    BannerComponent,
-    InterestComponent,
-    CommonComponent,
-    CreateCommonComponent,
-    PostsComponent,
-    NewCommonComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSelectModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
->>>>>>> admin-empresas
 })
 export class AppModule {}
