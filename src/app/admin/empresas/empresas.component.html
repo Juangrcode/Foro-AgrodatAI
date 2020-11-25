@@ -1,0 +1,48 @@
+<div class="section with__shadow">
+    <div class="section__title">
+        <h3>Lista de empresas</h3>
+    </div>
+    <div class="section__content">
+        <div class="section__header--options">
+            <div class="autocomplete__input"></div>
+            <div class="create__new--btn">
+                <button class="btn btn__new" [routerLink]="['/admin/empresas/create']"><span>Crear empresa</span></button>
+            </div>
+        </div>
+        <div class="table-container">
+            <div class="loading-shade" *ngIf="loading">
+                <mat-spinner class="spinner" *ngIf="loading"></mat-spinner>
+            </div>
+            <table class="admin__table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Nit</th>
+                        <th>Teléfono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr  *ngFor="let empresa of empresas$ | async">
+                        <td>{{empresa.nombre_empresa}}</td>
+                        <td>{{empresa.nit}}</td>
+                        <td>{{ empresa.telefono }}</td>
+                        <td>
+                            <mat-icon (click)="onDelete(empresa)">delete</mat-icon>
+                            <mat-icon [routerLink]="['/admin/empresas/edit/' ,  empresa.id]">edit</mat-icon>                            
+                        </td>
+                    </tr>
+                    <tr *ngIf="count === 0">
+                        <td colspan="4" style="text-align: center">
+                            No existen empresas registradas.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="paging">
+                <app-pagination [limit]="limit" [offset]="offset" [size]="count" (pageChange)="onPageChange($event)"></app-pagination>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>

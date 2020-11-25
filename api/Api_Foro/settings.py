@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'activities',
     'interests',
     'new_communities',
+    'common',
+    'administracion',
+    #
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -175,3 +179,8 @@ CORS_ALLOW_METHODS = (
 )
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Pagination limit offset
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
+}
