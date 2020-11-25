@@ -1,81 +1,92 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { Interest } from '../models/interests';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InterestsService } from '../services/interests.service';
 
 @Component({
-  selector: 'app-interests',
-  templateUrl: './interests.component.html',
-  styleUrls: ['./interests.component.scss'],
-  // providers: [InterestsService],
+    selector: 'app-interests',
+    templateUrl: './interests.component.html',
+    styleUrls: ['./interests.component.scss'],
 })
 export class InterestsComponent implements OnInit {
-  // post: Boolean = false;
-imageSrc = '../iconos/eliminar.png'
-  interests: Interest[] = [
-    {
-      id:1,
-      name:'Papa',
-      completed:false
-    },
-    {
-      id:1,
-      name:'Arroz',
-      completed:false
-    },
-    {
-      id:1,
-      name:'Platano',
-      completed:false
-    },
-    {
-      id:1,
-      name:'Cacao',
-      completed:false
-    },
-  ];
+    imageSrc = '../iconos/eliminar.png';
+    temaInteres: Array<any> = [
+        // { id: 0, tipo: false, nombre: 'Agrícola' },
+        // { id: 1, tipo: false, nombre: 'Pecuario' },
+        // { id: 2, tipo: false, nombre: 'Comercio' },
+        // { id: 3, tipo: false, nombre: 'Costos' },
+        // { id: 4, tipo: false, nombre: 'Gremios' },
+        // { id: 5, tipo: false, nombre: 'Insumos' },
+        // { id: 6, tipo: false, nombre: 'Proveedores' },
+        // { id: 7, tipo: false, nombre: 'Créditos' },
+        // { id: 8, tipo: false, nombre: 'Clima' },
+        // { id: 9, tipo: false, nombre: 'Producción' },
+        // { id: 8, tipo: false, nombre: 'Subsidios' },
+    ];
 
-  @ViewChild('busca') busca;
-  filterPost: string = ""
-  search: string
-  checkind: boolean
-  frutas_seleccionadas: any[] = []
-  mostrar: boolean = false
-  found: any
+    @ViewChild('busca') busca;
+    filterPost: string = '';
+    search: string;
+    checkind: boolean;
+    frutas_seleccionadas: any[] = [];
+    mostrar: boolean = false;
+    found: any;
+    constructor(
+        private ruta: ActivatedRoute,
+        public interestsService: InterestsService
+    ) {
+        this.ruta.params.subscribe((params) => {});
+    }
 
-  constructor(public interestsService: InterestsService) { }
+    ngOnInit(): void {
+        this.getAllInterests();
+    }
+    getAllInterests() {
+        this.interestsService.getAllInterests().subscribe(
+            (res) => {
+                console.log(res);
+                this.interestsService.interests = res;
+                this.temaInteres = this.interestsService.interests;
+            },
+            (err) => console.error(err)
+        );
+    }
 
-  ngOnInit(): void {
-    this.getAllInterests();
-  }
+    busqueda(tema, numero) {
+        this.found = this.frutas_seleccionadas.find(
+            (element) => element.tema === tema
+        );
+        console.log(this.found);
+        if (this.found) {
+            for (let i = 0; i <= this.frutas_seleccionadas.length; i++) {
+                console.log(this.frutas_seleccionadas);
+                if (this.frutas_seleccionadas[i].tema == tema) {
+                    this.temaInteres[
+                        this.frutas_seleccionadas[i].numero
+                    ].completed = false;
+                    this.frutas_seleccionadas.splice(i, 1);
+                    return this.frutas_seleccionadas.length == 0;
+                }
+            }
+        } else {
+            console.log(tema);
+            this.frutas_seleccionadas.push({ numero: numero, tema: tema });
 
-  getAllInterests() {
-    this.interestsService.getAllInterests().subscribe(
-      (res) => {
-        this.interestsService.interests = res;
-        console.log(this.interestsService.interests)
-      },
-      (err) => console.error(err)
-    );
-  }
+            this.temaInteres[numero].completed = true;
+        }
+    }
+    seleccion(tema, numero) {
+        this.mostrar = true;
+        let valor = this.busqueda(tema, numero);
+        if (valor === true) {
+            this.mostrar = false;
+        }
+        console.log(this.temaInteres);
+    }
 
-  clickInterest(id:number){
-    console.log('interest')
-    console.log(id)
-  }
-
-
-  // addInterest(id: any) {
-  //   console.log(id);
-  //   console.log(this.interestsService.getInterest(id));
-  //   this.interestsService.getInterest(id).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //     },
-  //     (err) => console.error(err)
-  //   );
-  // }
-
-  // seePost() {
-  //   this.post = true;
-  // }
+    eliminar(fruta, numero) {
+        let valor = this.busqueda(fruta, numero);
+        if (valor === true) {
+            this.mostrar = false;
+        }
+    }
 }

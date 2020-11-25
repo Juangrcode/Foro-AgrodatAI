@@ -4,6 +4,10 @@ import { Community } from '../models/new_communities';
 
 import { CommunityService } from '../services/community.service';
 
+interface HtmlInputEvent extends Event {
+    target: HTMLInputElement & EventTarget;
+}
+
 @Component({
     selector: 'app-form-new-community',
     templateUrl: './form-new-community.component.html',
@@ -12,6 +16,10 @@ import { CommunityService } from '../services/community.service';
 export class FormNewCommunityComponent implements OnInit {
     @Input() community: Community; // Enviar  datos
     @Output() communityClicked: EventEmitter<any> = new EventEmitter();
+
+    file: File;
+    photoSelected: string | ArrayBuffer;
+
     constructor(public communityService: CommunityService) {}
 
     ngOnInit(): void {
@@ -77,5 +85,34 @@ export class FormNewCommunityComponent implements OnInit {
                 }
             );
         }
+    }
+
+    onPhotoSelected(event: HtmlInputEvent) {
+        if (event.target.files && event.target.files[0]) {
+            this.file = <File>event.target.files[0];
+            // image preview
+            const reader = new FileReader();
+            reader.onload = (e) => (this.photoSelected = reader.result);
+            reader.readAsDataURL(this.file);
+        }
+    }
+
+    uploadPhoto(
+        name: HTMLInputElement,
+        activities: HTMLOptionElement,
+        description: HTMLTextAreaElement
+    ) {
+        this.communityService
+            .createPhoto(
+                name.value,
+                description.value,
+                activities.value,
+                this.file
+            )
+            .subscribe(
+                (res) => console.log(res),
+                (err) => console.log(err)
+            );
+        console.log(name.value);
     }
 }

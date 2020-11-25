@@ -1,69 +1,113 @@
-<div class="interests__container">
+<div class="contenedor-padre">
+    <div class="perfil_completo">
+        <h2>Mi perfil</h2>
+        <div class="photo_perfil">
+            <img
+                src="assets/iconos/avatar.png"
+                alt="perfil"
+                alt=""
+                width="49"
+                height="35"
+            />
+        </div>
+        <div class="conjunto">
+            <button class="boton1">Mis datos</button>
+            <button class="boton2">Cambio de contraseña</button>
+        </div>
+        <label>Nombres:</label>
+        <input disabled class="name" type="text" name="nombre" value="John" />
+        <label>Apellidos:</label>
+        <input disabled class="name" type="text" value="Prieto" />
+        <label>Correo electrónico:</label>
+        <input disabled class="name" type="email" value="maye@nose.com" />
+        <label>Número de telefono movil:</label>
+        <input disabled class="name" type="text" value="numero privado" />
+    </div>
+</div>
 
-  <app-perfil></app-perfil>
-
-  <div>
-    <div class="search">
-      <input type="text" class="search__input" placeholder="Buscar intereses" />
-  </div>
-
-
-
-  <!-- -------------------Mis Intereses----------- -->
-  <!-- <div class="Principal_Intereses">
-
-    <div class="interests">
-      <table border="1" class="interests__table">
-        <thead class="interests__table--head">
-          <tr>
-            <h2 class="title">Intereses</h2>
-          </tr>
-        </thead>
-        <tbody class="interests__table--body">
-          <tr class="interests__body--container">
-            <td class="interests__body--checkbox">
-              <input type="checkbox" id="check1" />
-            </td>
-            <td class="interests__body--name">
-              <p>Agricola</p>
-            </td>
-            <td class="interests__body--checkbox">
-              <input type="checkbox" id="check1" />
-            </td>
-            <td class="interests__body--name">
-              <p>Ganadero</p>
-            </td>
-            <td class="interests__body--checkbox">
-              <input type="checkbox" id="check1" />
-            </td>
-            <td class="interests__body--name">
-              <p>Porcino</p>
-            </td>
-            <td class="interests__body--checkbox">
-              <input type="checkbox" id="check1" />
-            </td>
-            <td class="interests__body--name">
-              <p>Avicola</p>
-            </td>
-            <td class="interests__body--checkbox">
-            </td>
-          </tr>
-
-          <tr class="interests__body--container" *ngFor="let interest of interestsService.interests">
-            <td class="interests__body--checkbox">
-              <input type="checkbox" id="check1" />
-            </td>
-
-            <td class="interests__body--name">
-              <p>{{ interest.name }}</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div> -->
-
-    <!-- -------------------Intereses----------- -->
-    <div *ngFor="let interest of interestsService.interests">
-      <app-interest (interestClicked)="clickInterest($event)" [interest]="interest"></app-interest>
+<div class="contenedor-padre">
+    <div class="container_interest">
+        <div class="interes">
+            <h2>Mis Intereses</h2>
+            <p>Buscar intereses</p>
+            <input
+                name="filterPost"
+                type="search"
+                class="search"
+                [(ngModel)]="filterPost"
+                value="Buscar Interes"
+            />
+            <div class="table_interest">
+                <table class="table_interest_content">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Intereses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="
+                                let tema of temaInteres | filter: filterPost
+                            "
+                        >
+                            <td>
+                                <input
+                                    #numero
+                                    type="checkbox"
+                                    class="checksyle"
+                                    [checked]="tema.completed"
+                                    (click)="seleccion(tema.name, tema.id)"
+                                />
+                            </td>
+                            <td>
+                                {{ tema.name }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tabla_2">
+                    <table
+                        class="tabla_2_tabla"
+                        *ngIf="mostrar"
+                        border="border"
+                    >
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Mis Intereses</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
+                            <tr
+                                *ngFor="
+                                    let frutas of frutas_seleccionadas;
+                                    index as i
+                                "
+                            >
+                                <td class="tabla_2__click">
+                                    <input
+                                        class="tabla_2_input"
+                                        type="checkbox"
+                                        checked
+                                        disabled
+                                    />
+                                </td>
+                                <td>
+                                    {{ frutas.tema }}
+                                </td>
+                                <td>
+                                    <img
+                                        (click)="eliminar(frutas.tema, i)"
+                                        src="https://img.icons8.com/ios/50/000000/trash--v1.png"
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

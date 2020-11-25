@@ -8,6 +8,7 @@ import { InterestsComponent } from './interests/interests.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { CommonComponent } from './common/common.component';
 import { NewCommunityComponent } from './new-community/new-community.component';
+import { CommunityDetailComponent } from './community-detail/community-detail.component';
 
 const routes: Routes = [
     {
@@ -37,6 +38,10 @@ const routes: Routes = [
     {
         path: 'comunidad/crear-comunidad',
         component: NewCommunityComponent,
+    },
+    {
+        path: 'comunidad/:id',
+        component: CommunityDetailComponent,
     },
     {
         path: 'post/:id',

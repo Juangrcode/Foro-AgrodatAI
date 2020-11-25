@@ -25,6 +25,8 @@ import { CreateCommunityComponent } from './create-community/create-community.co
 import { NewCommunityComponent } from './new-community/new-community.component';
 import { FormNewCommunityComponent } from './form-new-community/form-new-community.component';
 import { ViewNewCommunityComponent } from './view-new-community/view-new-community.component';
+import { MyInterestComponent } from './my-interest/my-interest.component';
+import { CommunityDetailComponent } from './community-detail/community-detail.component';
 
 @NgModule({
     declarations: [
@@ -45,6 +47,8 @@ import { ViewNewCommunityComponent } from './view-new-community/view-new-communi
         NewCommunityComponent,
         FormNewCommunityComponent,
         ViewNewCommunityComponent,
+        MyInterestComponent,
+        CommunityDetailComponent,
     ],
     imports: [
         BrowserModule,

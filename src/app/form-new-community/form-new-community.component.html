@@ -4,13 +4,15 @@
     #communityForm="ngForm"
     (ngSubmit)="addCommunity(communityForm)"
     enctype="multipart/form-data"
+    class="form"
 >
+    <h2 class="form__title">Crear Comunidad</h2>
     <input
         type="hidden"
         name="id"
         [(ngModel)]="communityService.selectedCommunity.id"
     />
-    <div>
+    <div class="form__container">
         <label for="name">Nombre</label>
         <input
             type="text"
@@ -18,45 +20,79 @@
             [(ngModel)]="communityService.selectedCommunity.name"
         />
     </div>
-    <br />
-    <label for="">Seleccionar Actividad</label>
-    <br />
-    <select
-        name="activities"
-        [(ngModel)]="communityService.selectedCommunity.activities"
-        multiple
-    >
-        <option value="1">Agricola</option>
-        <option value="2">Bovino</option>
-        <option value="3">Porcino</option>
-        <option value="4">Avicola</option>
-        <option value="5">Acuicola - Pesca</option>
-    </select>
-    <br />
+    <div class="form__container form__select">
+        <label for="activities">Seleccionar Actividad</label>
+        <select
+            name="activities"
+            [(ngModel)]="communityService.selectedCommunity.activities"
+            multiple
+        >
+            <option value="1">Agricola</option>
+            <option value="2">Bovino</option>
+            <option value="3">Porcino</option>
+            <option value="4">Avicola</option>
+            <option value="5">Acuicola - Pesca</option>
+        </select>
+    </div>
     <!-- <input
+        class="form__container--picture"
         type="file"
         name="picture"
         id="picture"
         [(ngModel)]="communityService.selectedCommunity.picture"
         accept=".png, .jpg, .jp"
-    /> -->
-    <label for="">Descripcion</label>
-    <input
-        type="text"
-        name="description"
-        [(ngModel)]="communityService.selectedCommunity.description"
+        (change)="onPhotoSelected($event)"
+        #photoInput
     />
-    <button (click)="resetForm(communityForm)">Limpiar</button>
-    <button>Guardar</button>
+    <img
+        [src]="photoSelected || 'assets/iconos/no_photo.png'"
+        alt="No images"
+        (click)="photoInput.click()"
+        [(ngModel)]="communityService.selectedCommunity.id"
+    /> -->
+    <div class="form__container">
+        <label for="description">Descripcion</label>
+        <textarea
+            name="description"
+            cols="30"
+            rows="10"
+            [(ngModel)]="communityService.selectedCommunity.description"
+        ></textarea>
+    </div>
+    <div class="form__btn">
+        <button class="btn" (click)="resetForm(communityForm)">Limpiar</button>
+        <button class="btn">Guardar</button>
+    </div>
 </form>
-<table>
-    <tr *ngFor="let community of communityService.communities">
-        <td>{{ community.name }}</td>
-        <td>{{ community.activities }}</td>
-        <td>{{ community.description }}</td>
-        <td><button (click)="editCommunity(community)">Editar</button></td>
-        <td>
-            <button (click)="deleteCommunity(community.id)">Eliminar</button>
-        </td>
-    </tr>
-</table>
+
+<div class="community">
+    <div
+        class="community__data-post"
+        *ngFor="let community of communityService.communities"
+    >
+        <img
+            class="community__data-post--image"
+            src="../../assets/iconos/avatar.png"
+            alt="Logo"
+        />
+        <div class="community__data">
+            <div class="community__data-post--info">
+                <h1>{{ community.name }}</h1>
+                <h2 *ngIf="community.activities == 1">Agricola</h2>
+                <h2 *ngIf="community.activities == 2">Bovino</h2>
+                <h2 *ngIf="community.activities == 3">Porcino</h2>
+                <h2 *ngIf="community.activities == 4">Avicola</h2>
+                <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
+                <h3>{{ community.created }}</h3>
+            </div>
+            <div>
+                <button class="btn btn-edit" (click)="editCommunity(community)">
+                    Editar
+                </button>
+                <button class="btn" (click)="deleteCommunity(community.id)">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

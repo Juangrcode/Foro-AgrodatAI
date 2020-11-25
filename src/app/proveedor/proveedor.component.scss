@@ -5,6 +5,7 @@
     display: grid;
     margin-left: 20px;
     overflow-y: auto;
+
 }
 * {
     background-color: #ffffff;
@@ -112,11 +113,6 @@ label {
     border: none;
 }
 
-label {
-    width: 100%;
-    display: block;
-    margin-top: 15px;
-}
 
 .name {
     border-radius: 10px;
@@ -152,8 +148,27 @@ label {
 table {
     width: 100%;
 }
-td {
-    color: #502975;
+
+
+
+td img {
+width: 15px;
+color: #502975;
+
+}
+
+thead {
+    font-weight: 900;
+
+}
+
+thead td {
+    background-color: #e9ecef;
+}
+
+
+.tabla_2_tabla {
+    border: 0px;
 }
 
 th,
@@ -161,6 +176,7 @@ td {
     text-align: left;
     border-bottom: 1px solid #e9ecef;
     padding: 6px;
+    color: #502975;
 }
 
 .interests {
@@ -170,32 +186,8 @@ td {
     border-radius: 15px;
 }
 
-.interests__table {
-    width: 100%;
-    margin: auto;
-    border-radius: 10px;
-    border: 0;
-    display: inline-block;
-}
-
-.interests__body--container {
-    height: 30px;
-    border: 2px solid black;
-}
-
-.interests__body--checkbox {
-    width: 6%;
-    padding: 0;
-    color: #502975;
-    text-align: center;
-    border: 0;
-}
-
-.interests__body--name p {
-    margin: 0 2px;
-}
-.interests__body--name {
-    border: 0;
+p {
+    font-weight: 800;
 }
 
 .contenedor-padre {
@@ -214,7 +206,7 @@ td {
     height: 70%;
     padding: 40px 20px;
     padding-left: 5px;
-    margin: 10px 5px 100px 5px;
+    margin: 10px 5px 150px 5px;
 
     h2 {
         color: rgb(79, 49, 112);

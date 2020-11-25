@@ -23,57 +23,59 @@
         <label>Número de telefono movil:</label>
         <input disabled class="name" type="text" value="numero privado" />
     </div>
+</div>
 
-    <div class="contenedor-padre">
-        <div class="container_interest">
-            <div class="interes">
-                <h2>Mis Intereses</h2>
-                <p>Buscar interes:</p>
-                <input
-                    name="filterPost"
-                    type="search"
-                    class="search"
-                    [(ngModel)]="filterPost"
-                    value="Buscar Interes"
-                />
-                <div class="table_interest">
-                    <table>
+<div class="contenedor-padre">
+    <div class="container_interest">
+        <div class="interes">
+            <h2>Mis Intereses</h2>
+            <p>Buscar intereses</p>
+            <input
+                name="filterPost"
+                type="search"
+                class="search"
+                [(ngModel)]="filterPost"
+                value="Buscar Interes"
+            />
+            <div class="table_interest">
+                <table class="table_interest_content">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Intereses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="
+                                let tema of temaInteres | filter: filterPost
+                            "
+                        >
+                            <td>
+                                <input
+                                    #numero
+                                    type="checkbox"
+                                    class="checksyle"
+                                    [checked]="tema.completed"
+                                    (click)="seleccion(tema.name, tema.id)"
+                                />
+                            </td>
+                            <td>
+                                {{ tema.name }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="tabla_2">
+                    <table
+                        class="tabla_2_tabla"
+                        *ngIf="mostrar"
+                        border="border"
+                    >
                         <thead>
                             <tr>
-                                <th></th>
-                                <th>Nombre interes</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr
-                                *ngFor="
-                                    let tema of temaInteres | filter: filterPost
-                                "
-                            >
-                                <td>
-                                    <input
-                                        #numero
-                                        type="checkbox"
-                                        class="checksyle"
-                                        [checked]="tema.tipo"
-                                        (click)="
-                                            seleccion(tema.nombre, tema.id)
-                                        "
-                                    />
-                                </td>
-                                <td>
-                                    {{ tema.nombre }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <table *ngIf="mostrar" border="border">
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <td>Nombre Interes</td>
+                                <td>#</td>
+                                <td>Mis Intereses</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -84,8 +86,13 @@
                                     index as i
                                 "
                             >
-                                <td>
-                                    <input type="checkbox" checked disabled />
+                                <td class="tabla_2__click">
+                                    <input
+                                        class="tabla_2_input"
+                                        type="checkbox"
+                                        checked
+                                        disabled
+                                    />
                                 </td>
                                 <td>
                                     {{ frutas.tema }}
