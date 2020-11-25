@@ -22,20 +22,17 @@
     <div class="container_interest">
       <div class="interes">
         <h2>Mis Intereses</h2>
-        <p>Buscar interes</p>
+        <p>Buscar intereses</p>
         <input name="filterPost" type="search" class="search" [(ngModel)]="filterPost" value="Buscar Interes">
         <div class="table_interest">
-          <table>
+          <table class="table_interest_content">
             <thead>
               <tr>
                 <th>
 
                 </th>
               <th>
-                Nombre interes
-              </th>
-              <th>
-                Descripción
+                Nombre intereses
               </th>
             </tr>
           </thead>
@@ -54,21 +51,19 @@
 
           </tbody>
         </table>
-
-
-
-        <table *ngIf="mostrar" border="border">
+      <div class="tabla_2">
+        <table class="tabla_2_tabla" *ngIf="mostrar" border="border">
           <thead>
             <tr>
               <td></td>
-              <td>Nombre Interes</td>
+              <td>Seleccionados</td>
             </tr>
           </thead>
             <tbody>
               <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
               <tr *ngFor="let frutas of frutas_seleccionadas;index as i">
-                <td>
-                  <input type="checkbox" checked disabled />
+                <td class="tabla_2__click">
+                  <input class="tabla_2_input" type="checkbox" checked disabled />
                 </td>
                 <td>
                   {{frutas.tema}}
@@ -80,6 +75,7 @@
 
             </tbody>
           </table>
+      </div>
         </div>
       </div>
     </div>
