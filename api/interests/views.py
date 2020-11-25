@@ -13,6 +13,7 @@ from .models import Interest
 
 # Create your views here.
 
+
 class InterestViewSet(viewsets.ModelViewSet):
     queryset = Interest.objects.all()
     serializer_class = InterestSerializer
@@ -26,7 +27,6 @@ class InterestViewSet(viewsets.ModelViewSet):
 
     # def perform_create(self, serializer):
     #     serializer.save(owner=self.request.name)
-
 
 
 # @api_view(['GET'])

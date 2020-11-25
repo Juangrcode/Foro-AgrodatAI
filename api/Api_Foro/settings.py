@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+# import MySQLdb as Database
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # apps
-    'interests',
-    'common',
-    #
+    # Framework Api
     'rest_framework',
+
+    # apps
+    'activities',
+    'interests',
+    'new_communities',
 ]
 
 MIDDLEWARE = [
@@ -98,6 +100,17 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql','tabla-interes'
+#         'NAME': 'bd_empoderatech',
+#         'USER': 'empoderatch',
+#         'PASSWORD': 'jneTRrX9yd',
+#         'HOST': '35.243.170.80',
+#         'DATABASE_PORT': '3306',
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,6 +149,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 
 APPEND_SLASH = False
 

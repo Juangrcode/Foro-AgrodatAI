@@ -3,6 +3,6 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Interest
+from .models import NewCommunity
 
-admin.site.register(Interest)
+admin.site.register(NewCommunity)

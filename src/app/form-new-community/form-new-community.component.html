@@ -1,0 +1,62 @@
+<form
+    action="/api/new_communities/"
+    method="POST"
+    #communityForm="ngForm"
+    (ngSubmit)="addCommunity(communityForm)"
+    enctype="multipart/form-data"
+>
+    <input
+        type="hidden"
+        name="id"
+        [(ngModel)]="communityService.selectedCommunity.id"
+    />
+    <div>
+        <label for="name">Nombre</label>
+        <input
+            type="text"
+            name="name"
+            [(ngModel)]="communityService.selectedCommunity.name"
+        />
+    </div>
+    <br />
+    <label for="">Seleccionar Actividad</label>
+    <br />
+    <select
+        name="activities"
+        [(ngModel)]="communityService.selectedCommunity.activities"
+        multiple
+    >
+        <option value="1">Agricola</option>
+        <option value="2">Bovino</option>
+        <option value="3">Porcino</option>
+        <option value="4">Avicola</option>
+        <option value="5">Acuicola - Pesca</option>
+    </select>
+    <br />
+    <!-- <input
+        type="file"
+        name="picture"
+        id="picture"
+        [(ngModel)]="communityService.selectedCommunity.picture"
+        accept=".png, .jpg, .jp"
+    /> -->
+    <label for="">Descripcion</label>
+    <input
+        type="text"
+        name="description"
+        [(ngModel)]="communityService.selectedCommunity.description"
+    />
+    <button (click)="resetForm(communityForm)">Limpiar</button>
+    <button>Guardar</button>
+</form>
+<table>
+    <tr *ngFor="let community of communityService.communities">
+        <td>{{ community.name }}</td>
+        <td>{{ community.activities }}</td>
+        <td>{{ community.description }}</td>
+        <td><button (click)="editCommunity(community)">Editar</button></td>
+        <td>
+            <button (click)="deleteCommunity(community.id)">Eliminar</button>
+        </td>
+    </tr>
+</table>
