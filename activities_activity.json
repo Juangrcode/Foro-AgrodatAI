@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Agricola"
+    },
+    {
+        "id": 2,
+        "name": "Bovino"
+    },
+    {
+        "id": 3,
+        "name": "Porcino"
+    },
+    {
+        "id": 4,
+        "name": "Avicola"
+    },
+    {
+        "id": 5,
+        "name": "Acuicola - Pesca"
+    }
+]

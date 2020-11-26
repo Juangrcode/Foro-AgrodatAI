@@ -1,0 +1,108 @@
+{
+  "new_communities": [
+    {
+      "created": "2020-11-24 21:10:48.675788",
+      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
+      "id": 1,
+      "modified": "2020-11-24 21:10:48.676037",
+      "name": "Fertilización del campo",
+      "picture": "new_communities/pictures/WIN_20200821_15_27_26_Pro_2.jpg"
+    },
+    {
+      "created": "2020-11-25 04:56:31.217740",
+      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
+      "id": 2,
+      "modified": "2020-11-25 04:56:31.217780",
+      "name": "Bovinooooo",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 05:03:36.452790",
+      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
+      "id": 3,
+      "modified": "2020-11-25 05:03:36.452876",
+      "name": "Acuicola - Pesca",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 05:41:55.280806",
+      "description": "sadsasda",
+      "id": 4,
+      "modified": "2020-11-25 05:41:55.281562",
+      "name": "Bovino",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 05:41:55.298161",
+      "description": "sadsasda",
+      "id": 5,
+      "modified": "2020-11-25 05:41:55.298219",
+      "name": "Bovino",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 05:42:07.817348",
+      "description": "sdad",
+      "id": 6,
+      "modified": "2020-11-25 05:42:07.817392",
+      "name": "Bovino",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 05:58:29.683504",
+      "description": "",
+      "id": 7,
+      "modified": "2020-11-25 05:58:29.683828",
+      "name": "Fertilización del campo",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 11:16:33.214878",
+      "description": "iuiklkk",
+      "id": 8,
+      "modified": "2020-11-25 11:16:33.215852",
+      "name": "juan",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 23:39:14.164793",
+      "description": "hbapsllsd",
+      "id": 9,
+      "modified": "2020-11-25 23:39:14.164843",
+      "name": "Fertilización",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 23:47:31.601622",
+      "description": "sadasjsadklask",
+      "id": 10,
+      "modified": "2020-11-25 23:47:31.601671",
+      "name": "Fertilización del campo",
+      "picture": ""
+    },
+    {
+      "created": "2020-11-25 23:47:58.860229",
+      "description": "sadasdsdas",
+      "id": 11,
+      "modified": "2020-11-25 23:47:58.860271",
+      "name": "Bovino",
+      "picture": ""
+    },
+    {
+      "name": "Bovino",
+      "activities": [
+        "3"
+      ],
+      "description": "sadsadas",
+      "id": 12
+    },
+    {
+      "id": 13,
+      "name": "juan",
+      "activities": [
+        "1"
+      ],
+      "description": "adssasa"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+[
+    {
+        "completed": 0,
+        "id": 1,
+        "name": "banano"
+    },
+    {
+        "completed": 0,
+        "id": 2,
+        "name": "papa"
+    },
+    {
+        "completed": 0,
+        "id": 3,
+        "name": "cacao"
+    },
+    {
+        "completed": 0,
+        "id": 4,
+        "name": "arroz"
+    },
+    {
+        "completed": 0,
+        "id": 5,
+        "name": "yuca"
+    },
+    {
+        "completed": 0,
+        "id": 6,
+        "name": "platano"
+    },
+    {
+        "completed": 0,
+        "id": 7,
+        "name": "cebolla"
+    },
+    {
+        "completed": 0,
+        "id": 8,
+        "name": "mandarinas"
+    },
+    {
+        "completed": 0,
+        "id": 9,
+        "name": "tomate"
+    },
+    {
+        "completed": 0,
+        "id": 10,
+        "name": "manzanas"
+    }
+]
