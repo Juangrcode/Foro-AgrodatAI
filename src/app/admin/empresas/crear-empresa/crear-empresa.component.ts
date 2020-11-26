@@ -41,14 +41,13 @@ export class CrearEmpresaComponent implements OnInit {
         const empresaToSave = this.getFormValues();
         this.service.createEmpresa(empresaToSave).subscribe(
             (r) => {
-                this.alert
-                    .showSuccesMessage(
-                        'Empresa registrada',
-                        'La empresa se ha registrado satisfactoriamente.'
-                    )
-                    .then(() => {
-                        this.frmEmpresa.reset();
-                    });
+                this.alert.showSuccesMessage(
+                    'Empresa registrada',
+                    'La empresa se ha registrado satisfactoriamente.'
+                );
+                // .then(() => {
+                //     this.frmEmpresa.reset();
+                // });
             },
             (e) => {
                 if (e.status === 400 && e.error.nombre_empresa) {

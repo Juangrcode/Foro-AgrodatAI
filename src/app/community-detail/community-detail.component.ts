@@ -33,6 +33,7 @@ export class CommunityDetailComponent implements OnInit {
     }
     editCommunity(community: Community) {
         this.communityService.selectedCommunity = community;
+        this.router.navigate(['/comunidad/crear-comunidad']);
     }
 
     deleteCommunity(id: number) {

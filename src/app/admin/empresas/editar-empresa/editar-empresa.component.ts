@@ -46,16 +46,15 @@ export class EditarEmpresaComponent implements OnInit, OnDestroy {
                             });
                         },
                         (e) => {
-                            this.alert
-                                .showErrorMessage(
-                                    'Error',
-                                    'No se puede encontrar la empresa solicitada'
-                                )
-                                .then(() => {
-                                    this.router.navigate([
-                                        '/admin/empresas/list',
-                                    ]);
-                                });
+                            this.alert.showErrorMessage(
+                                'Error',
+                                'No se puede encontrar la empresa solicitada'
+                            );
+                            // .then(() => {
+                            //     this.router.navigate([
+                            //         '/admin/empresas/list',
+                            //     ]);
+                            // });
                         }
                     );
             })

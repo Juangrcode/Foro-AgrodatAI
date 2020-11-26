@@ -66,16 +66,15 @@ export class EditarActividadAgropecuariaComponent implements OnInit, OnDestroy {
                         });
                     },
                     (e) => {
-                        this.alert
-                            .showErrorMessage(
-                                'Error',
-                                'No se puede encontrar la actividad agropecuaria solicitada'
-                            )
-                            .then(() => {
-                                this.router.navigate([
-                                    '/admin/actividades-agropecuarias/list',
-                                ]);
-                            });
+                        this.alert.showErrorMessage(
+                            'Error',
+                            'No se puede encontrar la actividad agropecuaria solicitada'
+                        );
+                        // .then(() => {
+                        //     this.router.navigate([
+                        //         '/admin/actividades-agropecuarias/list',
+                        //     ]);
+                        // });
                     }
                 );
         });

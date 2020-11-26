@@ -32,14 +32,13 @@ export class CrearActividadAgropecuariaComponent implements OnInit {
         const actividad = this.getFormValues();
         this.service.crearAtividad(actividad).subscribe(
             (r) => {
-                this.alert
-                    .showSuccesMessage(
-                        'Actividad agropecuaria registrada',
-                        'La actividad agropecuaria se ha registrado satisfactoriamente.'
-                    )
-                    .then(() => {
-                        this.frmActividad.reset();
-                    });
+                this.alert.showSuccesMessage(
+                    'Actividad agropecuaria registrada',
+                    'La actividad agropecuaria se ha registrado satisfactoriamente.'
+                );
+                // .then(() => {
+                //     this.frmActividad.reset();
+                // });
             },
             (e) => {
                 this.alert.showErrorMessage(

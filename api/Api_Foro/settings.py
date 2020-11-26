@@ -48,10 +48,7 @@ INSTALLED_APPS = [
     'activities',
     'interests',
     'new_communities',
-    'common',
     'administracion',
-    #
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
