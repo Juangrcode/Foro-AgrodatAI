@@ -17,6 +17,9 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { BannerComponent } from './banner/banner.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from 'src/environments/environment';
 
 // Services
 
@@ -41,6 +44,8 @@ import { NavbarComponent } from './navbar/navbar.component';
         MatButtonModule,
         MatSelectModule,
         HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

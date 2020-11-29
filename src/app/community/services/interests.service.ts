@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Interest } from '../models/interests';
+import { Interest } from '../../models/interests';
 import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class InterestsService {
-    URL_API = 'http://localhost:8000/api/interests/';
-    // URL_API = 'http://localhost:3000/interests/';
+    // URL_API = 'http://localhost:8000/api/interests/';
+    URL_API = 'http://localhost:3000/interests/';
 
     interests: Interest[];
     selectInterest: Interest = {

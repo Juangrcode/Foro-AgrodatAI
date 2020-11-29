@@ -1,13 +1,5 @@
 import { ConstantPool } from '@angular/compiler';
-import {
-    Component,
-    OnInit,
-    ViewChild,
-    Input,
-    Output,
-    NgModule,
-} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Interest } from '../../../models/interests';
 import { InterestsService } from '../../services/interests.service';
 
@@ -20,7 +12,8 @@ export class InterestsComponent implements OnInit {
     // imageSrc = '../iconos/eliminar.png';
     temaInteres: Array<any> = [];
 
-    @ViewChild('busca') busca;
+    @ViewChild('busca')
+    busca;
     filterPost: string = '';
     search: string;
     checkind: boolean;
@@ -34,13 +27,7 @@ export class InterestsComponent implements OnInit {
     filterInterests: any[];
 
     pageActual: number = 1;
-
-    constructor(
-        private ruta: ActivatedRoute,
-        public interestsService: InterestsService
-    ) {
-        this.ruta.params.subscribe((params) => {});
-    }
+    constructor(public interestsService: InterestsService) {}
 
     ngOnInit(): void {
         this.getAllInterests();

@@ -1,5 +1,6 @@
 import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Community } from 'src/app/models/new_communities';
 
 import { CommunityService } from '../../services/community.service';
@@ -10,11 +11,14 @@ import { CommunityService } from '../../services/community.service';
     styleUrls: ['./my-communities.component.scss'],
 })
 export class MyCommunitiesComponent implements OnInit {
-    constructor(public communityService: CommunityService) {
-        this.getAllCommunities;
-    }
+    constructor(
+        public communityService: CommunityService,
+        private router: Router
+    ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getAllCommunities();
+    }
 
     getAllCommunities() {
         this.communityService.getAllCommunities().subscribe(
@@ -30,6 +34,7 @@ export class MyCommunitiesComponent implements OnInit {
 
     editCommunity(community: Community) {
         this.communityService.selectedCommunity = community;
+        this.router.navigate(['comunidad/crear-comunidades']);
     }
 
     deleteCommunity(id: number) {

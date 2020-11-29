@@ -1,10 +1,7 @@
 <app-community-navbar></app-community-navbar>
 
-<div class="community">
-    <div
-        class="community__data-post"
-        *ngFor="let community of communityService.communities"
-    >
+<div>
+    <div *ngFor="let community of communityService.communities">
         <img
             class="community__data-post--image"
             src="assets/iconos/avatar.png"

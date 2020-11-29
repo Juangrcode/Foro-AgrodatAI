@@ -15,7 +15,7 @@ export class CreateCommunityComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        // this.getAllCommunities();
+        this.getAllCommunities();
     }
 
     clickCommunity(id: number) {
@@ -28,16 +28,16 @@ export class CreateCommunityComponent implements OnInit {
         );
     }
 
-    // getAllCommunities() {
-    //     this.communityService.getAllCommunities().subscribe(
-    //         (res) => {
-    //             this.communityService.communities = res;
-    //         },
-    //         (err) => {
-    //             console.log(err);
-    //         }
-    //     );
-    // }
+    getAllCommunities() {
+        this.communityService.getAllCommunities().subscribe(
+            (res) => {
+                this.communityService.communities = res;
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
 
     selectedCommunity(id: number) {
         console.log(id);

@@ -1,23 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-import { Activity } from '../models/activities';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Injectable({
     providedIn: 'root',
 })
-export class ActivitiesService {
-    URL_API = 'http://localhost:8000/api/activities/';
+export class TodoService {
+    todoList: AngularFireList<any>;
 
-    selectedCommunity: Activity = {
-        name: '',
-        interests: [],
-    };
-    communities: Activity[];
+    constructor(private firebasedb: AngularFireDatabase) {}
 
-    constructor(private http: HttpClient) {}
+    getTodoList() {
+        this.todoList = this.firebasedb.list('name');
+        return this.todoList;
+    }
 
-    getAllCommunities() {
-        return this.http.get<Activity[]>(this.URL_API);
+    addTodo(title: string) {
+        this.todoList.push({
+            title: title,
+            isChecked: false,
+        });
+    }
+
+    updateTodo($key: string, flag: boolean) {
+        this.todoList.update($key, { isChecked: flag });
+    }
+
+    removeTodo($key: string) {
+        this.todoList.remove($key);
     }
 }
