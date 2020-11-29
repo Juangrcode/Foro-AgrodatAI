@@ -1,59 +1,59 @@
 {
-    "interests": [
-        {
-            "completed": 0,
-            "id": 0,
-            "name": "huevos"
-        },
-        {
-            "completed": 0,
-            "id": 1,
-            "name": "banano"
-        },
-        {
-            "completed": 0,
-            "id": 2,
-            "name": "papa"
-        },
-        {
-            "completed": 0,
-            "id": 3,
-            "name": "cacao"
-        },
-        {
-            "completed": 0,
-            "id": 4,
-            "name": "arroz"
-        },
-        {
-            "completed": 0,
-            "id": 5,
-            "name": "yuca"
-        },
-        {
-            "completed": 0,
-            "id": 6,
-            "name": "platano"
-        },
-        {
-            "completed": 0,
-            "id": 7,
-            "name": "cebolla"
-        },
-        {
-            "completed": 0,
-            "id": 8,
-            "name": "mandarinas"
-        },
-        {
-            "completed": 0,
-            "id": 9,
-            "name": "tomate"
-        },
-        {
-            "completed": 0,
-            "id": 10,
-            "name": "manzanas"
-        }
-    ]
+  "interests": [
+    {
+      "completed": false,
+      "id": 1,
+      "name": "huevos"
+    },
+    {
+      "completed": false,
+      "id": 2,
+      "name": "banano"
+    },
+    {
+      "completed": false,
+      "id": 3,
+      "name": "papa"
+    },
+    {
+      "completed": false,
+      "id": 4,
+      "name": "cacao"
+    },
+    {
+      "completed": false,
+      "id": 5,
+      "name": "arroz"
+    },
+    {
+      "completed": false,
+      "id": 6,
+      "name": "yuca"
+    },
+    {
+      "completed": false,
+      "id": 7,
+      "name": "platano"
+    },
+    {
+      "completed": false,
+      "id": 8,
+      "name": "cebolla"
+    },
+    {
+      "completed": false,
+      "id": 9,
+      "name": "mandarinas"
+    },
+    {
+      "completed": false,
+      "id": 10,
+      "name": "tomate"
+    },
+    {
+      "completed": false,
+      "id": 11,
+      "name": "manzanas"
+    }
+  ]
 }
