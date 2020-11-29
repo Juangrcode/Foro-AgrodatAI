@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { InterestsService } from '../services/interests.service';
+import { InterestsService } from '../interests/services/interests.service';
 
 @Component({
     selector: 'app-proveedor',

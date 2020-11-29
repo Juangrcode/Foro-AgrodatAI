@@ -1,4 +1,5 @@
-<!-- <div class="contenedor-padre">
+<!-- 
+<div class="contenedor-padre">
     <div class="perfil_completo">
         <h2>Mi perfil</h2>
         <div class="photo_perfil">
@@ -23,8 +24,57 @@
         <label>Número de telefono movil:</label>
         <input disabled class="name" type="text" value="numero privado" />
     </div>
+</div> -->
+
+<div class="interests">
+    <h1 class="interests__title">Lista de Intereses</h1>
+    <div class="interests__container">
+        <div class="interests__container--search">
+            <h2 class="interests__search--title">Busqueda</h2>
+            <input
+                name="filterPost"
+                type="search"
+                class="interests__search--input"
+                [(ngModel)]="filterPost"
+                value="Buscar Interes"
+            />
+        </div>
+        <div class="interests__container--list">
+            <div class="interests__list--container">
+                <h2 class="interests__list--title">Intereses</h2>
+            </div>
+            <div class="interests__list--checklist">
+                <div
+                    class="interests__ckecklist"
+                    *ngFor="
+                        let interest of temaInteres
+                            | filter: filterPost
+                            | paginate
+                                : {
+                                      itemsPerPage: 24,
+                                      currentPage: pageActual
+                                  }
+                    "
+                >
+                    <input
+                        #interest.id
+                        type="checkbox"
+                        class="checksyle"
+                        [checked]="interest.completed"
+                        (click)="seleccion(interest)"
+                    />
+                    <p>{{ interest.name }}</p>
+                </div>
+            </div>
+            <pagination-controls
+                class="my-pagination"
+                (pageChange)="pageActual = $event"
+            ></pagination-controls>
+        </div>
+    </div>
 </div>
 
+<!--
 <div class="contenedor-padre">
     <div class="container_interest">
         <div class="interes">
@@ -41,40 +91,50 @@
                 <table class="table_interest_content">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th></th>
                             <th>Intereses</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr
                             *ngFor="
-                                let tema of temaInteres | filter: filterPost
+                                let interest of temaInteres
+                                    | filter: filterPost
+                                    | paginate
+                                        : {
+                                              itemsPerPage: 5,
+                                              currentPage: pageActual
+                                          }
                             "
                         >
                             <td>
                                 <input
-                                    #numero
+                                    #interes.id
                                     type="checkbox"
                                     class="checksyle"
-                                    [checked]="tema.completed"
-                                    (click)="seleccion(tema.name, tema.id)"
+                                    [checked]="interest.completed"
+                                    (click)="seleccion(interest)"
                                 />
                             </td>
                             <td>
-                                {{ tema.name }}
+                                {{ interest.name }}
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <pagination-controls
+                    class="my-pagination"
+                    (pageChange)="pageActual = $event"
+                ></pagination-controls>
                 <div class="tabla_2">
-                    <table
+                    <!-- <table
                         class="tabla_2_tabla"
                         *ngIf="mostrar"
                         border="border"
                     >
                         <thead>
                             <tr>
-                                <td>#</td>
+                                <td></td>
                                 <td>Mis Intereses</td>
                             </tr>
                         </thead>
@@ -95,19 +155,20 @@
                                     />
                                 </td>
                                 <td>
-                                    {{ frutas.tema }}
+                                    {{ frutas.name }}
                                 </td>
                                 <td>
                                     <img
-                                        (click)="eliminar(frutas.tema, i)"
+                                        (click)="eliminar(frutas.name, i)"
                                         src="https://img.icons8.com/ios/50/000000/trash--v1.png"
                                     />
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> 
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
+-->

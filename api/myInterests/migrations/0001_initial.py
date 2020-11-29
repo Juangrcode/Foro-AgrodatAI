@@ -8,16 +8,15 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('interests', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Activity',
+            name='MyInterest',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(blank=True, max_length=225)),
-                ('interests', models.ManyToManyField(to='interests.Interest')),
+                ('name', models.CharField(blank=True, max_length=80)),
+                ('completed', models.BooleanField(blank=True, default=False, null=True)),
             ],
         ),
     ]

@@ -1,6 +1,6 @@
 import { PostsComponent } from './components/posts/posts.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -14,20 +14,16 @@ import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
-import { InterestsComponent } from './interests/interests.component';
-import { FilterPipe } from './pipes/filter.pipe';
 import { PerfilComponent } from './perfil/perfil.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
 import { InterestComponent } from './interest/interest.component';
-import { CommonComponent } from './common/common.component';
-import { CreateCommunityComponent } from './create-community/create-community.component';
-import { NewCommunityComponent } from './new-community/new-community.component';
-import { FormNewCommunityComponent } from './form-new-community/form-new-community.component';
 import { ViewNewCommunityComponent } from './view-new-community/view-new-community.component';
 import { MyInterestComponent } from './my-interest/my-interest.component';
 import { CommunityDetailComponent } from './community-detail/community-detail.component';
+
+// Services
 
 @NgModule({
     declarations: [
@@ -36,21 +32,15 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
         NoticiaComponent,
         ProveedorComponent,
         ProductorComponent,
-        InterestsComponent,
-        FilterPipe,
         PerfilComponent,
         NavbarComponent,
         HeaderComponent,
         BannerComponent,
         InterestComponent,
-        CommonComponent,
-        CreateCommunityComponent,
-        NewCommunityComponent,
-        FormNewCommunityComponent,
         ViewNewCommunityComponent,
         MyInterestComponent,
         CommunityDetailComponent,
-        PostsComponent
+        PostsComponent,
     ],
     imports: [
         BrowserModule,
@@ -64,5 +54,6 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
     ],
     providers: [],
     bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

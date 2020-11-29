@@ -1,5 +1,5 @@
-from django.apps import AppConfig
+# from django.apps import AppConfig
 
 
-class AdministracionConfig(AppConfig):
-    name = 'administracion'
+# class AdministracionConfig(AppConfig):
+#     name = 'administracion'
