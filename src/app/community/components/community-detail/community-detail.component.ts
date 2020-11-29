@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Community } from '../models/new_communities';
+import { Community } from '../../../models/new_communities';
 
-import { CommunityService } from '../community/services/community.service';
+import { CommunityService } from '../../services/community.service';
 
 @Component({
     selector: 'app-community-detail',

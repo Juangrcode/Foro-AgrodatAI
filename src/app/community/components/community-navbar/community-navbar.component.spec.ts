@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewNewCommunityComponent } from './view-new-community.component';
+import { CommunityNavbarComponent } from './community-navbar.component';
 
-describe('ViewNewCommunityComponent', () => {
-  let component: ViewNewCommunityComponent;
-  let fixture: ComponentFixture<ViewNewCommunityComponent>;
+describe('CommunityNavbarComponent', () => {
+  let component: CommunityNavbarComponent;
+  let fixture: ComponentFixture<CommunityNavbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewNewCommunityComponent ]
+      declarations: [ CommunityNavbarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewNewCommunityComponent);
+    fixture = TestBed.createComponent(CommunityNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

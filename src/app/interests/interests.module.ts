@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InterestsRoutingModule } from './interests-routing.module';
 import { InterestsComponent } from './components/interests/interests.component';
-import { FilterPipe } from '../pipes/filter.pipe';
+import { FilterPipe } from '../shared/pipes/filter/filter.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';

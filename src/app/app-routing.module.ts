@@ -4,7 +4,6 @@ import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProductorComponent } from './productor/productor.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
-import { PostsComponent } from './components/posts/posts.component';
 
 const routes: Routes = [
     {
@@ -36,10 +35,6 @@ const routes: Routes = [
             import('./community/community.module').then(
                 (m) => m.CommunityModule
             ),
-    },
-    {
-        path: 'post/:id',
-        component: PostsComponent,
     },
 ];
 
