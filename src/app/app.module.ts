@@ -15,6 +15,8 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { BannerComponent } from './banner/banner.component';
+import { ModuleComuComponent } from './module-comu/module-comu.component';
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -34,6 +36,8 @@ import { environment } from 'src/environments/environment';
         NavbarComponent,
         HeaderComponent,
         BannerComponent,
+        ModuleComuComponent,
+        ModuleCreadasComponent,
     ],
     imports: [
         BrowserModule,

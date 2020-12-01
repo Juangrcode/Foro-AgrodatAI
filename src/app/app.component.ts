@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from './services/noticias.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormControl } from '@angular/forms';
-import { Interest } from './models/interests';
+
 
 @Component({
     selector: 'app-root',
