@@ -11,7 +11,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
-import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { BannerComponent } from './banner/banner.component';
@@ -20,6 +19,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from 'src/environments/environment';
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
+import { ModuleComuComponent } from './module-comu/module-comu.component';
 
 // Services
 
@@ -28,12 +29,13 @@ import { environment } from 'src/environments/environment';
         AppComponent,
         MaquetaComponent,
         NoticiaComponent,
-        ProveedorComponent,
         ProductorComponent,
         PerfilComponent,
         NavbarComponent,
         HeaderComponent,
         BannerComponent,
+        ModuleCreadasComponent,
+        ModuleComuComponent,
     ],
     imports: [
         BrowserModule,

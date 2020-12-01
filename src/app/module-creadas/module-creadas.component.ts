@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 
+
 @Component({
   selector: 'app-module-creadas',
   templateUrl: './module-creadas.component.html',
