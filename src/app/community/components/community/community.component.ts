@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostsService } from 'src/app/services/activities.service';
 
 @Component({
     selector: 'app-community',
@@ -6,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./community.component.scss'],
 })
 export class CommunityComponent implements OnInit {
-    constructor() {}
+    constructor(public postsService: PostsService) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.getAllPosts();
+    }
+
+    getAllPosts() {
+        this.postsService.getAllPosts().subscribe(
+            (res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
 }

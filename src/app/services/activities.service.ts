@@ -1,31 +1,15 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root',
 })
-export class TodoService {
-    todoList: AngularFireList<any>;
+export class PostsService {
+    URL_API = 'http://localhost:8000/api/posts/';
 
-    constructor(private firebasedb: AngularFireDatabase) {}
+    constructor(private http: HttpClient) {}
 
-    getTodoList() {
-        this.todoList = this.firebasedb.list('name');
-        return this.todoList;
-    }
-
-    addTodo(title: string) {
-        this.todoList.push({
-            title: title,
-            isChecked: false,
-        });
-    }
-
-    updateTodo($key: string, flag: boolean) {
-        this.todoList.update($key, { isChecked: flag });
-    }
-
-    removeTodo($key: string) {
-        this.todoList.remove($key);
+    getAllPosts() {
+        return this.http.get(this.URL_API);
     }
 }
