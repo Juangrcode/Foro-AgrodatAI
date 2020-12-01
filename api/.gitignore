@@ -73,6 +73,7 @@ pytestdebug.log
 *.mo
 
 # Django stuff:
+db.sqlite3
 
 # Flask stuff:
 instance/

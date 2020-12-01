@@ -4,7 +4,7 @@ import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProductorComponent } from './productor/productor.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
-import { PostsComponent } from './components/posts/posts.component';
+// import { PostsComponent } from './components/posts/posts.component';
 import { ModuleComuComponent} from './module-comu/module-comu.component'
 import { ModuleCreadasComponent } from './module-creadas/module-creadas.component'
 
@@ -49,15 +49,12 @@ const routes: Routes = [
                 (m) => m.CommunityModule
             ),
     },
-    {
-        path: 'post/:id',
-        component: PostsComponent,
-    },
 ];
 
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {
+            enableTracing: true,
             preloadingStrategy: PreloadAllModules,
         }),
     ],

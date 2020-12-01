@@ -2,58 +2,243 @@
     "interests": [
         {
             "completed": 0,
-            "id": 0,
-            "name": "huevos"
-        },
-        {
-            "completed": 0,
             "id": 1,
-            "name": "banano"
+            "name": "Concentración de la tierra"
         },
         {
             "completed": 0,
             "id": 2,
-            "name": "papa"
+            "name": "Reconversión de ganadería"
         },
         {
             "completed": 0,
             "id": 3,
-            "name": "cacao"
+            "name": "Suelos Arenosos"
         },
         {
             "completed": 0,
             "id": 4,
-            "name": "arroz"
+            "name": "Suelos Arcillosos"
         },
         {
             "completed": 0,
             "id": 5,
-            "name": "yuca"
+            "name": "Fruticultura"
         },
         {
             "completed": 0,
             "id": 6,
-            "name": "platano"
+            "name": "Fertirrigación"
         },
         {
             "completed": 0,
             "id": 7,
-            "name": "cebolla"
+            "name": "Fertilidad del Suelo"
         },
         {
             "completed": 0,
             "id": 8,
-            "name": "mandarinas"
+            "name": "Suelos Ácidos"
         },
         {
             "completed": 0,
             "id": 9,
-            "name": "tomate"
+            "name": "Fertilidad del Suelo"
         },
         {
             "completed": 0,
             "id": 10,
-            "name": "manzanas"
+            "name": "Fitomejoramiento"
+        },
+        {
+            "completed": 0,
+            "id": 11,
+            "name": "Ganado"
+        },
+        {
+            "completed": 0,
+            "id": 12,
+            "name": "Carne"
+        },
+        {
+            "completed": 0,
+            "id": 13,
+            "name": "Ganaderia"
+        },
+        {
+            "completed": 0,
+            "id": 14,
+            "name": "Brahman"
+        },
+        {
+            "completed": 0,
+            "id": 15,
+            "name": "Antrax"
+        },
+        {
+            "completed": 0,
+            "id": 16,
+            "name": "Charolais"
+        },
+        {
+            "completed": 0,
+            "id": 17,
+            "name": "Razas"
+        },
+        {
+            "completed": 0,
+            "id": 18,
+            "name": "Jersey"
+        },
+        {
+            "completed": 0,
+            "id": 19,
+            "name": "Vacuno"
+        },
+        {
+            "completed": 0,
+            "id": 20,
+            "name": "Mastitis"
+        },
+        {
+            "completed": 0,
+            "id": 21,
+            "name": "Vaca"
+        },
+        {
+            "completed": 0,
+            "id": 22,
+            "name": "Cerdo"
+        },
+        {
+            "completed": 0,
+            "id": 23,
+            "name": "Pietrain"
+        },
+        {
+            "completed": 0,
+            "id": 24,
+            "name": "Landrace"
+        },
+        {
+            "completed": 0,
+            "id": 25,
+            "name": "Yorkshire"
+        },
+        {
+            "completed": 0,
+            "id": 26,
+            "name": "Duroc"
+        },
+        {
+            "completed": 0,
+            "id": 27,
+            "name": "Ovino"
+        },
+        {
+            "completed": 0,
+            "id": 28,
+            "name": "Caprino"
+        },
+        {
+            "completed": 0,
+            "id": 29,
+            "name": "Estiercol"
+        },
+        {
+            "completed": 0,
+            "id": 30,
+            "name": "Crias"
+        },
+        {
+            "completed": 0,
+            "id": 31,
+            "name": "Planctonicos"
+        },
+        {
+            "completed": 0,
+            "id": 32,
+            "name": "Microalgas"
+        },
+        {
+            "completed": 0,
+            "id": 33,
+            "name": "Artemia"
+        },
+        {
+            "completed": 0,
+            "id": 34,
+            "name": "Macroalgas"
+        },
+        {
+            "completed": 0,
+            "id": 35,
+            "name": "Moluscos"
+        },
+        {
+            "completed": 0,
+            "id": 36,
+            "name": "Crustaceos"
+        },
+        {
+            "completed": 0,
+            "id": 37,
+            "name": "Ingenieros Pesqueros"
+        },
+        {
+            "completed": 0,
+            "id": 38,
+            "name": "Ingenieron Zootecnistas"
+        },
+        {
+            "completed": 0,
+            "id": 39,
+            "name": "Ingenieros Acuicola"
+        },
+        {
+            "completed": 0,
+            "id": 40,
+            "name": "Biologos Marinos"
+        },
+        {
+            "completed": 0,
+            "id": 41,
+            "name": "Aves"
+        },
+        {
+            "completed": 0,
+            "id": 42,
+            "name": "Gallinas"
+        },
+        {
+            "completed": 0,
+            "id": 43,
+            "name": "Pavos"
+        },
+        {
+            "completed": 0,
+            "id": 44,
+            "name": "Pollos"
+        },
+        {
+            "completed": 0,
+            "id": 45,
+            "name": "Patos"
+        },
+        {
+            "completed": 0,
+            "id": 46,
+            "name": "Cordonices"
+        },
+        {
+            "completed": 0,
+            "id": 47,
+            "name": "Huevo"
+        },
+        {
+            "completed": 0,
+            "id": 48,
+            "name": "Granjas"
         }
     ]
 }

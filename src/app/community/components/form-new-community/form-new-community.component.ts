@@ -55,10 +55,10 @@ export class FormNewCommunityComponent implements OnInit {
             this.communityService.createCommunity(form.value).subscribe(
                 (res) => {
                     console.log('anadir al comunidad ');
-
                     // this.communityClicked.emit(this.community.id);
                     this.getAllCommunities();
                     form.reset();
+                    alert('Comunidad Creada');
                 },
                 (err) => {
                     console.log(err);

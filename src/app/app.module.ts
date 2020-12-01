@@ -1,4 +1,3 @@
-import { PostsComponent } from './components/posts/posts.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,15 +14,12 @@ import { NoticiaComponent } from './noticia/noticia.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { HeaderComponent } from './header/header.component';
 import { BannerComponent } from './banner/banner.component';
-import { InterestComponent } from './interest/interest.component';
-import { ViewNewCommunityComponent } from './view-new-community/view-new-community.component';
-import { MyInterestComponent } from './my-interest/my-interest.component';
-import { CommunityDetailComponent } from './community-detail/community-detail.component';
-import { ModuleComuComponent } from './module-comu/module-comu.component';
-import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from 'src/environments/environment';
 
 // Services
 
@@ -38,13 +34,6 @@ import { ModuleCreadasComponent } from './module-creadas/module-creadas.componen
         NavbarComponent,
         HeaderComponent,
         BannerComponent,
-        InterestComponent,
-        ViewNewCommunityComponent,
-        MyInterestComponent,
-        CommunityDetailComponent,
-        PostsComponent,
-        ModuleComuComponent,
-        ModuleCreadasComponent,
     ],
     imports: [
         BrowserModule,
@@ -55,6 +44,8 @@ import { ModuleCreadasComponent } from './module-creadas/module-creadas.componen
         MatButtonModule,
         MatSelectModule,
         HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

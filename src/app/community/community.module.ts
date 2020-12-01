@@ -7,12 +7,20 @@ import { CreateCommunityComponent } from './components/create-community/create-c
 import { FormNewCommunityComponent } from './components/form-new-community/form-new-community.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ForoComponent } from './components/foro/foro.component';
+import { MyCommunitiesComponent } from './components/my-communities/my-communities.component';
+import { FeaturedCommunitiesComponent } from './components/featured-communities/featured-communities.component';
+import { CommunityNavbarComponent } from './components/community-navbar/community-navbar.component';
 
 @NgModule({
     declarations: [
         CommunityComponent,
         CreateCommunityComponent,
         FormNewCommunityComponent,
+        ForoComponent,
+        MyCommunitiesComponent,
+        FeaturedCommunitiesComponent,
+        CommunityNavbarComponent,
     ],
     imports: [
         CommonModule,
