@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   perfiles: any[];
 
 
-  constructor(    private _router: Router,) {
+  constructor(private _router: Router,) {
 
     }
 

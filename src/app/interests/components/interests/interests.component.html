@@ -1,0 +1,174 @@
+<!-- 
+<div class="contenedor-padre">
+    <div class="perfil_completo">
+        <h2>Mi perfil</h2>
+        <div class="photo_perfil">
+            <img
+                src="assets/iconos/avatar.png"
+                alt="perfil"
+                alt=""
+                width="49"
+                height="35"
+            />
+        </div>
+        <div class="conjunto">
+            <button class="boton1">Mis datos</button>
+            <button class="boton2">Cambio de contraseña</button>
+        </div>
+        <label>Nombres:</label>
+        <input disabled class="name" type="text" name="nombre" value="John" />
+        <label>Apellidos:</label>
+        <input disabled class="name" type="text" value="Prieto" />
+        <label>Correo electrónico:</label>
+        <input disabled class="name" type="email" value="maye@nose.com" />
+        <label>Número de telefono movil:</label>
+        <input disabled class="name" type="text" value="numero privado" />
+    </div>
+</div> -->
+
+<div class="interests">
+    <h1 class="interests__title">Lista de Intereses</h1>
+    <div class="interests__container">
+        <div class="interests__container--search">
+            <h2 class="interests__search--title">Busqueda</h2>
+            <input
+                name="filterPost"
+                type="search"
+                class="interests__search--input"
+                [(ngModel)]="filterPost"
+                value="Buscar Interes"
+            />
+        </div>
+        <div class="interests__container--list">
+            <div class="interests__list--container">
+                <h2 class="interests__list--title">Intereses</h2>
+            </div>
+            <div class="interests__list--checklist">
+                <div
+                    class="interests__ckecklist"
+                    *ngFor="
+                        let interest of temaInteres
+                            | filter: filterPost
+                            | paginate
+                                : {
+                                      itemsPerPage: 24,
+                                      currentPage: pageActual
+                                  }
+                    "
+                >
+                    <input
+                        #interest.id
+                        type="checkbox"
+                        class="checksyle"
+                        [checked]="interest.completed"
+                        (click)="seleccion(interest)"
+                    />
+                    <p>{{ interest.name }}</p>
+                </div>
+            </div>
+            <pagination-controls
+                class="my-pagination"
+                (pageChange)="pageActual = $event"
+            ></pagination-controls>
+        </div>
+    </div>
+</div>
+
+<!--
+<div class="contenedor-padre">
+    <div class="container_interest">
+        <div class="interes">
+            <h2>Mis Intereses</h2>
+            <p>Buscar intereses</p>
+            <input
+                name="filterPost"
+                type="search"
+                class="search"
+                [(ngModel)]="filterPost"
+                value="Buscar Interes"
+            />
+            <div class="table_interest">
+                <table class="table_interest_content">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Intereses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="
+                                let interest of temaInteres
+                                    | filter: filterPost
+                                    | paginate
+                                        : {
+                                              itemsPerPage: 5,
+                                              currentPage: pageActual
+                                          }
+                            "
+                        >
+                            <td>
+                                <input
+                                    #interes.id
+                                    type="checkbox"
+                                    class="checksyle"
+                                    [checked]="interest.completed"
+                                    (click)="seleccion(interest)"
+                                />
+                            </td>
+                            <td>
+                                {{ interest.name }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls
+                    class="my-pagination"
+                    (pageChange)="pageActual = $event"
+                ></pagination-controls>
+                <div class="tabla_2">
+                    <!-- <table
+                        class="tabla_2_tabla"
+                        *ngIf="mostrar"
+                        border="border"
+                    >
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Mis Intereses</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr *ngFor="let frutas of frutas_seleccionadas;index as i"> -->
+<!--<tr
+                                *ngFor="
+                                    let frutas of frutas_seleccionadas;
+                                    index as i
+                                "
+                            >
+                                <td class="tabla_2__click">
+                                    <input
+                                        class="tabla_2_input"
+                                        type="checkbox"
+                                        checked
+                                        disabled
+                                    />
+                                </td>
+                                <td>
+                                    {{ frutas.name }}
+                                </td>
+                                <td>
+                                    <img
+                                        (click)="eliminar(frutas.name, i)"
+                                        src="https://img.icons8.com/ios/50/000000/trash--v1.png"
+                                    />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # apps
     'activities',
     'interests',
+    'myInterests',
     'new_communities',
     'administracion',
 ]

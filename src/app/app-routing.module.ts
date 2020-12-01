@@ -1,16 +1,24 @@
-import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { MaquetaComponent } from '../app/maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProductorComponent } from './productor/productor.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
-import { InterestsComponent } from './interests/interests.component';
-import { PostsComponent } from './components/posts/posts.component';
-import { CommonComponent } from './common/common.component';
-import { NewCommunityComponent } from './new-community/new-community.component';
-import { CommunityDetailComponent } from './community-detail/community-detail.component';
+// import { PostsComponent } from './components/posts/posts.component';
+import { ModuleComuComponent} from './module-comu/module-comu.component'
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component'
+
+
 
 const routes: Routes = [
+    {
+        path: 'comunidades',
+        component: ModuleComuComponent,
+    },
+    {
+        path: 'comunidadesCreadas',
+        component: ModuleCreadasComponent,
+    },
     {
         path: 'noticias',
         component: MaquetaComponent,
@@ -29,33 +37,27 @@ const routes: Routes = [
     },
     {
         path: 'intereses',
-        component: InterestsComponent,
+        loadChildren: () =>
+            import('./interests/interests.module').then(
+                (m) => m.InterestsModule
+            ),
     },
     {
         path: 'comunidad',
-        component: CommonComponent,
-    },
-    {
-        path: 'comunidad/crear-comunidad',
-        component: NewCommunityComponent,
-    },
-    {
-        path: 'comunidad/:id',
-        component: CommunityDetailComponent,
-    },
-    {
-        path: 'post/:id',
-        component: PostsComponent,
-    },
-    {
-        path: 'admin',
         loadChildren: () =>
-            import('./admin/admin.module').then((m) => m.AdminModule),
+            import('./community/community.module').then(
+                (m) => m.CommunityModule
+            ),
     },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [
+        RouterModule.forRoot(routes, {
+            enableTracing: true,
+            preloadingStrategy: PreloadAllModules,
+        }),
+    ],
     exports: [RouterModule],
 })
 export class AppRoutingModule {}

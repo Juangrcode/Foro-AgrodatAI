@@ -1,0 +1,31 @@
+<div class="fondo">
+    <div class="fondo-nav">
+        <button (click)="creadas=!creadas;comunidades=false;destacado=false" class="fondo-nav__item crear">
+            <img src="../assets/images/crearUsuario.png" alt="" />
+            <h1>Crear comunidades</h1>
+            <p>Elige los temas de intereses</p>
+        </button>
+        
+        <button (click)="comunidades=!comunidades;creadas=false;destacado=false"  class="fondo-nav__item misComunidades">
+            <img src="../assets/images/grupo.png" alt="" />
+            <h1>Mis Comunidades</h1>
+            <p>Elige los temas de intereses</p>
+        </button>
+        
+        <button (click)="destacado=!destacado;creadas=false;comunidades=false"     class="fondo-nav__item destacadas">
+            <img src="../assets/images/grupo.png" alt="" />
+            <h1>Comunidades destacadas</h1>
+            <p>Elige los temas de intereses</p>
+        </button>
+    </div>
+    <div *ngIf="comunidades">
+        hola
+    </div>
+    <div *ngIf="creadas">
+       <app-module-creadas></app-module-creadas> 
+    </div>
+    <div *ngIf="destacado">
+        destacado
+    </div>
+</div>
+

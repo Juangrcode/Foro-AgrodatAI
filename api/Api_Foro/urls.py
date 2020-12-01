@@ -5,6 +5,7 @@ from django.urls import path, include
 # Routes
 from activities.urls import router as router_activities
 from interests.urls import router as router_interests
+from myInterests.urls import router as router_myInterests
 from new_communities.urls import router as router_new_communities
 # from administracion.urls import router as router_administracion
 
@@ -13,6 +14,7 @@ urlpatterns = [
 
     path('api/', include(router_activities.urls)),
     path('api/', include(router_interests.urls)),
+    path('api/', include(router_myInterests.urls)),
     path('api/', include(router_new_communities.urls)),
     # path('api/', include(router_administracion)),
 ]

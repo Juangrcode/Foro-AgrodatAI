@@ -1,0 +1,43 @@
+<app-community-navbar></app-community-navbar>
+<app-form-new-community></app-form-new-community>
+
+<!-- <div *ngFor="let community of this.communityService.communities">
+    <app-form-new-community
+        (communityClicked)="clickCommunity($event)"
+        [Community]="Community"
+    >
+    </app-form-new-community>
+</div> -->
+
+<!-- <div class="community">
+    <div
+        class="community__data-post"
+        *ngFor="let community of communityService.communities"
+        (click)="clickCommunity(community.id)"
+    >
+        <img
+            class="community__data-post--image"
+            src="../../assets/iconos/avatar.png"
+            alt="Logo"
+        />
+        <div class="community__data">
+            <div class="community__data-post--info">
+                <h1>{{ community.name }}</h1>
+                <h2 *ngIf="community.activities == 1">Agricola</h2>
+                <h2 *ngIf="community.activities == 2">Bovino</h2>
+                <h2 *ngIf="community.activities == 3">Porcino</h2>
+                <h2 *ngIf="community.activities == 4">Avicola</h2>
+                <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
+                <h3>{{ community.created | date: "HH:mm" }}</h3>
+            </div>
+            <!-- <div>
+                <button class="btn btn-edit" (click)="editCommunity(community)">
+                    Editar
+                </button>
+                <button class="btn" (click)="deleteCommunity(community.id)">
+                    Eliminar
+                </button>
+            </div> -->
+<!-- </div>
+    </div>
+</div> -->
