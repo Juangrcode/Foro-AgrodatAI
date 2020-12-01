@@ -1,0 +1,37 @@
+
+.fondo{
+    background: #e7e6f7;
+    height: 100%;
+    width: 100%;
+}
+.fondo .fondo-nav{
+    display: flex;   
+    flex-wrap: nowrap;
+    margin-left: 5%;
+}
+.fondo .fondo-nav .fondo-nav__item
+{
+    background: white;
+    margin-left: 10%;
+    border-radius:5px;
+    padding: 25px;
+    box-shadow: 1px 1px 1px #888888;
+    margin-top: 15px;
+    border: none;
+
+
+}
+.fondo .fondo-nav .fondo-nav__item:focus {
+    outline: none;
+}
+.fondo .fondo-nav .fondo-nav__crear img{
+    margin-left: 10%;
+}
+.div{
+    width: 100%;
+    background-color:white;
+}
+h1,p{
+    color: #009a74;
+    
+}

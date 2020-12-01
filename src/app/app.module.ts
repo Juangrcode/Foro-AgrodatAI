@@ -22,6 +22,8 @@ import { InterestComponent } from './interest/interest.component';
 import { ViewNewCommunityComponent } from './view-new-community/view-new-community.component';
 import { MyInterestComponent } from './my-interest/my-interest.component';
 import { CommunityDetailComponent } from './community-detail/community-detail.component';
+import { ModuleComuComponent } from './module-comu/module-comu.component';
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
 
 // Services
 
@@ -41,6 +43,8 @@ import { CommunityDetailComponent } from './community-detail/community-detail.co
         MyInterestComponent,
         CommunityDetailComponent,
         PostsComponent,
+        ModuleComuComponent,
+        ModuleCreadasComponent,
     ],
     imports: [
         BrowserModule,
