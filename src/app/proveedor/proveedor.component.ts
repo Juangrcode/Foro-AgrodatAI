@@ -19,7 +19,8 @@ export class ProveedorComponent implements OnInit {
         // { id: 6, tipo: false, nombre: 'Proveedores' },
         // { id: 7, tipo: false, nombre: 'Créditos' },
         // { id: 8, tipo: false, nombre: 'Clima' },
-        // { id: 9, tipo: false, nombre: 'Producción' },
+        // { id: 9, tipo: pññ,{´
+    k lmo }, nombre: 'Producción' },
         // { id: 8, tipo: false, nombre: 'Subsidios' },
     ];
 
@@ -30,7 +31,7 @@ export class ProveedorComponent implements OnInit {
     frutas_seleccionadas: any[] = [];
     mostrar: boolean = false;
     found: any;
-    constructor(
+    constructor( 
         private ruta: ActivatedRoute,
         public interestsService: InterestsService
     ) {
