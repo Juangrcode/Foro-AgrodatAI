@@ -8,17 +8,22 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
+from rest_framework import permissions
 # Serializers
 from .serializers import ProfileSerializer
 from .serializers import UserSerializer
 # Models
 from .models import Profile
+# Permissions
+from snippets.permissions import IsOwnerOrReadOnly
 
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                          IsOwnerOrReadOnly]
 
 
 class UserViewSet(viewsets.ModelViewSet):
