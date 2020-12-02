@@ -20,7 +20,14 @@
                     />
                 </div>
                 <div class="community__data-post--info">
-                    <h3>{{ community.name }}</h3>
+                    <h3>
+                        <a
+                            class="community__user--title"
+                            (click)="communityDetail(community.id)"
+                        >
+                            {{ community.name }}</a
+                        >
+                    </h3>
                     <h2 *ngIf="community.activities == 1">Agricola</h2>
                     <h2 *ngIf="community.activities == 2">Bovino</h2>
                     <h2 *ngIf="community.activities == 3">Porcino</h2>

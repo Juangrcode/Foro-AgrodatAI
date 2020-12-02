@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2'
+import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 // import Swal from 'sweetalert2/dist/sweetalert2.js'
 
 @Component({
@@ -7,39 +8,25 @@ import Swal from 'sweetalert2'
     templateUrl: './module-comu.component.html',
     styleUrls: ['./module-comu.component.scss'],
 })
-<<<<<<< HEAD
-export class ModuleComuComponent  {
-  comunidades:boolean=false
-  crear:boolean=false
-  foro:boolean=false
-  filterName:string
-  constructor() { } 
-
-  guardar(){
-    Swal.fire({ 
-      icon: 'success',
-      title: 'gracias',
-      showConfirmButton: true,
-      
-    }).then(function () {
-        console.log ('Se hizo clic en el botón Aceptar.');
-      });
-    
-  }
-  addPost(form: NgForm){
-    form.resetForm(); // or form.reset();
-
-    // console.log(form)
-  }
-}
-=======
-export class ModuleComuComponent implements OnInit {
+export class ModuleComuComponent {
     comunidades: boolean = false;
     crear: boolean = false;
-    formulario: boolean = false;
     foro: boolean = false;
+    filterName: string;
     constructor() {}
 
-    ngOnInit() {}
+    guardar() {
+        Swal.fire({
+            icon: 'success',
+            title: 'gracias',
+            showConfirmButton: true,
+        }).then(function () {
+            console.log('Se hizo clic en el botón Aceptar.');
+        });
+    }
+    addPost(form: NgForm) {
+        form.resetForm(); // or form.reset();
+
+        // console.log(form)
+    }
 }
->>>>>>> 9fd98160b4fa886fca4ee7697f41710ef600a579

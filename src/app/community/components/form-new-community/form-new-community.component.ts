@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Community } from '../../../models/new_communities';
+import Swal from 'sweetalert2';
 
 import { CommunityService } from '../../services/community.service';
 
@@ -26,6 +27,16 @@ export class FormNewCommunityComponent implements OnInit {
 
     ngOnInit(): void {
         this.getAllCommunities();
+    }
+
+    guardar() {
+        Swal.fire({
+            icon: 'success',
+            title: 'gracias',
+            showConfirmButton: true,
+        }).then(function () {
+            console.log('Se hizo clic en el botón Aceptar.');
+        });
     }
 
     resetForm(form: NgForm) {
@@ -60,7 +71,6 @@ export class FormNewCommunityComponent implements OnInit {
                     // this.communityClicked.emit(this.community.id);
                     this.getAllCommunities();
                     form.reset();
-                    alert('Comunidad Creada');
                 },
                 (err) => {
                     console.log(err);

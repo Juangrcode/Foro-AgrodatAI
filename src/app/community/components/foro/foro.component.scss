@@ -49,6 +49,7 @@ p {
     border-radius: 10px;
     background-color: rebeccapurple;
     color: white;
+    cursor: pointer;
 }
 
 ::placeholder {
@@ -88,6 +89,8 @@ p {
 }
 .posts__image {
     height: 40px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .posts__container-info {

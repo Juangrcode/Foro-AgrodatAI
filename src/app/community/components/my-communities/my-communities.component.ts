@@ -51,4 +51,14 @@ export class MyCommunitiesComponent implements OnInit {
             );
         }
     }
+
+    communityDetail(id: number) {
+        this.router.navigate(['/comunidad/mis-comunidades', id]);
+        console.log('community');
+        console.log(id);
+        this.communityService.getCommunity(id).subscribe(
+            (res) => console.log(res),
+            (err) => console.log(err)
+        );
+    }
 }

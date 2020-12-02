@@ -3,7 +3,15 @@
     <div class="container">
         <div class="modulesComunidad">
             <div
-                (click)="foro = !foro; crear = false; comunidades = false"
+                (click)="
+                    foro = !foro;
+                    crear = false;
+                    comunidades = false;
+                    destacadas = false
+                "
+                [ngStyle]="{
+                    'background-color': foro ? '#b3e6cc' : '#ffffff'
+                }"
                 class="module"
             >
                 <img
@@ -15,7 +23,15 @@
                 <p class="module__text">Discusiones de intereses</p>
             </div>
             <div
-                (click)="crear = !crear; comunidades = false; foro = false"
+                (click)="
+                    crear = !crear;
+                    comunidades = false;
+                    foro = false;
+                    destacadas = false
+                "
+                [ngStyle]="{
+                    'background-color': crear ? '#b3e6cc' : '#ffffff'
+                }"
                 class="module"
             >
                 <img
@@ -29,8 +45,14 @@
 
             <div
                 (click)="
-                    comunidades = !comunidades; crear = false; foro = false
+                    comunidades = !comunidades;
+                    crear = false;
+                    foro = false;
+                    destacadas = false
                 "
+                [ngStyle]="{
+                    'background-color': comunidades ? '#b3e6cc' : '#ffffff'
+                }"
                 class="module"
             >
                 <img
@@ -44,7 +66,15 @@
                 >
             </div>
             <div
-                (click)="destacadas = !destacadas; crear = false; foro = false"
+                (click)="
+                    destacadas = !destacadas;
+                    crear = false;
+                    foro = false;
+                    comunidades = false
+                "
+                [ngStyle]="{
+                    'background-color': destacadas ? '#b3e6cc' : '#ffffff'
+                }"
                 class="module"
             >
                 <img

@@ -65,6 +65,8 @@ p {
 }
 .community__data-post--image {
     height: 40px;
+    object-fit: cover;
+    border-radius: 20px;
 }
 
 .contenedor {
@@ -121,6 +123,7 @@ p {
     color: white;
     bottom: 4%;
     left: 25%;
+    cursor: pointer;
 }
 .community__data--btn {
     display: flex;
@@ -129,4 +132,10 @@ p {
 }
 .container-item {
     display: flex;
+}
+
+.community__user--title {
+    text-decoration: none;
+    color: #019a78;
+    cursor: pointer;
 }

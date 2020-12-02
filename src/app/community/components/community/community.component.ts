@@ -11,7 +11,7 @@ export class CommunityComponent implements OnInit {
     comunidades: boolean = false;
     crear: boolean = false;
     formulario: boolean = false;
-    foro: boolean = false;
+    foro: boolean = true;
     destacadas: boolean = false;
     constructor(public postsService: PostsService) {}
 

@@ -16,5 +16,4 @@ class Profile(models.Model):
     class Meta:
         ordering = ['owner']
 
-    def __str__(self):
-        return self.owner
+    
