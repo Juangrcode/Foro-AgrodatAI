@@ -15,7 +15,7 @@ from .serializers import UserSerializer
 # Models
 from .models import Profile
 # Permissions
-from users.permissions import IsOwnerOrReadOnly
+# from users.permissions import IsOwnerOrReadOnly
 
 
 @api_view(['GET'])
@@ -28,8 +28,8 @@ def api_root(request, format=None):
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-                          IsOwnerOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+    #                       IsOwnerOrReadOnly]
 
 
 class UserViewSet(viewsets.ModelViewSet):

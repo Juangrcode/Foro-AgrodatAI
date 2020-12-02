@@ -10,17 +10,17 @@ from rest_framework.response import Response
 
 from .serializers import NewCommunitySerializer
 from .models import NewCommunity
-from .permissions import IsOwnerOrReadOnly
+# from new_communities.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
-        'new_communities': reverse('new_community-list', request=request, format=format),
+        'new_communities': reverse('community-list', request=request, format=format),
     })
 
 class NewCommunityViewSet(viewsets.ModelViewSet):
     queryset = NewCommunity.objects.all()
     serializer_class = NewCommunitySerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]

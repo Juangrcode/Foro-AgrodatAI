@@ -1,0 +1,36 @@
+<div class="posts">
+    <div class="posts__container">
+        <div class="posts__container--image">
+            <img
+                class="posts__image"
+                *ngIf="post.owner"
+                [src]="postsService.profiles.picture"
+                alt="AgrodatAI"
+            />
+            <img
+                class="posts__image"
+                *ngIf="!post.owner"
+                src="assets/images/borde-logo.png"
+                alt="AgrodatAI"
+            />
+        </div>
+        <div class="posts__container--user">
+            <h2 *ngIf="post.owner">
+                <a class="posts__user--title" (click)="postDetail(post.id)">{{
+                    post.owner
+                }}</a>
+            </h2>
+            <h2 *ngIf="!post.owner">
+                <a class="posts__user--title" (click)="postDetail(post.id)"
+                    >Invitado</a
+                >
+            </h2>
+            <p class="posts__user--time">
+                {{ post.timestamp | amTimeAgo: True }}
+            </p>
+        </div>
+    </div>
+    <div class="posts__container-info">
+        <p class="posts__container--content">{{ post.content }}</p>
+    </div>
+</div>

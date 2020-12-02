@@ -18,7 +18,6 @@ import { ModuleComuComponent } from './module-comu/module-comu.component';
 import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
-
 // Services
 
 @NgModule({

@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModuleComuComponent implements OnInit {
     comunidades: boolean = false;
-    creadas: boolean = false;
-    destacado: boolean = false;
-
+    crear: boolean = false;
+    formulario: boolean = false;
+    foro: boolean = false;
     constructor() {}
 
-    ngOnInit(): void {}
+    ngOnInit() {}
 }

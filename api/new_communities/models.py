@@ -11,11 +11,9 @@ class NewCommunity(models.Model):
     # NewCommunities Model
 
     name = models.CharField(max_length=225, blank=True)
-    interests = models.ManyToManyField(Interest)
+    interests = models.ManyToManyField(Interest, null=True, blank=True)
 
     picture = models.ImageField(upload_to='new_communities/pictures',
-                                blank=True,
-                                null=True,
                                 default='borde.png')
     description = models.TextField()
 

@@ -7,13 +7,14 @@ import { Community } from '../../models/new_communities';
     providedIn: 'root',
 })
 export class CommunityService {
-    // URL_API = 'http://localhost:8000/api/new_communities/';
+    // URL_API = 'http://localhost:8000/api/new-communities/';
     URL_API = 'http://localhost:2000/new_communities/';
 
     selectedCommunity: Community = {
+        id: 0,
         name: '',
+        picture: '',
         description: '',
-        activities: Array[''],
     };
     communities: Community[];
 
@@ -39,15 +40,10 @@ export class CommunityService {
         return this.http.delete(`${this.URL_API}${id}/`);
     }
 
-    // createPhoto(
-    //     name: string,
-    //     activities: string,
-    //     description: string,
-    //     picture: File
-    // ) {
+    // createPhoto(name: string, description: string, picture: File) {
+    //     console.log(picture);
     //     const fd = new FormData();
     //     fd.append('name', name);
-    //     fd.append('activities', activities);
     //     fd.append('description', description);
     //     fd.append('pictures', picture);
     //     return this.http.post(this.URL_API, fd);

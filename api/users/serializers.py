@@ -11,7 +11,7 @@ from users.models import Profile
 class ProfileSerializer(serializers.HyperlinkedModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     interests = serializers.HyperlinkedRelatedField(many=True, view_name='interest-detail', read_only=True)
-    communities = serializers.HyperlinkedRelatedField(many=True, view_name='community-detail', read_only=True)
+    # communities = serializers.HyperlinkedRelatedField(many=True, view_name='community-detail', read_only=True)
 
     class Meta:
         model = Profile

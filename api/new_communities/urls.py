@@ -10,11 +10,11 @@ from django.conf.urls.static import static
 from new_communities.views import NewCommunityViewSet, api_root
 from rest_framework import renderers
 
-new_community_list = NewCommunityViewSet.as_view({
+community_list = NewCommunityViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
-new_community_detail = NewCommunityViewSet.as_view({
+community_detail = NewCommunityViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',

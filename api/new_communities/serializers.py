@@ -5,7 +5,7 @@ from .models import NewCommunity
 
 
 class NewCommunitySerializer(serializers.ModelSerializer):
-    interests = serializers.HyperlinkedRelatedField(many=True, view_name='community-detail', read_only=True)
+    interests = serializers.HyperlinkedRelatedField(many=True, view_name='interest-detail', read_only=True)
 
     class Meta:
         model = NewCommunity

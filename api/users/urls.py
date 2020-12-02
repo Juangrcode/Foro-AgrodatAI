@@ -11,11 +11,11 @@ from django.conf.urls.static import static
 from users.views import ProfileViewSet, UserViewSet, api_root
 from rest_framework import renderers
 
-snippet_list = ProfileViewSet.as_view({
+profile_list = ProfileViewSet.as_view({
     'get': 'list',
     'post': 'create'
 })
-snippet_detail = ProfileViewSet.as_view({
+profile_detail = ProfileViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -40,6 +40,6 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
-urlpatterns += [
-    path('api-auth/', include('rest_framework.urls')),
-]
+# urlpatterns += [
+#     path('api-auth/', include('rest_framework.urls')),
+# ]

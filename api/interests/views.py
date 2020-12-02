@@ -23,7 +23,7 @@ def api_root(request, format=None):
 class InterestViewSet(viewsets.ModelViewSet):
     queryset = Interest.objects.all()
     serializer_class = InterestSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 #     # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
 #     # def highlight(self, request, *args, **kwargs):
