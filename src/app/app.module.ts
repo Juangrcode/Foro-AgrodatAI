@@ -11,14 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
-import { ProveedorComponent } from './proveedor/proveedor.component';
 import { ProductorComponent } from './productor/productor.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { BannerComponent } from './banner/banner.component';
+import { ModuleComuComponent } from './module-comu/module-comu.component';
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
-import { ModuleComuComponent } from './module-comu/module-comu.component';
 
 // Services
 
@@ -27,7 +26,6 @@ import { ModuleComuComponent } from './module-comu/module-comu.component';
         AppComponent,
         MaquetaComponent,
         NoticiaComponent,
-        ProveedorComponent,
         ProductorComponent,
         PerfilComponent,
         NavbarComponent,

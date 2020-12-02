@@ -12,6 +12,7 @@ import { MyCommunitiesComponent } from './components/my-communities/my-communiti
 import { FeaturedCommunitiesComponent } from './components/featured-communities/featured-communities.component';
 import { CommunityNavbarComponent } from './components/community-navbar/community-navbar.component';
 
+
 @NgModule({
     declarations: [
         CommunityComponent,
@@ -21,6 +22,7 @@ import { CommunityNavbarComponent } from './components/community-navbar/communit
         MyCommunitiesComponent,
         FeaturedCommunitiesComponent,
         CommunityNavbarComponent,
+
     ],
     imports: [
         CommonModule,

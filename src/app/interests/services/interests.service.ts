@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class InterestsService {
-    URL_API = 'http://localhost:8000/api/interests/';
-    // URL_API = 'http://localhost:3000/interests/';
+    // URL_API = 'http://localhost:8000/api/interests/';
+    URL_API = 'http://localhost:3000/interests/';
 
     interests: Interest[];
     selectInterest: Interest = {
