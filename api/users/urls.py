@@ -1,33 +1,45 @@
-# Django
-from django.urls import path
 
-from .views import ProfileViewSet
+from django.urls import path, include
+from rest_framework.urlpatterns import format_suffix_patterns
 
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from users import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+from users.views import ProfileViewSet, UserViewSet, api_root
+from rest_framework import renderers
+
+snippet_list = ProfileViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+snippet_detail = ProfileViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+user_list = UserViewSet.as_view({
+    'get': 'list'
+})
+user_detail = UserViewSet.as_view({
+    'get': 'retrieve'
+})
+
 
 
 router = DefaultRouter()
-router.register('profile', ProfileViewSet)
+router.register(r'profiles', views.ProfileViewSet)
+router.register(r'users', views.UserViewSet)
 
-# Routers provide an easy way of automatically determining the URL conf.
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-# urlpatterns = [
-#     path('', include(router.urls)),
-#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-# ]
+urlpatterns = [
+    path('', include(router.urls)),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-# from django.urls import path
-# # from users.views import ProfileList
 
-# from users.views import ProfileViewSet
-
-# # urlpatterns = [
-# #   path('profile/', ProfileList.as_view(), name='profile_list'),
-# # ]
-
-# urlpatterns = [
-#   # path('', UserViewSet),
-#   path('profile/', ProfileViewSet)
-# ]
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]

@@ -15,9 +15,15 @@ from .serializers import UserSerializer
 # Models
 from .models import Profile
 # Permissions
-from snippets.permissions import IsOwnerOrReadOnly
+from users.permissions import IsOwnerOrReadOnly
 
 
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'users': reverse('user-list', request=request, format=format),
+        'profiles': reverse('profile-list', request=request, format=format)
+    })
 
 class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()

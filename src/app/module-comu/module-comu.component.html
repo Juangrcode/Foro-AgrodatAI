@@ -1,33 +1,52 @@
 <div class="fondo">
-    
+    <div class="container">
+        <div class="modulesComunidad">
+            <div
+                (click)="foro = !foro; crear = false; comunidades = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Foro</h3>
+                <p class="module__text">Discusiones de interes</p>
+            </div>
+            <div
+                (click)="crear = !crear; comunidades = false; foro = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Crear Comunidad</h3>
+                <p class="module__text">Nueva comunidad</p>
+            </div>
 
-<div class="container">
-    <div class="modulesComunidad">
-        <div (click)="foro=!foro;crear=false;comunidades=false" class="module">
-          <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-          <h3 class="module__title">Foro</h3>
-          <p class="module__text">Discusiones de interes</p>
+            <div
+                (click)="
+                    comunidades = !comunidades; crear = false; foro = false
+                "
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Mis comunidades</h3>
+                <span class="module__text"
+                    >Administrar actididades agropecuarias</span
+                >
+            </div>
         </div>
-        <div (click)="crear=!crear;comunidades=false;foro=false" class="module" > 
-           <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-           <h3 class="module__title">Crear Comunidad</h3>
-            <p class="module__text">Nueva comunidad</p>
+        <div *ngIf="comunidades">
+            <app-module-creadas></app-module-creadas>
         </div>
-  
-        <div (click)="comunidades=!comunidades;crear=false;foro=false;" class="module" >
-          <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-            <h3 class="module__title">Mis comunidades</h3>
-            <span class="module__text">Administrar actididades agropecuarias</span>
-        </div>
-    </div>
-    <div *ngIf="comunidades">
-        <app-module-creadas></app-module-creadas> 
-    </div>
-    <div *ngIf="destacado">
-       hoolea
-    </div>
-    <div *ngIf="creadas">
-        destacado
+        <div *ngIf="foro">hoolea</div>
+        <div *ngIf="crear">destacado</div>
     </div>
 </div>
-

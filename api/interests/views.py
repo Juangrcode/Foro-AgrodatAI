@@ -1,24 +1,29 @@
-# # Django
-# from django.shortcuts import render
-# from django.http import JsonResponse
+# Django
+from django.shortcuts import render
+from django.http import JsonResponse
 
-# # Rest_Framework
-# from rest_framework import viewsets
-# from rest_framework import permissions
-# from rest_framework.decorators import api_view, action
-# from rest_framework.response import Response
+# Rest_Framework
+from rest_framework import viewsets
+from rest_framework import permissions
+from rest_framework.decorators import api_view, action
+from rest_framework.response import Response
 
-# from .serializers import InterestSerializer
-# from .models import Interest
+from .serializers import InterestSerializer
+from .models import Interest
+from .permissions import IsOwnerOrReadOnly
 
-# # Create your views here.
+# Create your views here.
 
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'interests': reverse('interest-list', request=request, format=format),
+    })
 
-# class InterestViewSet(viewsets.ModelViewSet):
-#     queryset = Interest.objects.all()
-#     serializer_class = InterestSerializer
-#     # permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-#     #                       IsOwnerOrReadOnly]
+class InterestViewSet(viewsets.ModelViewSet):
+    queryset = Interest.objects.all()
+    serializer_class = InterestSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 #     # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
 #     # def highlight(self, request, *args, **kwargs):
