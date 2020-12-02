@@ -1,52 +1,44 @@
-<app-community-navbar></app-community-navbar>
+
 
 <div class="container">
   <div class="modulesComunidad">
-      <div class="module" [routerLink]="['/comunidad/foro']">
-        <img
-            class="comunidad__image"
-            src="assets/iconos/crear-comunidad.svg"
-            alt="crear-comunidad"
-        />
+      <div (click)="foro=!foro;crear=false;comunidades=false" class="module">
+        <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
         <h3 class="module__title">Foro</h3>
         <p class="module__text">Discusiones de interes</p>
       </div>
-      <div class="module" [routerLink]="['/comunidad/crear-comunidades']">
-        <img
-        class="comunidad__image"
-        src="assets/iconos/crear-comunidad.svg"
-        alt="crear-comunidad"
-        />
-          <h3 class="module__title">Crear Comunidad</h3>
+      <div (click)="crear=!crear;comunidades=false;foro=false" class="module" > 
+         <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
+         <h3 class="module__title">Crear Comunidad</h3>
           <p class="module__text">Nueva comunidad</p>
       </div>
 
-      <div class="module" [routerLink]="['/comunidad/mis-comunidades']" >
-        <img
-        class="comunidad__image"
-        src="assets/iconos/crear-comunidad.svg"
-        alt="crear-comunidad"
-        />
+      <div (click)="comunidades=!comunidades;crear=false;foro=false;" class="module" >
+        <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
           <h3 class="module__title">Mis comunidades</h3>
           <span class="module__text">Administrar actididades agropecuarias</span>
       </div>
   </div>
 
-  <div class="render__module--container">
-      <router-outlet></router-outlet>
-  </div>
+<div *ngIf="foro" >
+      
 </div>
 
+
+<div *ngIf="crear">
+  
+
+</div>
+<div *ngIf="comunidades">
+  
+</div>
+
+
+
+
 <div class="crear__nueva--comu">
-  <img
-        class="comunidad__image"
-        src="assets/iconos/add-comunity.png"
-        alt="crear-comunidad"
-        />
-  <button
-      class="btn btn__new"
-      [routerLink]="['/comunidad/crear-comunidades']"
-  >
+  <img class="comunidad__image" src="assets/iconos/add-comunity.png" alt="crear-comunidad"/>
+  <button class="btn btn__new" [routerLink]="['/comunidad/crear-comunidades']" >
       <span>Crear comunidad</span>
   </button>
 </div>

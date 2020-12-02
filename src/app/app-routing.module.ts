@@ -27,13 +27,9 @@ const routes: Routes = [
         path: 'noticias/:title',
         component: NoticiaComponent,
     },
-    //{
-        //path: 'proveedor',
-      //  component: ProveedorComponent,
-    //},
     {
         path: 'productor/:value',
-        component: ProductorComponent,
+        component: ProductorComponent, 
     },
     {
         path: 'intereses',

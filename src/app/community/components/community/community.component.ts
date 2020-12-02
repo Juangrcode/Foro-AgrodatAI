@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./community.component.scss'],
 })
 export class CommunityComponent implements OnInit {
+    foro:boolean=false
+    crear:boolean=false
+    comunidades:boolean=false
+    destacado:boolean=false
     constructor() {}
 
     ngOnInit(): void {}
