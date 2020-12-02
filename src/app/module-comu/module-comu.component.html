@@ -26,18 +26,15 @@
     <div *ngIf="foro">
        destacado
     </div>
-    <div *ngIf="!crear">
+    <div *ngIf="crear">
         
-        <div *ngIf="formulario">
-            <form action="/api/new_communities/" method="POST" #communityForm="ngForm" enctype="multipart/form-data" class="form"
-        >
+        
+            <form action="/api/new_communities/" method="POST" enctype="multipart/form-data" class="form">
             <h2 class="form__title">Crear drfdfsdfsdfsdfdsf</h2>
-            <input type="hidden" name="id" />
+            <input type="hidden" name="title" />
             <div class="form__container">
                 <label for="name">Nombre</label>
-                <input type="text" name="name"
-                    
-                />
+                <input type="text" name="title" />
             </div>
             <div class="form__container form__select">
                 <label for="activities">Seleccionar Actividad</label>
@@ -55,11 +52,11 @@
                 <textarea name="description" cols="30" rows="10" ></textarea>
             </div>
             <div class="form__btn">
-                <button class="btn" >Limpiar</button>
-                <button class="btn">Guardar</button>
+                <button class="btn" type="reset" >Limpiar</button>
+                <button (click)="guardar()" type="reset" class="btn">Guardar</button>
             </div>
         </form>
-        </div>
+        
     </div>
 
 
