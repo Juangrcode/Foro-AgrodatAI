@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
     templateUrl: './module-comu.component.html',
     styleUrls: ['./module-comu.component.scss'],
 })
-<<<<<<< HEAD
 export class ModuleComuComponent  {
   comunidades:boolean=false
   crear:boolean=false
@@ -32,14 +31,3 @@ export class ModuleComuComponent  {
     // console.log(form)
   }
 }
-=======
-export class ModuleComuComponent implements OnInit {
-    comunidades: boolean = false;
-    crear: boolean = false;
-    formulario: boolean = false;
-    foro: boolean = false;
-    constructor() {}
-
-    ngOnInit() {}
-}
->>>>>>> 9fd98160b4fa886fca4ee7697f41710ef600a579

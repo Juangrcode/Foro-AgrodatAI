@@ -21,7 +21,7 @@ export class PostDetailComponent implements OnInit {
             this.id = params['id'];
             this.postsService.getPost(this.id).subscribe(
                 (res) => {
-                    this.post = res;
+                    this.posts = res;
                 },
                 (err) => console.log(err)
             );
