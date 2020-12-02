@@ -9,9 +9,14 @@ export class ModuleComuComponent implements OnInit {
 comunidades:boolean=false
 creadas:boolean=false
 destacado:boolean=false
+formulario:boolean=false
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
+
+
+//

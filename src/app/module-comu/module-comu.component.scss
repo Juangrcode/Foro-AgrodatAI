@@ -125,3 +125,107 @@ h1,p{
   }
   
   
+  //formulario
+  h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+.form {
+    width: 40%;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+}
+.form__title {
+    color: #019a78;
+    font-size: 30px;
+}
+
+.form__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__container > label {
+    color: #502975;
+    font-size: 20px;
+    margin: 12px 0px 7px 10px;
+}
+
+.form__container > input {
+    border-radius: 20px;
+    outline: none;
+    height: 28px;
+    color: rgb(79, 49, 112);
+    border: 2px solid #502975;
+}
+.form__container > textarea {
+    border-radius: 20px;
+    outline: none;
+    margin: 10px 0px;
+    color: rgb(79, 49, 112);
+    border: 2px solid #502975;
+}
+.form__container--picture {
+    display: none;
+}
+
+.form__btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn {
+    border-radius: 20px;
+    outline: none;
+    height: 35px;
+    width: 90px;
+    color: white;
+    background-color: rgb(79, 49, 112);
+    border: 2px solid #502975;
+    cursor: pointer;
+}
+.btn-edit {
+    background-color: #019a78;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.community {
+    margin: 20px;
+}
+
+.community__data-post {
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+.community__data-post--image {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+}
+.community__data {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.community__data-post--info > h1 {
+    color: rgb(79, 49, 112);
+}
+.community__data-post--info > h3 {
+    color: #019a78;
+}
