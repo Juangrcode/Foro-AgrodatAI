@@ -1,28 +1,30 @@
 <div class="fondo">
-    <div class="fondo-nav">
-        <button (click)="creadas=!creadas;comunidades=false;destacado=false" class="fondo-nav__item crear">
-            <img src="../assets/images/crearUsuario.png" alt="" />
-            <h1>Crear comunidades</h1>
-            <p>Elige los temas de intereses</p>
-        </button>
-        
-        <button (click)="comunidades=!comunidades;creadas=false;destacado=false"  class="fondo-nav__item misComunidades">
-            <img src="../assets/images/grupo.png" alt="" />
-            <h1>Mis Comunidades</h1>
-            <p>Elige los temas de intereses</p>
-        </button>
-        
-        <button (click)="destacado=!destacado;creadas=false;comunidades=false"     class="fondo-nav__item destacadas">
-            <img src="../assets/images/grupo.png" alt="" />
-            <h1>Comunidades destacadas</h1>
-            <p>Elige los temas de intereses</p>
-        </button>
+    
+
+<div class="container">
+    <div class="modulesComunidad">
+        <div (click)="foro=!foro;crear=false;comunidades=false" class="module">
+          <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
+          <h3 class="module__title">Foro</h3>
+          <p class="module__text">Discusiones de interes</p>
+        </div>
+        <div (click)="crear=!crear;comunidades=false;foro=false" class="module" > 
+           <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
+           <h3 class="module__title">Crear Comunidad</h3>
+            <p class="module__text">Nueva comunidad</p>
+        </div>
+  
+        <div (click)="comunidades=!comunidades;crear=false;foro=false;" class="module" >
+          <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
+            <h3 class="module__title">Mis comunidades</h3>
+            <span class="module__text">Administrar actididades agropecuarias</span>
+        </div>
     </div>
     <div *ngIf="comunidades">
-        hola
+        <app-module-creadas></app-module-creadas> 
     </div>
     <div *ngIf="destacado">
-       <app-module-creadas></app-module-creadas> 
+       hoolea
     </div>
     <div *ngIf="creadas">
         destacado
