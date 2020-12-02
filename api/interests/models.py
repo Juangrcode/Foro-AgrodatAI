@@ -1,14 +1,11 @@
 # Interest Models
-from django.contrib.auth.models import User
+# Django
 from django.db import models
-
-# Create your models here.
 
 
 class Interest(models.Model):
     # Interest Model
-
-    name = models.CharField(max_length=80, blank=True)
+    name = models.CharField(max_length=100, blank=True)
     completed = models.BooleanField(default=False, blank=True, null=True)
 
     # Admin

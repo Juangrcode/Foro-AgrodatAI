@@ -77,7 +77,6 @@ export class FormNewCommunityComponent implements OnInit {
             this.communityService.deleteCommunity(id).subscribe(
                 (res) => {
                     console.log(res);
-                    console.log('Esa mrd');
                     this.getAllCommunities();
                 },
                 (err) => {
@@ -87,32 +86,32 @@ export class FormNewCommunityComponent implements OnInit {
         }
     }
 
-    onPhotoSelected(event: HtmlInputEvent) {
-        if (event.target.files && event.target.files[0]) {
-            this.file = <File>event.target.files[0];
-            // image preview
-            const reader = new FileReader();
-            reader.onload = (e) => (this.photoSelected = reader.result);
-            reader.readAsDataURL(this.file);
-        }
-    }
+    // onPhotoSelected(event: HtmlInputEvent) {
+    //     if (event.target.files && event.target.files[0]) {
+    //         this.file = <File>event.target.files[0];
+    //         // image preview
+    //         const reader = new FileReader();
+    //         reader.onload = (e) => (this.photoSelected = reader.result);
+    //         reader.readAsDataURL(this.file);
+    //     }
+    // }
 
-    uploadPhoto(
-        name: HTMLInputElement,
-        activities: HTMLOptionElement,
-        description: HTMLTextAreaElement
-    ) {
-        this.communityService
-            .createPhoto(
-                name.value,
-                description.value,
-                activities.value,
-                this.file
-            )
-            .subscribe(
-                (res) => console.log(res),
-                (err) => console.log(err)
-            );
-        console.log(name.value);
-    }
+    // uploadPhoto(
+    //     name: HTMLInputElement,
+    //     activities: HTMLOptionElement,
+    //     description: HTMLTextAreaElement
+    // ) {
+    //     this.communityService
+    //         .createPhoto(
+    //             name.value,
+    //             description.value,
+    //             activities.value,
+    //             this.file
+    //         )
+    //         .subscribe(
+    //             (res) => console.log(res),
+    //             (err) => console.log(err)
+    //         );
+    //     console.log(name.value);
+    // }
 }

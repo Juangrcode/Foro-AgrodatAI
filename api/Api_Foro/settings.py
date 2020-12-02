@@ -47,17 +47,15 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     # apps
-    'activities',
-    'interests',
-    'myInterests',
-    'new_communities',
-    'administracion',
-    'users',
-    'posts',
+    'activities.apps.ActivitiesConfig',
+    'interests.apps.InterestsConfig',
+    'new_communities.apps.NewCommunitiesConfig',
+    'users.apps.UsersConfig',
+    'posts.apps.PostsConfig',
 ]
 
 # AUTH
-# REST_FRAMEWORK = {
+REST_FRAMEWORK = {
 #     'DEFAULT_AUTHENTICATION_CLASSES':(
 #       'rest_framework.authentication.TokenAuthentication',
 #     ),
@@ -66,7 +64,10 @@ INSTALLED_APPS = [
 #     ),
 #     # 'PAGINATE_BY': 10,
 #     # 'DEFAULT_PAGINATION_CLASS': ('rest_framework.pagination.LimitOffsetPagination'),
-# }
+'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -171,7 +172,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-
+LOGIN_REDIRECT_URL='/api/profile/'
 
 APPEND_SLASH = False
 

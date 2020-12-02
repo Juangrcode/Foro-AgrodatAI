@@ -10,22 +10,31 @@ from rest_framework.authtoken import views
 
 # Routes
 from activities.urls import router as router_activities
-from interests.urls import router as router_interests
-from myInterests.urls import router as router_myInterests
-from new_communities.urls import router as router_new_communities
-from users.urls import router as router_users
-from posts.urls import router as router_posts
+# from interests.urls import router as router_interests
+# from myInterests.urls import router as router_myInterests
+# from new_communities.urls import router as router_new_communities
+# from users.urls import router as router_users
+# from posts.urls import router as router_posts
+
+# from users.views import UserViewSet
+# from rest_framework.routers import DefaultRouter
+
+
+# router = DefaultRouter()
+# router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('api/', include(router_activities.urls)),
-    path('api/', include(router_interests.urls)),
-    path('api/', include(router_myInterests.urls)),
-    path('api/', include(router_new_communities.urls)),
-    path('api/', include(router_users.urls)),
-    path('api/', include(router_posts.urls)),
+    # path('api/', include(router_interests.urls)),
+    # path('api/', include(router_myInterests.urls)),
+    # path('api/', include(router_new_communities.urls)),
+    # path('api/', include(router_users.urls)),
+    # path('api/', include(router_posts.urls)),
+    # path('api/', include(router.urls)),
+    # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
     # path('api/', include(('users.urls','api') )),
 
     # Validate Token
