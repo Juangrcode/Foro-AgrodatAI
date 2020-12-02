@@ -26,61 +26,40 @@
     <div *ngIf="foro">
        destacado
     </div>
-    <div *ngIf="crear">
+    <div *ngIf="!crear">
         
-        
-            <form
-                action="/api/new_communities/"
-                method="POST"
-                #communityForm="ngForm"
-                (ngSubmit)="addCommunity(communityForm)"
-                enctype="multipart/form-data"
-                class="form"
-            >
-                <h2 class="form__title">Crear drfdfsdfsdfsdfdsf</h2>
-                <input
-                    type="hidden"
-                    name="id"
-                    [(ngModel)]="communityService.selectedCommunity.id"
+        <div *ngIf="formulario">
+            <form action="/api/new_communities/" method="POST" #communityForm="ngForm" enctype="multipart/form-data" class="form"
+        >
+            <h2 class="form__title">Crear drfdfsdfsdfsdfdsf</h2>
+            <input type="hidden" name="id" />
+            <div class="form__container">
+                <label for="name">Nombre</label>
+                <input type="text" name="name"
+                    
                 />
-                <div class="form__container">
-                    <label for="name">Nombre</label>
-                    <input
-                        type="text"
-                        name="name"
-                        [(ngModel)]="communityService.selectedCommunity.name"
-                    />
-                </div>
-                <div class="form__container form__select">
-                    <label for="activities">Seleccionar Actividad</label>
-                    <select
-                        name="activities"
-                        [(ngModel)]="communityService.selectedCommunity.activities"
-                        multiple
-                    >
-                        <option value="1">Agricola</option>
-                        <option value="2">Bovino</option>
-                        <option value="3">Porcino</option>
-                        <option value="4">Avicola</option>
-                        <option value="5">Acuicola - Pesca</option>
-                    </select>
-                </div>
-            
-                <div class="form__container">
-                    <label for="description">Descripcion</label>
-                    <textarea
-                        name="description"
-                        cols="30"
-                        rows="10"
-                        [(ngModel)]="communityService.selectedCommunity.description"
-                    ></textarea>
-                </div>
-                <div class="form__btn">
-                    <button class="btn" (click)="resetForm(communityForm)">Limpiar</button>
-                    <button class="btn">Guardar</button>
-                </div>
-            </form>
+            </div>
+            <div class="form__container form__select">
+                <label for="activities">Seleccionar Actividad</label>
+                <select name="activities" multiple >
+                    <option value="1">Agricola</option>
+                    <option value="2">Bovino</option>
+                    <option value="3">Porcino</option>
+                    <option value="4">Avicola</option>
+                    <option value="5">Acuicola - Pesca</option>
+                </select>
+            </div>
         
+            <div class="form__container">
+                <label for="description">Descripcion</label>
+                <textarea name="description" cols="30" rows="10" ></textarea>
+            </div>
+            <div class="form__btn">
+                <button class="btn" >Limpiar</button>
+                <button class="btn">Guardar</button>
+            </div>
+        </form>
+        </div>
     </div>
 
 
