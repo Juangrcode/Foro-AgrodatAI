@@ -5,6 +5,7 @@ import { CreateCommunityComponent } from './components/create-community/create-c
 import { FeaturedCommunitiesComponent } from './components/featured-communities/featured-communities.component';
 import { ForoComponent } from './components/foro/foro.component';
 import { MyCommunitiesComponent } from './components/my-communities/my-communities.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 const routes: Routes = [
     {
@@ -12,8 +13,8 @@ const routes: Routes = [
         component: CommunityComponent,
     },
     {
-        path: 'foro',
-        component: ForoComponent,
+        path: 'foro/:id',
+        component: PostDetailComponent,
     },
     {
         path: 'crear-comunidades',

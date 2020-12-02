@@ -18,6 +18,8 @@ export class FormNewCommunityComponent implements OnInit {
     @Output() communityClicked: EventEmitter<any> = new EventEmitter();
 
     file: File;
+    name;
+    description;
     photoSelected: string | ArrayBuffer;
 
     constructor(public communityService: CommunityService) {}
@@ -77,7 +79,6 @@ export class FormNewCommunityComponent implements OnInit {
             this.communityService.deleteCommunity(id).subscribe(
                 (res) => {
                     console.log(res);
-                    console.log('Esa mrd');
                     this.getAllCommunities();
                 },
                 (err) => {
@@ -97,22 +98,13 @@ export class FormNewCommunityComponent implements OnInit {
         }
     }
 
-    uploadPhoto(
-        name: HTMLInputElement,
-        activities: HTMLOptionElement,
-        description: HTMLTextAreaElement
-    ) {
-        this.communityService
-            .createPhoto(
-                name.value,
-                description.value,
-                activities.value,
-                this.file
-            )
-            .subscribe(
-                (res) => console.log(res),
-                (err) => console.log(err)
-            );
-        console.log(name.value);
-    }
+    // uploadPhoto(name: HTMLInputElement, description: HTMLTextAreaElement) {
+    //     this.communityService
+    //         .createPhoto(name.value, description.value, this.file)
+    //         .subscribe(
+    //             (res) => console.log(res),
+    //             (err) => console.log(err)
+    //         );
+    //     console.log(name.value);
+    // }
 }

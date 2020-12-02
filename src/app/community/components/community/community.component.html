@@ -1,47 +1,104 @@
+<app-community-navbar></app-community-navbar>
+<div class="fondo">
+    <div class="container">
+        <div class="modulesComunidad">
+            <div
+                (click)="foro = !foro; crear = false; comunidades = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Foro</h3>
+                <p class="module__text">Discusiones de intereses</p>
+            </div>
+            <div
+                (click)="crear = !crear; comunidades = false; foro = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Crear Comunidad</h3>
+                <p class="module__text">Nueva comunidad</p>
+            </div>
 
-
-<div class="container">
-  <div class="modulesComunidad">
-      <div (click)="foro=!foro;crear=false;comunidades=false" class="module">
-        <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-        <h3 class="module__title">Foro</h3>
-        <p class="module__text">Discusiones de interes</p>
-      </div>
-      <div (click)="crear=!crear;comunidades=false;foro=false" class="module" > 
-         <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-         <h3 class="module__title">Crear Comunidad</h3>
-          <p class="module__text">Nueva comunidad</p>
-      </div>
-
-      <div (click)="comunidades=!comunidades;crear=false;foro=false;" class="module" >
-        <img class="comunidad__image" src="assets/iconos/crear-comunidad.svg" alt="crear-comunidad" />
-          <h3 class="module__title">Mis comunidades</h3>
-          <span class="module__text">Administrar actididades agropecuarias</span>
-      </div>
-  </div>
-
-<div *ngIf="foro" >
-      
+            <div
+                (click)="
+                    comunidades = !comunidades; crear = false; foro = false
+                "
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Mis comunidades</h3>
+                <span class="module__text"
+                    >Administrar actividades agropecuarias</span
+                >
+            </div>
+            <div
+                (click)="destacadas = !destacadas; crear = false; foro = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Comunidades Destacadas</h3>
+                <span class="module__text"
+                    >Administrar actididades agropecuarias</span
+                >
+            </div>
+        </div>
+        <div *ngIf="comunidades">
+            <app-my-communities></app-my-communities>
+        </div>
+        <div *ngIf="foro">
+            <app-foro></app-foro>
+        </div>
+        <div *ngIf="crear"><app-create-community></app-create-community></div>
+        <div *ngIf="destacadas">
+            <app-featured-communities></app-featured-communities>
+        </div>
+    </div>
 </div>
 
-
-<div *ngIf="crear">
-  
-
-</div>
-<div *ngIf="comunidades">
-  
-</div>
-
-
-
-
-<div class="crear__nueva--comu">
-  <img class="comunidad__image" src="assets/iconos/add-comunity.png" alt="crear-comunidad"/>
-  <button class="btn btn__new" [routerLink]="['/comunidad/crear-comunidades']" >
-      <span>Crear comunidad</span>
-  </button>
-</div>
-
-
-
+<!-- <div class="community">
+    <div
+        class="community__data-post"
+        *ngFor="let community of communityService.communities"
+    >
+        <img
+            class="community__data-post--image"
+            src="../../assets/iconos/avatar.png"
+            alt="Logo"
+        />
+        <div class="community__data">
+            <div class="community__data-post--info">
+                <h1>{{ community.name }}</h1>
+                <h2 *ngIf="community.activities == 1">Agricola</h2>
+                <h2 *ngIf="community.activities == 2">Bovino</h2>
+                <h2 *ngIf="community.activities == 3">Porcino</h2>
+                <h2 *ngIf="community.activities == 4">Avicola</h2>
+                <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
+                <h3>{{ community.created }}</h3>
+            </div>
+            <div>
+                <button class="btn btn-edit" (click)="editCommunity(community)">
+                    Editar
+                </button>
+                <button class="btn" (click)="deleteCommunity(community.id)">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->

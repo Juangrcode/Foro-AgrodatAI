@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     
 
@@ -35,28 +36,66 @@
             <div class="form__container">
                 <label for="name">Nombre</label>
                 <input type="text" name="title" />
+=======
+<div class="fondo">
+    <div class="container">
+        <div class="modulesComunidad">
+            <div
+                (click)="foro = !foro; crear = false; comunidades = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Foro</h3>
+                <p class="module__text">Discusiones de interes</p>
+>>>>>>> 9fd98160b4fa886fca4ee7697f41710ef600a579
             </div>
-            <div class="form__container form__select">
-                <label for="activities">Seleccionar Actividad</label>
-                <select name="activities" multiple >
-                    <option value="1">Agricola</option>
-                    <option value="2">Bovino</option>
-                    <option value="3">Porcino</option>
-                    <option value="4">Avicola</option>
-                    <option value="5">Acuicola - Pesca</option>
-                </select>
+            <div
+                (click)="crear = !crear; comunidades = false; foro = false"
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Crear Comunidad</h3>
+                <p class="module__text">Nueva comunidad</p>
             </div>
-        
-            <div class="form__container">
-                <label for="description">Descripcion</label>
-                <textarea name="description" cols="30" rows="10" ></textarea>
-            </div>
+<<<<<<< HEAD
             <div class="form__btn">
                 <button class="btn" type="reset" >Limpiar</button>
                 <button (click)="guardar()" type="reset" class="btn">Guardar</button>
             </div>
         </form>
         
+=======
+
+            <div
+                (click)="
+                    comunidades = !comunidades; crear = false; foro = false
+                "
+                class="module"
+            >
+                <img
+                    class="comunidad__image"
+                    src="assets/iconos/crear-comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Mis comunidades</h3>
+                <span class="module__text"
+                    >Administrar actididades agropecuarias</span
+                >
+            </div>
+        </div>
+        <div *ngIf="comunidades">
+            <app-module-creadas></app-module-creadas>
+        </div>
+        <div *ngIf="foro">hoolea</div>
+        <div *ngIf="crear">destacado</div>
+>>>>>>> 9fd98160b4fa886fca4ee7697f41710ef600a579
     </div>
-
-
+</div>

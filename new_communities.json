@@ -1,0 +1,58 @@
+[
+    {
+        "created": "2020-12-02 04:14:59.169355",
+        "description": "hola uqe hace",
+        "id": 1,
+        "modified": "2020-12-02 04:14:59.169396",
+        "name": "Fertilización del campo",
+        "picture": ""
+    },
+    {
+        "created": "2020-12-02 05:24:21.485743",
+        "description": "ask",
+        "id": 2,
+        "modified": "2020-12-02 05:24:21.485782",
+        "name": "Acuicola - Pesca",
+        "picture": "borde.png"
+    },
+    {
+        "created": "2020-12-02 05:24:52.268416",
+        "description": "ask",
+        "id": 3,
+        "modified": "2020-12-02 07:25:38.234449",
+        "name": "Acuicola - Pesca",
+        "picture": "borde.png"
+    },
+    {
+        "created": "2020-12-02 06:33:02.161287",
+        "description": "jasusad",
+        "id": 4,
+        "modified": "2020-12-02 07:36:43.370046",
+        "name": "Bovino",
+        "picture": "borde.png"
+    },
+    {
+        "created": "2020-12-02 07:24:13.729916",
+        "description": "Hablamos temas interesentes",
+        "id": 5,
+        "modified": "2020-12-02 07:24:43.692235",
+        "name": "Fertilización",
+        "picture": "borde.png"
+    },
+    {
+        "created": "2020-12-02 07:24:52.362552",
+        "description": "Hablamos temas interesentes",
+        "id": 6,
+        "modified": "2020-12-02 07:24:52.362585",
+        "name": "Fertilización",
+        "picture": "borde.png"
+    },
+    {
+        "created": "2020-12-02 08:35:50.822337",
+        "description": "adsadas",
+        "id": 7,
+        "modified": "2020-12-02 08:35:50.823933",
+        "name": "saadsadsads",
+        "picture": "borde.png"
+    }
+]

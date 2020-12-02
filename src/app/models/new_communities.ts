@@ -5,5 +5,4 @@ export interface Community {
     description: string;
     created?: string;
     modified?: string;
-    activities: Array<string>;
 }

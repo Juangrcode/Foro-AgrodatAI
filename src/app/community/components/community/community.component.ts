@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/posts';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
     selector: 'app-community',
@@ -6,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./community.component.scss'],
 })
 export class CommunityComponent implements OnInit {
-    foro:boolean=false
-    crear:boolean=false
-    comunidades:boolean=false
-    destacado:boolean=false
-    constructor() {}
+    comunidades: boolean = false;
+    crear: boolean = false;
+    formulario: boolean = false;
+    foro: boolean = false;
+    destacadas: boolean = false;
+    constructor(public postsService: PostsService) {}
 
     ngOnInit(): void {}
 }

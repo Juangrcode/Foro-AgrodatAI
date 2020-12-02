@@ -10,55 +10,60 @@ from rest_framework.response import Response
 
 from .serializers import InterestSerializer
 from .models import Interest
+from .permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 
+@api_view(['GET'])
+def api_root(request, format=None):
+    return Response({
+        'interests': reverse('interest-list', request=request, format=format),
+    })
 
 class InterestViewSet(viewsets.ModelViewSet):
     queryset = Interest.objects.all()
     serializer_class = InterestSerializer
-    # permission_classes = [permissions.IsAuthenticatedOrReadOnly,
-    #                       IsOwnerOrReadOnly]
+    # permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
-    # def highlight(self, request, *args, **kwargs):
-    #     interest = self.get_object()
-    #     return Response(interest.highlighted)
+#     # @action(detail=True, renderer_classes=[renderers.StaticHTMLRenderer])
+#     # def highlight(self, request, *args, **kwargs):
+#     #     interest = self.get_object()
+#     #     return Response(interest.highlighted)
 
-    # def perform_create(self, serializer):
-    #     serializer.save(owner=self.request.name)
-
-
-# @api_view(['GET'])
-# def apiOverview(request):
-#     api_urls ={
-#       'List':'/interest-list/',
-#       'Detail View':'/interest-detail/<str:pk>/',
-#       'Create':'/interest-create/',
-#       'Update':'/interest-update/<str:pk>/',
-#       'Delete':'/interest-delete/<str:pk>/',
-#     }
-#     return Response(api_urls)
-
-# @api_view(['GET'])
-# def getInterests(request):
-#     interests = Interest.objects.all()
-#     serializer = InterestSerializer(interests, many=True)
-#     return Response(serializer.data)
+#     # def perform_create(self, serializer):
+#     #     serializer.save(owner=self.request.name)
 
 
-# @api_view(['GET'])
-# def getInterest(request, pk):
-#     interests = Interest.objects.get(id=pk)
-#     serializer = InterestSerializer(interests, many=False)
-#     return Response(serializer.data)
+# # @api_view(['GET'])
+# # def apiOverview(request):
+# #     api_urls ={
+# #       'List':'/interest-list/',
+# #       'Detail View':'/interest-detail/<str:pk>/',
+# #       'Create':'/interest-create/',
+# #       'Update':'/interest-update/<str:pk>/',
+# #       'Delete':'/interest-delete/<str:pk>/',
+# #     }
+# #     return Response(api_urls)
+
+# # @api_view(['GET'])
+# # def getInterests(request):
+# #     interests = Interest.objects.all()
+# #     serializer = InterestSerializer(interests, many=True)
+# #     return Response(serializer.data)
 
 
-# @api_view(['POST'])
-# def createInterest(request):
-#     serializer = InterestSerializer(data=request.data)
+# # @api_view(['GET'])
+# # def getInterest(request, pk):
+# #     interests = Interest.objects.get(id=pk)
+# #     serializer = InterestSerializer(interests, many=False)
+# #     return Response(serializer.data)
 
-#     if serializer.is_valid():
-#         serializer.save()
 
-#     return Response(serializer.data)
+# # @api_view(['POST'])
+# # def createInterest(request):
+# #     serializer = InterestSerializer(data=request.data)
+
+# #     if serializer.is_valid():
+# #         serializer.save()
+
+# #     return Response(serializer.data)

@@ -1,31 +1,23 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Post } from '../models/posts';
+import { Profile } from '../models/profile';
 
 @Injectable({
     providedIn: 'root',
 })
-export class TodoService {
-    todoList: AngularFireList<any>;
+export class PostsService {
+    // URL_API = 'http://localhost:8000/api-auth/login/';
+    URL_API2 = 'http://localhost:8000/api/users/';
 
-    constructor(private firebasedb: AngularFireDatabase) {}
+    post: Post;
 
-    getTodoList() {
-        this.todoList = this.firebasedb.list('name');
-        return this.todoList;
-    }
+    constructor(private http: HttpClient) {}
 
-    addTodo(title: string) {
-        this.todoList.push({
-            title: title,
-            isChecked: false,
-        });
-    }
-
-    updateTodo($key: string, flag: boolean) {
-        this.todoList.update($key, { isChecked: flag });
-    }
-
-    removeTodo($key: string) {
-        this.todoList.remove($key);
+    // getAllPosts() {
+    //     return this.http.get(this.URL_API);
+    // }
+    getAllProfile(id) {
+        return this.http.get(`${this.URL_API2}${id}/`);
     }
 }

@@ -1,0 +1,46 @@
+{
+    "posts": [
+        {
+            "content": "hola que hace",
+            "id": 1,
+            "owner_id": 1,
+            "timestamp": "2020-12-02 04:56:32"
+        },
+        {
+            "content": "quiuvo",
+            "id": 2,
+            "owner_id": 1,
+            "timestamp": "2020-12-02 05:28:36"
+        },
+        {
+            "content": "asddsasad",
+            "id": 3,
+            "owner_id": null,
+            "timestamp": "2020-12-02 05:34:38.165645"
+        },
+        {
+            "content": "Hola que hace",
+            "id": 5,
+            "owner_id": 1,
+            "timestamp": "2020-12-02 05:36:48"
+        },
+        {
+            "content": "holaaa",
+            "id": 6,
+            "owner_id": null,
+            "timestamp": "2020-12-02 06:15:51.309995"
+        },
+        {
+            "content": "holaaa",
+            "id": 7,
+            "owner_id": null,
+            "timestamp": "2020-12-02 06:19:47.428700"
+        },
+        {
+            "content": "AgrodatAI es genial !!",
+            "id": 8,
+            "owner_id": null,
+            "timestamp": "2020-12-02 09:48:38.580333"
+        }
+    ]
+}

@@ -43,7 +43,6 @@ export class MyCommunitiesComponent implements OnInit {
             this.communityService.deleteCommunity(id).subscribe(
                 (res) => {
                     console.log(res);
-                    console.log('Esa mrd');
                     this.getAllCommunities();
                 },
                 (err) => {

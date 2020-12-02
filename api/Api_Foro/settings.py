@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 # import MySQLdb as Database
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,14 +44,30 @@ INSTALLED_APPS = [
 
     # Framework Api
     'rest_framework',
+    'rest_framework.authtoken',
 
     # apps
-    'activities',
-    'interests',
-    'myInterests',
-    'new_communities',
-    'administracion',
+    'activities.apps.ActivitiesConfig',
+    'interests.apps.InterestsConfig',
+    'new_communities.apps.NewCommunitiesConfig',
+    'users.apps.UsersConfig',
+    'posts.apps.PostsConfig',
 ]
+
+# AUTH
+REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES':(
+#       'rest_framework.authentication.TokenAuthentication',
+#     ),
+#     'DEFAULT_PERMISSION_CLASSES':(
+#       'rest_framework.permissions.IsAuthenticated',
+#     ),
+#     # 'PAGINATE_BY': 10,
+#     # 'DEFAULT_PAGINATION_CLASS': ('rest_framework.pagination.LimitOffsetPagination'),
+# 'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -76,7 +93,7 @@ ROOT_URLCONF = 'Api_Foro.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,6 +169,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+LOGIN_REDIRECT_URL='/api/profile/'
 
 APPEND_SLASH = False
 
@@ -179,6 +200,4 @@ CORS_ALLOW_METHODS = (
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Pagination limit offset
-REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination'
-}
+

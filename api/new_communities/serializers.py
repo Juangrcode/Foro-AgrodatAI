@@ -1,10 +1,12 @@
 # Rest_Framework
 from rest_framework import serializers
-
+# Models
 from .models import NewCommunity
 
 
 class NewCommunitySerializer(serializers.ModelSerializer):
+    interests = serializers.HyperlinkedRelatedField(many=True, view_name='interest-detail', read_only=True)
+
     class Meta:
         model = NewCommunity
-        fields = '__all__'
+        fields = ['url', 'id', 'name', 'interests', 'picture', 'description', 'created', 'modified']

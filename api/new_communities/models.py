@@ -1,22 +1,21 @@
 # NewCommunities Models
+# Django
 from django.contrib.auth.models import User
 from django.db import models
+# Models
+from interests.models import Interest
 
-from activities.models import Activity
-
-# Create your models here.
 
 
 class NewCommunity(models.Model):
     # NewCommunities Model
 
     name = models.CharField(max_length=225, blank=True)
-    activities = models.ManyToManyField(Activity)
+    interests = models.ManyToManyField(Interest, null=True, blank=True)
 
     picture = models.ImageField(upload_to='new_communities/pictures',
-                                blank=True,
-                                null=True)
-    description = models.CharField(max_length=1000, blank=True)
+                                default='borde.png')
+    description = models.TextField()
 
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
