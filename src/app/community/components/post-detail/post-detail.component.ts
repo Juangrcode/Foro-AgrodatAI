@@ -22,8 +22,12 @@ export class PostDetailComponent implements OnInit {
             this.id = params['id'];
             this.postsService.getPost(this.id).subscribe(
                 (res) => {
+<<<<<<< HEAD
                     this.post = res;
                     this.getProfile();
+=======
+                    this.posts = res;
+>>>>>>> 3554e72baf9c116387f99a0b035223c24a0258fd
                 },
                 (err) => console.log(err)
             );
