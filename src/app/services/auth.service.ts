@@ -16,17 +16,20 @@ import * as moment from 'moment';
 
 @Injectable()
 export class AuthService {
+    public payload;
     private apiRoot = 'http://localhost:8000/auth/';
 
     constructor(private http: HttpClient) {}
 
     private setSession(authResult) {
         const token = authResult.token;
-        const payload = <JWTPayload>jwt_decode(token);
-        const expiresAt = moment.unix(payload.exp);
-        console.log(authResult);
+        this.payload = <JWTPayload>jwt_decode(token);
+        const expiresAt = moment.unix(this.payload.exp);
         localStorage.setItem('token', authResult.token);
         localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+        console.log(localStorage.getItem('token'));
+        console.log(localStorage.getItem('expires_at'));
+        console.log(this.payload);
     }
 
     get token(): string {
@@ -34,12 +37,14 @@ export class AuthService {
     }
 
     login(username: string, password: string) {
+        // if (this.isLoggedIn()) {
         return this.http
             .post(this.apiRoot.concat('login/'), { username, password })
             .pipe(
                 tap((response) => this.setSession(response)),
                 shareReplay()
             );
+        // }
     }
 
     signup(
@@ -62,8 +67,10 @@ export class AuthService {
     }
 
     logout() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('expires_at');
+        if (!localStorage.getItem('token')) {
+            localStorage.removeItem('token');
+            localStorage.removeItem('expires_at');
+        }
     }
 
     refreshToken() {
@@ -132,7 +139,7 @@ export class AuthGuard implements CanActivate {
             return true;
         } else {
             this.authService.logout();
-            this.router.navigate(['list']);
+            this.router.navigate(['login']);
 
             return false;
         }

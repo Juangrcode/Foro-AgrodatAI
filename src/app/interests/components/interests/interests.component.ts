@@ -1,5 +1,7 @@
 import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { Interest } from '../../../models/interests';
 import { InterestsService } from '../../services/interests.service';
 
@@ -27,9 +29,16 @@ export class InterestsComponent implements OnInit {
     filterInterests: any[];
 
     pageActual: number = 1;
-    constructor(public interestsService: InterestsService) {}
+    constructor(
+        public interestsService: InterestsService,
+        public authService: AuthService,
+        public router: Router
+    ) {}
 
     ngOnInit(): void {
+        if (!this.authService.isLoggedIn()) {
+            this.router.navigate(['login']);
+        }
         this.getAllInterests();
         this.saveInterests();
     }

@@ -11,14 +11,9 @@ import { ForoComponent } from './components/foro/foro.component';
 import { MyCommunitiesComponent } from './components/my-communities/my-communities.component';
 import { FeaturedCommunitiesComponent } from './components/featured-communities/featured-communities.component';
 import { CommunityNavbarComponent } from './components/community-navbar/community-navbar.component';
-<<<<<<< HEAD
-=======
-// import { TimeAgoPipe } from 'time-ago-pipe';
->>>>>>> 3554e72baf9c116387f99a0b035223c24a0258fd
 import { MomentModule } from 'ngx-moment';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
-import { NombreComponent } from './components/nombre/nombre.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +26,6 @@ import { NombreComponent } from './components/nombre/nombre.component';
         CommunityNavbarComponent,
         PostDetailComponent,
         CommunityDetailComponent,
-        NombreComponent,
     ],
     imports: [
         CommonModule,

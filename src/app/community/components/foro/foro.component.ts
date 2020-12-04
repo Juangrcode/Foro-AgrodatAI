@@ -4,6 +4,8 @@ import { PostsService } from '../../services/posts.service';
 import { NgForm } from '@angular/forms';
 import { Post } from '../../../models/posts';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -21,10 +23,14 @@ export class ForoComponent implements OnInit {
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
-        private router: Router
+        private router: Router,
+        public authService: AuthService
     ) {}
 
     ngOnInit(): void {
+        // if (!this.authService.isLoggedIn()) {
+        //     this.router.navigate(['login']);
+        // }
         this.getAllInterests();
         this.getAllPosts();
         this.getProfile();
@@ -42,7 +48,13 @@ export class ForoComponent implements OnInit {
                 );
                 console.log(this.filterInterests);
             },
-            (err) => console.error(err)
+            (err) => {
+                if (err instanceof HttpErrorResponse) {
+                    if (err.status === 401) {
+                        this.router.navigate(['/login']);
+                    }
+                }
+            }
         );
     }
 

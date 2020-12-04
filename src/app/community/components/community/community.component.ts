@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/posts';
 import { PostsService } from '../../services/posts.service';
+import { AuthGuard, AuthService } from '../../../../app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-community',
@@ -13,7 +15,18 @@ export class CommunityComponent implements OnInit {
     formulario: boolean = false;
     foro: boolean = true;
     destacadas: boolean = false;
-    constructor(public postsService: PostsService) {}
+    error;
+    constructor(
+        public postsService: PostsService,
+        public authGuard: AuthGuard,
+        public authService: AuthService,
+        public router: Router
+    ) {}
 
     ngOnInit(): void {}
+
+    logout() {
+        this.router.navigate(['login/']);
+        this.authService.logout();
+    }
 }

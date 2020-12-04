@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../services/auth.service';
 import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
 import { CommunityComponent } from './components/community/community.component';
 import { CreateCommunityComponent } from './components/create-community/create-community.component';

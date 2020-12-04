@@ -43,6 +43,7 @@ const routes: Routes = [
             import('./interests/interests.module').then(
                 (m) => m.InterestsModule
             ),
+        canActivate: [AuthGuard],
     },
     {
         path: 'comunidad',
@@ -50,6 +51,7 @@ const routes: Routes = [
             import('./community/community.module').then(
                 (m) => m.CommunityModule
             ),
+        canActivate: [AuthGuard],
     },
 ];
 
