@@ -23,12 +23,34 @@ from activities.urls import router as router_activities
 # router = DefaultRouter()
 # router.register(r'users', UserViewSet)
 
+from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+
+
+from django.contrib import admin
+from django.urls import include, path
+from rest_framework import routers
+from rest_framework_jwt.views import refresh_jwt_token
+from django.contrib import admin
+from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+from rest_framework_jwt.views import refresh_jwt_token
+
+from shopping.views import ShoppingItemViewSet
+
+router = DefaultRouter()
+router.register('shopping', ShoppingItemViewSet)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('auth/login/', obtain_jwt_token), #  remove this line
+    path('api-auth/', include('rest_framework.urls')),
+    path('', include(router.urls)),
+    path('auth/', include('rest_auth.urls')),
+    path('auth/signup/', include('rest_auth.registration.urls')),
+    path('auth/refresh-token/', refresh_jwt_token),
 
-    path('api/', include(router_activities.urls)),
+    path('admin/', admin.site.urls),
     # path('api/', include(router_interests.urls)),
+    path('api/', include(router_activities.urls)),
     # path('api/', include(router_myInterests.urls)),
     # path('api/', include(router_new_communities.urls)),
     path('api/', include('users.urls')),

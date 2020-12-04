@@ -65,7 +65,8 @@ p {
 }
 .community__data-post--image {
     height: 40px;
-    object-fit: cover;
+    width: 40px;
+    object-fit: contain;
     border-radius: 20px;
 }
 

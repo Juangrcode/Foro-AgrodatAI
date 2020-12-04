@@ -16,6 +16,7 @@ interface HtmlInputEvent extends Event {
 })
 export class ForoComponent implements OnInit {
     filterInterests: any[];
+    profile;
 
     constructor(
         public interestsService: InterestsService,
@@ -48,7 +49,7 @@ export class ForoComponent implements OnInit {
     getProfile() {
         this.postsService.getProfile(1).subscribe(
             (res) => {
-                this.postsService.profiles = res;
+                this.profile = res;
             },
             (err) => {
                 console.log(err);

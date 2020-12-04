@@ -14,6 +14,7 @@ import { CommunityNavbarComponent } from './components/community-navbar/communit
 import { MomentModule } from 'ngx-moment';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
+import { NombreComponent } from './components/nombre/nombre.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { CommunityDetailComponent } from './components/community-detail/communit
         CommunityNavbarComponent,
         PostDetailComponent,
         CommunityDetailComponent,
+        NombreComponent,
     ],
     imports: [
         CommonModule,

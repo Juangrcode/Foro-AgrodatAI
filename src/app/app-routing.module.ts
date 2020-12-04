@@ -5,12 +5,18 @@ import { NoticiaComponent } from './noticia/noticia.component';
 import { ProductorComponent } from './productor/productor.component';
 //import { ProveedorComponent } from './proveedor/proveedor.component';
 // import { PostsComponent } from './components/posts/posts.component';
-import { ModuleComuComponent} from './module-comu/module-comu.component'
-import { ModuleCreadasComponent } from './module-creadas/module-creadas.component'
-
-
+import { ModuleComuComponent } from './module-comu/module-comu.component';
+import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
+import { LoginComponent } from './perfil/login.component';
+import { SignupComponent } from './perfil/signup.component';
+import { ListComponent } from './perfil/perfil.component';
+import { AuthGuard } from './services/auth.service';
 
 const routes: Routes = [
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
+    { path: 'list', component: ListComponent, canActivate: [AuthGuard] },
     {
         path: 'comunidades',
         component: ModuleComuComponent,
@@ -29,7 +35,7 @@ const routes: Routes = [
     },
     {
         path: 'productor/:value',
-        component: ProductorComponent, 
+        component: ProductorComponent,
     },
     {
         path: 'intereses',
@@ -50,7 +56,7 @@ const routes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {
-            enableTracing: true,
+            // enableTracing: true,
             preloadingStrategy: PreloadAllModules,
         }),
     ],

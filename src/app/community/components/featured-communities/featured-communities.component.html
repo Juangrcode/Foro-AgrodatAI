@@ -1,2 +1,54 @@
 <app-community-navbar></app-community-navbar>
-<h1>Comunidades Destacadas de AgrodatAI</h1>
+<div class="contenedor">
+    <h1>Comunidades Destacadas de AgrodatAI</h1>
+    <div class="contenedor-items">
+        <div
+            class="contenedor-items__item"
+            *ngFor="let community of communityService.communities"
+        >
+            <div class="container-item">
+                <div class="container-item__image">
+                    <img
+                        *ngIf="community.picture"
+                        class="community__data-post--image"
+                        [src]="community.picture"
+                        alt="Logo"
+                    />
+                    <img
+                        *ngIf="!community.picture"
+                        class="community__data-post--image"
+                        src="assets/iconos/avatar.png"
+                        alt="Logo"
+                    />
+                </div>
+                <div class="community__data-post--info">
+                    <h3>
+                        <a
+                            class="community__user--title"
+                            (click)="communityDetail(community.id)"
+                        >
+                            {{ community.name }}</a
+                        >
+                    </h3>
+                    <h2 *ngIf="community.activities == 1">Agricola</h2>
+                    <h2 *ngIf="community.activities == 2">Bovino</h2>
+                    <h2 *ngIf="community.activities == 3">Porcino</h2>
+                    <h2 *ngIf="community.activities == 4">Avicola</h2>
+                    <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
+                    <p>{{ community.created | amTimeAgo }}</p>
+                </div>
+            </div>
+            <div class="community__data">
+                <p>{{ community.description }}</p>
+            </div>
+            <div class="community__data--btn">
+                <button class="btn btn-edit" (click)="editCommunity(community)">
+                    Editar
+                </button>
+                <button class="btn" (click)="deleteCommunity(community.id)">
+                    Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

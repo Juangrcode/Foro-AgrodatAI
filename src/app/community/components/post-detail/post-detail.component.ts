@@ -10,6 +10,7 @@ import { PostsService } from '../../services/posts.service';
 export class PostDetailComponent implements OnInit {
     id;
     post;
+    profile;
     constructor(
         private activateRoute: ActivatedRoute,
         private router: Router,
@@ -22,6 +23,7 @@ export class PostDetailComponent implements OnInit {
             this.postsService.getPost(this.id).subscribe(
                 (res) => {
                     this.post = res;
+                    this.getProfile();
                 },
                 (err) => console.log(err)
             );
@@ -31,11 +33,15 @@ export class PostDetailComponent implements OnInit {
     getProfile() {
         this.postsService.getProfile(1).subscribe(
             (res) => {
-                this.postsService.profiles = res;
+                this.profile = res;
             },
             (err) => {
                 console.log(err);
             }
         );
+    }
+
+    editPost(post) {
+        this.postsService.selectPost = post;
     }
 }

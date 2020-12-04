@@ -4,7 +4,7 @@
             <img
                 class="posts__image"
                 *ngIf="post.owner"
-                [src]="postsService.profiles.picture"
+                [src]="profile.picture"
                 alt="AgrodatAI"
             />
             <img
@@ -16,21 +16,20 @@
         </div>
         <div class="posts__container--user">
             <h2 *ngIf="post.owner">
-                <a class="posts__user--title" (click)="postDetail(post.id)">{{
-                    post.owner
-                }}</a>
+                <a class="posts__user--title">{{ post.owner }}</a>
             </h2>
             <h2 *ngIf="!post.owner">
-                <a class="posts__user--title" (click)="postDetail(post.id)"
-                    >Invitado</a
-                >
+                <a class="posts__user--title">Invitado</a>
             </h2>
             <p class="posts__user--time">
-                {{ post.timestamp | amTimeAgo: True }}
+                {{ post.timestamp | amTimeAgo }}
             </p>
         </div>
     </div>
     <div class="posts__container-info">
         <p class="posts__container--content">{{ post.content }}</p>
     </div>
+    <!-- <div>
+        <button (click)="editPost(post)">Editar</button>
+    </div> -->
 </div>

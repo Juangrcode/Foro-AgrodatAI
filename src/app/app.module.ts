@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
@@ -12,12 +12,19 @@ import { AppComponent } from './app.component';
 import { MaquetaComponent } from './maqueta/maqueta.component';
 import { NoticiaComponent } from './noticia/noticia.component';
 import { ProductorComponent } from './productor/productor.component';
-import { PerfilComponent } from './perfil/perfil.component';
+import { ListComponent } from './perfil/perfil.component';
 import { BannerComponent } from './banner/banner.component';
 import { ModuleComuComponent } from './module-comu/module-comu.component';
 import { ModuleCreadasComponent } from './module-creadas/module-creadas.component';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './perfil/login.component';
+import { SignupComponent } from './perfil/signup.component';
+import {
+    AuthGuard,
+    AuthInterceptor,
+    AuthService,
+} from './services/auth.service';
 // Services
 
 @NgModule({
@@ -26,7 +33,9 @@ import { NavbarComponent } from './navbar/navbar.component';
         MaquetaComponent,
         NoticiaComponent,
         ProductorComponent,
-        PerfilComponent,
+        ListComponent,
+        LoginComponent,
+        SignupComponent,
         NavbarComponent,
         HeaderComponent,
         BannerComponent,
@@ -43,7 +52,15 @@ import { NavbarComponent } from './navbar/navbar.component';
         MatSelectModule,
         HttpClientModule,
     ],
-    providers: [],
+    providers: [
+        AuthService,
+        AuthGuard,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true,
+        },
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
