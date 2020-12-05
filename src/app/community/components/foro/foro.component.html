@@ -8,6 +8,16 @@
         class="form"
     >
         <input
+            type="hidden"
+            name="user"
+            [(ngModel)]="postsService.selectPost.user"
+        />
+        <input
+            type="hidden"
+            name="profile"
+            [(ngModel)]="postsService.selectPost.profile"
+        />
+        <input
             class="form__container--input"
             type="text"
             name="content"
@@ -20,37 +30,37 @@
         </div>
     </form>
 
-    <div class="posts" *ngFor="let post of postsService.posts">
+    <div class="posts" *ngFor="let post of this.postsService.posts">
         <div class="posts__container">
             <div class="posts__container--image">
                 <img
                     class="posts__image"
-                    *ngIf="post.owner"
-                    [src]="profile.picture"
+                    *ngIf="post.picture"
+                    [src]="post.picture"
                     alt="AgrodatAI"
                 />
                 <img
                     class="posts__image"
-                    *ngIf="!post.owner"
+                    *ngIf="!post.picture"
                     src="assets/images/borde-logo.png"
                     alt="AgrodatAI"
                 />
             </div>
             <div class="posts__container--user">
-                <h2 *ngIf="post.owner">
+                <h2 *ngIf="dataUser">
                     <a
                         class="posts__user--title"
                         (click)="postDetail(post.id)"
-                        >{{ post.owner }}</a
+                        >{{ post.user_name }}</a
                     >
                 </h2>
-                <h2 *ngIf="!post.owner">
+                <h2 *ngIf="!dataUser">
                     <a class="posts__user--title" (click)="postDetail(post.id)"
                         >Invitado</a
                     >
                 </h2>
                 <p class="posts__user--time">
-                    {{ post.timestamp | amTimeAgo }}
+                    {{ post.created | amTimeAgo }}
                 </p>
             </div>
         </div>

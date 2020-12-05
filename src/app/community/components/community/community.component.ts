@@ -16,6 +16,7 @@ export class CommunityComponent implements OnInit {
     foro: boolean = true;
     destacadas: boolean = false;
     error;
+    dataUser;
     constructor(
         public postsService: PostsService,
         public authGuard: AuthGuard,
@@ -23,10 +24,13 @@ export class CommunityComponent implements OnInit {
         public router: Router
     ) {}
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.dataUser = localStorage.getItem('dataUser');
+    }
 
     logout() {
-        this.router.navigate(['login/']);
+        localStorage.removeItem('data');
         this.authService.logout();
+        this.router.navigate(['login/']);
     }
 }

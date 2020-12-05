@@ -7,19 +7,19 @@ from rest_framework.routers import DefaultRouter
 from django.conf import settings
 from django.conf.urls.static import static
 
-from posts.views import PostViewSet, api_root
+from posts.views import PostViewSet
 from rest_framework import renderers
 
-post_list = PostViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-post_detail = PostViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
+# post_list = PostViewSet.as_view({
+#     'get': 'list',
+#     'post': 'create'
+# })
+# post_detail = PostViewSet.as_view({
+#     'get': 'retrieve',
+#     'put': 'update',
+#     'patch': 'partial_update',
+#     'delete': 'destroy'
+# })
 
 
 

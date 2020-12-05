@@ -14,20 +14,18 @@ export class PostsService {
 
     posts: Post[];
     selectPost: Post = {
-        url: '',
-        id: 0,
-        owner: '',
-        timestamp: '',
         content: '',
+        user: 0,
+        profile: 0,
     };
 
     profiles: Profile[];
     selectProfile: Profile = {
-        id: 0,
-        owner: '',
+        url: '',
+        user: '',
         picture: '',
-        interests: [],
-        communities: [],
+        created: '',
+        modified: '',
     };
 
     constructor(private http: HttpClient) {}
@@ -58,7 +56,7 @@ export class PostsService {
         return this.http.get<Profile[]>(`${this.URL_API_PROFILE}${id}/`);
     }
 
-    updateProfile(profile: Profile) {
-        return this.http.put(`${this.URL_API_PROFILE}${profile.id}/`, profile);
-    }
+    // updateProfile(profile: Profile) {
+    //     return this.http.put(`${this.URL_API_PROFILE}${profile.url}/`, profile);
+    // }
 }

@@ -1,7 +1,10 @@
 export interface Post {
-    url?: string;
-    id: number;
-    owner: string;
-    timestamp: string;
+    id?: number;
+    title?: string;
+    photo?: string;
     content: string;
+    created?: string;
+    modified?: string;
+    user: number;
+    profile: number;
 }

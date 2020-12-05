@@ -1,8 +1,7 @@
 export interface Profile {
     url?: string;
-    id: number;
-    owner: string;
-    picture: string;
-    interests?: string[];
-    communities?: string[];
+    user: string;
+    picture?: string;
+    created?: string;
+    modified?: string;
 }

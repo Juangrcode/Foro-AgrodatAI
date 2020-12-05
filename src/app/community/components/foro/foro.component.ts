@@ -19,7 +19,11 @@ interface HtmlInputEvent extends Event {
 export class ForoComponent implements OnInit {
     filterInterests: any[];
     profile;
-
+    dataUser;
+    userPost;
+    resUser;
+    newUserPost;
+    pushUser = [];
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
@@ -31,9 +35,10 @@ export class ForoComponent implements OnInit {
         // if (!this.authService.isLoggedIn()) {
         //     this.router.navigate(['login']);
         // }
+        this.dataUser = localStorage.getItem('dataUser');
         this.getAllInterests();
         this.getAllPosts();
-        this.getProfile();
+        this.getProfile(this.dataUser);
     }
 
     getAllInterests() {
@@ -58,8 +63,8 @@ export class ForoComponent implements OnInit {
         );
     }
 
-    getProfile() {
-        this.postsService.getProfile(1).subscribe(
+    getProfile(user_id: number) {
+        this.postsService.getProfile(user_id).subscribe(
             (res) => {
                 this.profile = res;
             },
@@ -73,7 +78,6 @@ export class ForoComponent implements OnInit {
         this.postsService.getAllPosts().subscribe(
             (res) => {
                 this.postsService.posts = res;
-                console.log(res);
             },
             (err) => {
                 console.log(err);
@@ -81,9 +85,18 @@ export class ForoComponent implements OnInit {
         );
     }
 
+    getUserPost(id: number) {}
+
     addPost(form: NgForm) {
+        console.log(this.profile);
+        let formUser = {
+            user: this.profile.id,
+            profile: this.profile.id,
+            content: form.value.content,
+        };
+        console.log(formUser);
         if (form.value.id) {
-            this.postsService.updatePost(form.value).subscribe(
+            this.postsService.updatePost(formUser).subscribe(
                 (res) => {
                     console.log(res);
                 },
@@ -92,13 +105,14 @@ export class ForoComponent implements OnInit {
                 }
             );
         } else {
-            this.postsService.createPost(form.value).subscribe(
+            this.postsService.createPost(formUser).subscribe(
                 (res) => {
                     console.log('anadir al post');
                     // this.communityClicked.emit(this.community.id);
                     this.getAllPosts();
                     form.reset();
-                    alert('pOst Creada');
+                    this.pushUser = [];
+                    // alert('pOst Creada');
                 },
                 (err) => {
                     console.log(err);
@@ -109,8 +123,6 @@ export class ForoComponent implements OnInit {
 
     postDetail(id: number) {
         this.router.navigate(['/comunidad/foro', id]);
-        console.log('community');
-        console.log(id);
         this.postsService.getPost(id).subscribe(
             (res) => console.log(res),
             (err) => console.log(err)

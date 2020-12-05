@@ -8,25 +8,25 @@ from users import views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from users.views import ProfileViewSet, UserViewSet, api_root
+from users.views import ProfileViewSet, UserViewSet
 from rest_framework import renderers
 
-profile_list = ProfileViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-profile_detail = ProfileViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
-user_list = UserViewSet.as_view({
-    'get': 'list'
-})
-user_detail = UserViewSet.as_view({
-    'get': 'retrieve'
-})
+# profile_list = ProfileViewSet.as_view({
+#     'get': 'list',
+#     'post': 'create'
+# })
+# profile_detail = ProfileViewSet.as_view({
+#     'get': 'retrieve',
+#     'put': 'update',
+#     'patch': 'partial_update',
+#     'delete': 'destroy'
+# })
+# user_list = UserViewSet.as_view({
+#     'get': 'list'
+# })
+# user_detail = UserViewSet.as_view({
+#     'get': 'retrieve'
+# })
 
 
 
