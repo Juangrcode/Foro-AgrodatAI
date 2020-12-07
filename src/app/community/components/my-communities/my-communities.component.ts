@@ -30,7 +30,7 @@ export class MyCommunitiesComponent implements OnInit {
                 this.communityService.communities = res;
                 this.profileMyCommunities = this.communityService.communities.filter(
                     (item) => {
-                        return item.profile == this.dataUser;
+                        return item.profile.id == this.dataUser;
                     }
                 );
                 console.log(this.profileMyCommunities);

@@ -3,7 +3,8 @@ export interface Community {
     name: string;
     picture: string;
     description: string;
-    profile: number;
+    profile: any;
+    activity: number;
     created?: string;
     modified?: string;
 }

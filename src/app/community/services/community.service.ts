@@ -16,6 +16,7 @@ export class CommunityService {
         picture: '',
         description: '',
         profile: 0,
+        activity: 0,
     };
     communities: Community[];
 
@@ -29,12 +30,19 @@ export class CommunityService {
         return this.http.get(`${this.URL_API}${id}/`);
     }
 
-    createCommunity(name: string, description: string, file: File, profile) {
+    createCommunity(
+        name: string,
+        description: string,
+        file: File,
+        profile,
+        activity
+    ) {
         const fd = new FormData();
         fd.append('name', name);
         fd.append('picture', file);
         fd.append('description', description);
-        fd.append('profile', profile);
+        fd.append('profileId', profile);
+        fd.append('activityId', activity);
         return this.http.post(this.URL_API, fd);
     }
 

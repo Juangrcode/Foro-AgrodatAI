@@ -29,6 +29,8 @@ export class FormNewCommunityComponent implements OnInit {
     cover: File;
     uploadedFiles: Array<File>;
     image = '../../../../assets/images/borde-logo.png';
+    activitySelect = 1;
+
     constructor(
         public communityService: CommunityService,
         public http: HttpClient,
@@ -105,7 +107,8 @@ export class FormNewCommunityComponent implements OnInit {
                 name.value,
                 description.value,
                 this.file,
-                localStorage.getItem('dataUser')
+                localStorage.getItem('dataUser'),
+                this.activitySelect
             )
             .subscribe(
                 (res) => {
@@ -114,5 +117,9 @@ export class FormNewCommunityComponent implements OnInit {
                 (err) => console.log(err)
             );
         return false;
+    }
+
+    selectActivity(e) {
+        this.activitySelect = parseInt(e.target.value);
     }
 }

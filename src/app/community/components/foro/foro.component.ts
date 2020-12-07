@@ -6,6 +6,7 @@ import { Post } from '../../../models/posts';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CommentsService } from '../../services/comments.service';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -24,9 +25,12 @@ export class ForoComponent implements OnInit {
     resUser;
     newUserPost;
     pushUser = [];
+    stateComment: boolean = false;
+
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
+        public commentsService: CommentsService,
         private router: Router,
         public authService: AuthService
     ) {}
@@ -78,6 +82,7 @@ export class ForoComponent implements OnInit {
         this.postsService.getAllPosts().subscribe(
             (res) => {
                 this.postsService.posts = res;
+                console.log(this.postsService.posts);
             },
             (err) => {
                 console.log(err);
@@ -93,6 +98,7 @@ export class ForoComponent implements OnInit {
             user: this.profile.id,
             profile: this.profile.id,
             content: form.value.content,
+            profileId: this.profile.id,
         };
         console.log(formUser);
         if (form.value.id) {
@@ -127,5 +133,39 @@ export class ForoComponent implements OnInit {
             (res) => console.log(res),
             (err) => console.log(err)
         );
+    }
+
+    // Comments
+
+    addComment(text, id: number) {
+        let formUser = {
+            text: text.value,
+            profileId: this.profile.id,
+            post: id,
+        };
+        console.log(formUser);
+        this.commentsService.createComment(formUser).subscribe(
+            (res) => {
+                this.getAllPosts();
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    deleteComment(id: number) {
+        this.commentsService.deleteComment(id).subscribe(
+            (res) => {
+                this.getAllPosts();
+                console.log(res);
+            },
+            (err) => console.log(err)
+        );
+    }
+
+    commentView() {
+        this.stateComment = true;
     }
 }

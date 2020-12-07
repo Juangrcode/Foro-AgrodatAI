@@ -41,6 +41,15 @@
         alt="No images"
         (click)="photoInput.click()"
     />
+    <div>
+        <select name="activity" (change)="selectActivity($event)">
+            <option value="1" selected>Agricola</option>
+            <option value="2">Bovino</option>
+            <option value="3">Porcino</option>
+            <option value="4">Acuicola</option>
+            <option value="5">Avicola - Pesca</option>
+        </select>
+    </div>
     <div class="form__container">
         <label for="description">Descripcion</label>
         <textarea
