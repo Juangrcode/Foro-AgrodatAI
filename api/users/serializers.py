@@ -10,13 +10,15 @@ from users.models import Profile
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
+    # interests_name = serializers.ReadOnlyField(source='interests.name')
     # user = UserSerializer()
     # interests = serializers.HyperlinkedRelatedField(many=True, view_name='interest-detail', read_only=True)
     # communities = serializers.HyperlinkedRelatedField(many=True, view_name='community-detail', read_only=True)
 
     class Meta:
         model = Profile
-        fields = ['url', 'id', 'user', 'picture','created','modified']
+        # fields = ['url', 'id', 'user','interests_user', 'picture','created','modified']
+        fields = '__all__'
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

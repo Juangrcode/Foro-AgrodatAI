@@ -1,45 +1,37 @@
-<form
+<!-- <form
     action="/api/new_communities/"
     method="POST"
+    enctype="multipart/form-data"
     #communityForm="ngForm"
     (ngSubmit)="addCommunity(communityForm)"
-    enctype="multipart/form-data"
     class="form"
->
+> -->
+<form (submit)="uploadPhoto(name, description, id)">
     <h2 class="form__title">Crear Comunidad</h2>
-    <input
-        type="hidden"
-        name="id"
-        [(ngModel)]="communityService.selectedCommunity.id"
-    />
+    <input type="hidden" name="id" #id />
     <div class="form__container">
         <label for="name">Nombre</label>
-        <input
-            type="text"
-            name="name"
-            [(ngModel)]="communityService.selectedCommunity.name"
-        />
+        <input type="text" name="name" #name />
     </div>
-    <!-- <div class="form__container form__select">
-        <label for="activities">Seleccionar Actividad</label>
-        <select
-            name="activities"
-            [(ngModel)]="communityService.selectedCommunity.activities"
-            multiple
+    <!-- <div>
+        <image-upload
+            (uploadFinished)="onUploadFinish($event)"
+            [(ngModel)]="communityService.selectedCommunity.picture"
+            name="picture"
         >
-            <option value="1">Agricola</option>
-            <option value="2">Bovino</option>
-            <option value="3">Porcino</option>
-            <option value="4">Avicola</option>
-            <option value="5">Acuicola - Pesca</option>
-        </select>
+        </image-upload>
+        <input
+            type="file"
+            id="file"
+            placeholder="File"
+            (change)="onImageChange($event)"
+        />
     </div> -->
-    <!-- <input
+    <input
         class="form__container--picture"
         type="file"
         name="picture"
         id="picture"
-        [(ngModel)]="communityService.selectedCommunity.picture"
         accept=".png, .jpg, .jp"
         (change)="onPhotoSelected($event)"
         #photoInput
@@ -48,19 +40,20 @@
         [src]="photoSelected || 'assets/iconos/no_photo.png'"
         alt="No images"
         (click)="photoInput.click()"
-        [(ngModel)]="communityService.selectedCommunity.id"
-    /> -->
+    />
     <div class="form__container">
         <label for="description">Descripcion</label>
         <textarea
             name="description"
             cols="30"
             rows="10"
-            [(ngModel)]="communityService.selectedCommunity.description"
+            #description
         ></textarea>
     </div>
     <div class="form__btn">
-        <button class="btn" (click)="resetForm(communityForm)">Limpiar</button>
+        <!-- <button class="btn" (click)="resetForm(name, description)">
+            Limpiar
+        </button> -->
         <button class="btn" (click)="guardar()">Guardar</button>
     </div>
 </form>

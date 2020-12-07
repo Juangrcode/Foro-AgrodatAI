@@ -11,12 +11,16 @@ import { CommunityService } from '../../services/community.service';
     styleUrls: ['./my-communities.component.scss'],
 })
 export class MyCommunitiesComponent implements OnInit {
+    profileMyCommunities;
+    dataUser;
+
     constructor(
         public communityService: CommunityService,
         private router: Router
     ) {}
 
     ngOnInit(): void {
+        this.dataUser = localStorage.getItem('dataUser');
         this.getAllCommunities();
     }
 
@@ -24,7 +28,12 @@ export class MyCommunitiesComponent implements OnInit {
         this.communityService.getAllCommunities().subscribe(
             (res) => {
                 this.communityService.communities = res;
-                console.log(this.communityService.communities);
+                this.profileMyCommunities = this.communityService.communities.filter(
+                    (item) => {
+                        return item.profile == this.dataUser;
+                    }
+                );
+                console.log(this.profileMyCommunities);
             },
             (err) => {
                 console.log(err);

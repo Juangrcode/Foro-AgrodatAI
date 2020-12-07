@@ -9,12 +9,13 @@ import { Community } from '../../models/new_communities';
 export class CommunityService {
     URL_API = 'http://localhost:8000/api/new-communities/';
     // URL_API = 'http://localhost:2000/new_communities/';
-
+    myCommunities: boolean = false;
     selectedCommunity: Community = {
         id: 0,
         name: '',
         picture: '',
         description: '',
+        profile: 0,
     };
     communities: Community[];
 
@@ -28,12 +29,32 @@ export class CommunityService {
         return this.http.get(`${this.URL_API}${id}/`);
     }
 
-    createCommunity(community: Community) {
+    createCommunity(name: string, description: string, file: File, profile) {
+        const fd = new FormData();
+        fd.append('name', name);
+        fd.append('picture', file);
+        fd.append('description', description);
+        fd.append('profile', profile);
+        return this.http.post(this.URL_API, fd);
+    }
+
+    createNewCommunity(community) {
         return this.http.post(this.URL_API, community);
     }
 
-    updateCommunity(community: Community) {
-        return this.http.put(`${this.URL_API}${community.id}/`, community);
+    updateCommunity(
+        id,
+        name: string,
+        description: string,
+        file: File,
+        profile
+    ) {
+        const fd = new FormData();
+        fd.append('name', name);
+        fd.append('picture', file);
+        fd.append('description', description);
+        fd.append('profile', profile);
+        return this.http.put(`${this.URL_API}${id}/`, fd);
     }
 
     deleteCommunity(id: number) {

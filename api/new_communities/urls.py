@@ -7,19 +7,19 @@ from rest_framework.routers import DefaultRouter
 from django.conf import settings
 from django.conf.urls.static import static
 
-from new_communities.views import NewCommunityViewSet, api_root
+from new_communities.views import NewCommunityViewSet
 from rest_framework import renderers
 
-community_list = NewCommunityViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-community_detail = NewCommunityViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
+# community_list = NewCommunityViewSet.as_view({
+#     'get': 'list',
+#     'post': 'create'
+# })
+# community_detail = NewCommunityViewSet.as_view({
+#     'get': 'retrieve',
+#     'put': 'update',
+#     'patch': 'partial_update',
+#     'delete': 'destroy'
+# })
 
 
 

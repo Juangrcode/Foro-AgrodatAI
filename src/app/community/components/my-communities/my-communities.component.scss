@@ -63,6 +63,10 @@ p {
     justify-content: center;
     margin-right: 10px;
 }
+.contenedor-items__item:hover {
+    border: 1px solid #019a78;
+    cursor: pointer;
+}
 .community__data-post--image {
     height: 40px;
     width: 40px;

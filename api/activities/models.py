@@ -11,7 +11,7 @@ from interests.models import Interest
 class Activity(models.Model):
     # Activity Model
     name = models.CharField(max_length=225, blank=True)
-    interests = models.ManyToManyField(Interest)
+    interests = models.ManyToManyField(Interest, blank=True, null=True)
 
     # Admin
     def __str__(self):

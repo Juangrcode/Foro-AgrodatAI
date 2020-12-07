@@ -4,6 +4,8 @@ import { Community } from '../../../models/new_communities';
 import Swal from 'sweetalert2';
 
 import { CommunityService } from '../../services/community.service';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -17,13 +19,21 @@ interface HtmlInputEvent extends Event {
 export class FormNewCommunityComponent implements OnInit {
     @Input() community: Community; // Enviar  datos
     @Output() communityClicked: EventEmitter<any> = new EventEmitter();
+    @Output() communidades: EventEmitter<any> = new EventEmitter();
+    // @Input() communidades;
 
     file: File;
     name;
     description;
     photoSelected: string | ArrayBuffer;
-
-    constructor(public communityService: CommunityService) {}
+    cover: File;
+    uploadedFiles: Array<File>;
+    image = '../../../../assets/images/borde-logo.png';
+    constructor(
+        public communityService: CommunityService,
+        public http: HttpClient,
+        private router: Router
+    ) {}
 
     ngOnInit(): void {
         this.getAllCommunities();
@@ -39,9 +49,10 @@ export class FormNewCommunityComponent implements OnInit {
         });
     }
 
-    resetForm(form: NgForm) {
-        form.reset();
-    }
+    // resetForm(name, description) {
+    //     name.value.reset();
+    //     description.value.reset();
+    // }
 
     getAllCommunities() {
         this.communityService.getAllCommunities().subscribe(
@@ -52,31 +63,6 @@ export class FormNewCommunityComponent implements OnInit {
                 console.log(err);
             }
         );
-    }
-
-    addCommunity(form: NgForm) {
-        if (form.value.id) {
-            this.communityService.updateCommunity(form.value).subscribe(
-                (res) => {
-                    console.log(res);
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        } else {
-            this.communityService.createCommunity(form.value).subscribe(
-                (res) => {
-                    console.log('anadir al comunidad ');
-                    // this.communityClicked.emit(this.community.id);
-                    this.getAllCommunities();
-                    form.reset();
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        }
     }
 
     editCommunity(community: Community) {
@@ -98,23 +84,35 @@ export class FormNewCommunityComponent implements OnInit {
         }
     }
 
-    onPhotoSelected(event: HtmlInputEvent) {
+    onPhotoSelected(event: HtmlInputEvent): void {
         if (event.target.files && event.target.files[0]) {
             this.file = <File>event.target.files[0];
             // image preview
+            console.log(this.file);
             const reader = new FileReader();
             reader.onload = (e) => (this.photoSelected = reader.result);
             reader.readAsDataURL(this.file);
         }
     }
 
-    // uploadPhoto(name: HTMLInputElement, description: HTMLTextAreaElement) {
-    //     this.communityService
-    //         .createPhoto(name.value, description.value, this.file)
-    //         .subscribe(
-    //             (res) => console.log(res),
-    //             (err) => console.log(err)
-    //         );
-    //     console.log(name.value);
-    // }
+    uploadPhoto(
+        name: HTMLInputElement,
+        description: HTMLTextAreaElement,
+        id
+    ): boolean {
+        this.communityService
+            .createCommunity(
+                name.value,
+                description.value,
+                this.file,
+                localStorage.getItem('dataUser')
+            )
+            .subscribe(
+                (res) => {
+                    console.log(res);
+                },
+                (err) => console.log(err)
+            );
+        return false;
+    }
 }

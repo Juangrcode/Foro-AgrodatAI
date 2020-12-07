@@ -4,7 +4,9 @@
 
 <ng-template #main_content>
     <div class="community">
-        <div class="community__data-post">
+        <!--  -->
+        <!--  -->
+        <div *ngIf="!edit; else edit_content" class="community__data-post">
             <div class="community__container">
                 <div class="community__container--image">
                     <img
@@ -23,20 +25,13 @@
                 <div class="community__data">
                     <div class="community__data-post--info">
                         <h1>{{ community.name }}</h1>
-                        <h2 *ngIf="community.activities == 1">Agricola</h2>
-                        <h2 *ngIf="community.activities == 2">Bovino</h2>
-                        <h2 *ngIf="community.activities == 3">Porcino</h2>
-                        <h2 *ngIf="community.activities == 4">Avicola</h2>
-                        <h2 *ngIf="community.activities == 5">
-                            Acuicola - Pesca
-                        </h2>
                         <h3>{{ community.created | amTimeAgo }}</h3>
                     </div>
                 </div>
                 <div>
                     <button
                         class="btn btn-edit"
-                        (click)="editCommunity(community)"
+                        (click)="editCommunityView(true)"
                     >
                         Editar
                     </button>
@@ -44,5 +39,70 @@
             </div>
             <p class="community__description">{{ community.description }}</p>
         </div>
+        <!--  -->
+        <!--  -->
+        <ng-template #edit_content>
+            <div class="community__data-post">
+                <form
+                    class="community__container"
+                    (submit)="editCommunity(community.id, name, description)"
+                >
+                    <input type="hidden" name="id" #id />
+                    <div class="community__container--image">
+                        <input
+                            class="form__container--picture"
+                            type="file"
+                            name="picture"
+                            id="picture"
+                            accept=".png, .jpg, .jp"
+                            (change)="onPhotoSelected($event)"
+                            #photoInput
+                        />
+                        <img
+                            class="community__image"
+                            [src]="photoSelected || community.picture"
+                            alt="No images"
+                            (click)="photoInput.click()"
+                        />
+                    </div>
+                    <div *ngIf="error">{{ error.message }}</div>
+                    <div class="community__data">
+                        <div class="community__data-post--info">
+                            <input
+                                type="text"
+                                placeholder="Photo"
+                                [value]="community.name"
+                                #name
+                            />
+                            <h3>{{ community.modified | amTimeAgo }}</h3>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-edit">Actualizar</button>
+                        <button
+                            class="btn"
+                            (click)="deleteCommunity(community.id)"
+                        >
+                            Eliminar
+                        </button>
+                        <button
+                            class="btn btn-edit"
+                            (click)="editCommunityView(false)"
+                        >
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+                <textarea
+                    class="community__description"
+                    rows="2"
+                    placeholder="Description"
+                    [value]="community.description"
+                    #description
+                ></textarea>
+            </div>
+        </ng-template>
+        <!--  -->
+        <!--  -->
     </div>
 </ng-template>
