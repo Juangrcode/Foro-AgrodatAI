@@ -7,7 +7,7 @@ from rest_framework.routers import DefaultRouter
 from django.conf import settings
 from django.conf.urls.static import static
 
-from new_communities.views import NewCommunityViewSet
+from new_communities.views import NewCommunityViewSet, JoinUserViewSet
 from rest_framework import renderers
 
 # community_list = NewCommunityViewSet.as_view({
@@ -26,6 +26,8 @@ from rest_framework import renderers
 
 router = DefaultRouter()
 router.register(r'new-communities', NewCommunityViewSet)
+router.register(r'join-user',JoinUserViewSet )
+
 
 
 urlpatterns = [

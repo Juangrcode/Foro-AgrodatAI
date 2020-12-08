@@ -4,13 +4,13 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 
 # Rest_Framework
-from rest_framework import viewsets
+from rest_framework import viewsets, status
 from rest_framework import permissions
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 
-from .serializers import NewCommunitySerializer
-from .models import NewCommunity
+from .serializers import NewCommunitySerializer, JoinUserSerializer
+from .models import NewCommunity, JoinUser
 # from new_communities.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
@@ -31,3 +31,19 @@ class NewCommunityViewSet(viewsets.ModelViewSet):
     #     description = request.data['description']
     #     NewCommunity.objects.create(name=name, picture=picture, description=description)
     #     return HttpResponse({'message': 'Book created'}, status=200)
+    @action(detail=True, methods=['post'])
+    def set_comment(self, request, pk=None):
+
+        #get post object
+        my_community = self.get_object()  
+
+        serializer = JoinUserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(post=my_community)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class JoinUserViewSet(viewsets.ModelViewSet):
+    queryset = JoinUser.objects.all()
+    serializer_class = JoinUserSerializer

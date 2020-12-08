@@ -1,108 +1,146 @@
 <div *ngIf="!community; else main_content">
     <h1>Loading...</h1>
 </div>
-
 <ng-template #main_content>
     <div class="community">
-        <!--  -->
-        <!--  -->
-        <div *ngIf="!edit; else edit_content" class="community__data-post">
-            <div class="community__container">
-                <div class="community__container--image">
-                    <img
-                        class="community__image"
-                        *ngIf="community.picture"
-                        [src]="community.picture"
-                        alt="AgrodatAI"
-                    />
-                    <img
-                        class="community__image"
-                        *ngIf="!community.picture"
-                        src="assets/images/borde-logo.png"
-                        alt="AgrodatAI"
-                    />
-                </div>
-                <div class="community__data">
-                    <div class="community__data-post--info">
-                        <h1>{{ community.name }}</h1>
-                        <h3>{{ community.created | amTimeAgo }}</h3>
-                    </div>
-                </div>
-                <div>
-                    <button
-                        class="btn btn-edit"
-                        (click)="editCommunityView(true)"
-                    >
-                        Editar
-                    </button>
-                </div>
-            </div>
-            <p class="community__description">{{ community.description }}</p>
-        </div>
-        <!--  -->
-        <!--  -->
-        <ng-template #edit_content>
-            <div class="community__data-post">
-                <form
-                    class="community__container"
-                    (submit)="editCommunity(community.id, name, description)"
-                >
-                    <input type="hidden" name="id" #id />
-                    <div class="community__container--image">
-                        <input
-                            class="form__container--picture"
-                            type="file"
-                            name="picture"
-                            id="picture"
-                            accept=".png, .jpg, .jp"
-                            (change)="onPhotoSelected($event)"
-                            #photoInput
-                        />
-                        <img
-                            class="community__image"
-                            [src]="photoSelected || community.picture"
-                            alt="No images"
-                            (click)="photoInput.click()"
-                        />
-                    </div>
-                    <div *ngIf="error">{{ error.message }}</div>
-                    <div class="community__data">
-                        <div class="community__data-post--info">
-                            <input
-                                type="text"
-                                placeholder="Photo"
-                                [value]="community.name"
-                                #name
+        <div class="community__container">
+            <!--  -->
+            <!--  -->
+            <div
+                *ngIf="!edit; else edit_content"
+                class="community__container--info"
+            >
+                <div class="community__container--container-info">
+                    <div class="community__info--container">
+                        <div class="community__info--container-image">
+                            <img
+                                class="community__info--image"
+                                *ngIf="community.picture"
+                                [src]="community.picture"
+                                alt="AgrodatAI"
                             />
-                            <h3>{{ community.modified | amTimeAgo }}</h3>
+                            <img
+                                class="community__info--image"
+                                *ngIf="!community.picture"
+                                src="assets/images/borde-logo.png"
+                                alt="AgrodatAI"
+                            />
+                        </div>
+                        <div class="community__info--container-data">
+                            <h1>{{ community.name }}</h1>
+                            <h3>{{ community.created | amTimeAgo }}</h3>
+                            <div class="community__info--data-user">
+                                <h2>{{ community.joinusers.length }}</h2>
+                                <a
+                                    (click)="
+                                        addJoinUser(
+                                            community.id,
+                                            this.profile.id
+                                        )
+                                    "
+                                    >Unirse</a
+                                >
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <button class="btn btn-edit">Actualizar</button>
-                        <button
-                            class="btn"
-                            (click)="deleteCommunity(community.id)"
-                        >
-                            Eliminar
-                        </button>
+                    <div class="community__info--btn">
                         <button
                             class="btn btn-edit"
-                            (click)="editCommunityView(false)"
+                            (click)="editCommunityView(true)"
                         >
-                            Cancelar
+                            Editar
+                            <img src="assets/iconos/edit-icon.svg" alt="" />
                         </button>
                     </div>
-                </form>
-                <textarea
-                    class="community__description"
-                    rows="2"
-                    placeholder="Description"
-                    [value]="community.description"
-                    #description
-                ></textarea>
+                </div>
             </div>
-        </ng-template>
-        <!--  -->
-        <!--  -->
+            <!--  -->
+            <!--  -->
+            <ng-template #edit_content>
+                <div class="community__container--info">
+                    <form
+                        class="community__container--container-info"
+                        (submit)="
+                            editCommunity(community.id, name, description)
+                        "
+                    >
+                        <div class="community__info--container">
+                            <div class="community__info--container-image">
+                                <input
+                                    class="form__container--picture"
+                                    type="file"
+                                    name="picture"
+                                    id="picture"
+                                    accept=".png, .jpg, .jp"
+                                    (change)="onPhotoSelected($event)"
+                                    #photoInput
+                                />
+                                <img
+                                    class="community__info--image"
+                                    [src]="photoSelected || community.picture"
+                                    alt="No images"
+                                    (click)="photoInput.click()"
+                                />
+                            </div>
+
+                            <div class="community__info--container-data">
+                                <input
+                                    type="text"
+                                    placeholder="Photo"
+                                    [value]="community.name"
+                                    #name
+                                />
+                                <h3>
+                                    {{ community.modified | amTimeAgo }}
+                                </h3>
+                            </div>
+                        </div>
+                        <div>
+                            <button
+                                class="btn btn-cancel btn-small"
+                                (click)="editCommunityView(false)"
+                            >
+                                <img src="assets/iconos/close.svg" alt="" />
+                            </button>
+                            <button class="btn btn-update btn-small">
+                                <img src="assets/iconos/update.svg" alt="" />
+                            </button>
+                            <button
+                                class="btn btn-delete btn-small"
+                                (click)="deleteCommunity(community.id)"
+                            >
+                                <img src="assets/iconos/remove.svg" alt="" />
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </ng-template>
+            <!--  -->
+            <!--  -->
+        </div>
+        <div *ngIf="!edit" class="community__container--description">
+            <p class="community__description">
+                {{ community.description }}
+            </p>
+            <h2>{{ community.activity.name }}</h2>
+        </div>
+        <div *ngIf="edit" class="community__container--description">
+            <textarea
+                class="community__description"
+                rows="2"
+                placeholder="Description"
+                [value]="community.description"
+                #description
+            ></textarea>
+            <div class="community__description--select">
+                <select name="activity" (change)="selectActivity($event)">
+                    <option value="1" selected>Agricola</option>
+                    <option value="2">Bovino</option>
+                    <option value="3">Porcino</option>
+                    <option value="4">Acuicola</option>
+                    <option value="5">Avicola - Pesca</option>
+                </select>
+            </div>
+        </div>
     </div>
 </ng-template>

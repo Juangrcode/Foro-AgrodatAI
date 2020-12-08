@@ -1,100 +1,55 @@
-<!-- <form
-    action="/api/new_communities/"
-    method="POST"
-    enctype="multipart/form-data"
-    #communityForm="ngForm"
-    (ngSubmit)="addCommunity(communityForm)"
-    class="form"
-> -->
-<form (submit)="uploadPhoto(name, description, id)">
+<form class="form" (submit)="uploadPhoto(name, description, id)">
     <h2 class="form__title">Crear Comunidad</h2>
     <input type="hidden" name="id" #id />
     <div class="form__container">
-        <label for="name">Nombre</label>
-        <input type="text" name="name" #name />
-    </div>
-    <!-- <div>
-        <image-upload
-            (uploadFinished)="onUploadFinish($event)"
-            [(ngModel)]="communityService.selectedCommunity.picture"
-            name="picture"
-        >
-        </image-upload>
-        <input
-            type="file"
-            id="file"
-            placeholder="File"
-            (change)="onImageChange($event)"
-        />
-    </div> -->
-    <input
-        class="form__container--picture"
-        type="file"
-        name="picture"
-        id="picture"
-        accept=".png, .jpg, .jp"
-        (change)="onPhotoSelected($event)"
-        #photoInput
-    />
-    <img
-        [src]="photoSelected || 'assets/iconos/no_photo.png'"
-        alt="No images"
-        (click)="photoInput.click()"
-    />
-    <div>
-        <select name="activity" (change)="selectActivity($event)">
-            <option value="1" selected>Agricola</option>
-            <option value="2">Bovino</option>
-            <option value="3">Porcino</option>
-            <option value="4">Acuicola</option>
-            <option value="5">Avicola - Pesca</option>
-        </select>
-    </div>
-    <div class="form__container">
-        <label for="description">Descripcion</label>
-        <textarea
-            name="description"
-            cols="30"
-            rows="10"
-            #description
-        ></textarea>
-    </div>
-    <div class="form__btn">
-        <!-- <button class="btn" (click)="resetForm(name, description)">
-            Limpiar
-        </button> -->
-        <button class="btn" (click)="guardar()">Guardar</button>
-    </div>
-</form>
-
-<!-- <div class="community">
-    <div
-        class="community__data-post"
-        *ngFor="let community of communityService.communities"
-    >
-        <img
-            class="community__data-post--image"
-            src="../../assets/iconos/avatar.png"
-            alt="Logo"
-        />
-        <div class="community__data">
-            <div class="community__data-post--info">
-                <h1>{{ community.name }}</h1>
-                <h2 *ngIf="community.activities == 1">Agricola</h2>
-                <h2 *ngIf="community.activities == 2">Bovino</h2>
-                <h2 *ngIf="community.activities == 3">Porcino</h2>
-                <h2 *ngIf="community.activities == 4">Avicola</h2>
-                <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
-                <h3>{{ community.created }}</h3>
+        <div class="form-container">
+            <div class="form-container__name">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" #name />
             </div>
-            <div>
-                <button class="btn btn-edit" (click)="editCommunity(community)">
-                    Editar
-                </button>
-                <button class="btn" (click)="deleteCommunity(community.id)">
-                    Eliminar
-                </button>
+            <div class="form-container__activity">
+                <label for="activity">Seleccionar actividad</label>
+                <select name="activity" (change)="selectActivity($event)">
+                    <option value="1" selected>Agricola</option>
+                    <option value="2">Bovino</option>
+                    <option value="3">Porcino</option>
+                    <option value="4">Acuicola</option>
+                    <option value="5">Avicola - Pesca</option>
+                </select>
+            </div>
+            <div class="form-container__image">
+                <input
+                    class="form-container__image-photo form__container--picture"
+                    type="file"
+                    name="picture"
+                    id="picture"
+                    accept=".png, .jpg, .jp"
+                    (change)="onPhotoSelected($event)"
+                    #photoInput
+                />
+                <img
+                    class="form-container__image-photo"
+                    [src]="photoSelected || 'assets/iconos/no_photo.png'"
+                    alt="No images"
+                    (click)="photoInput.click()"
+                />
             </div>
         </div>
+
+        <div class="form__container--description">
+            <label for="description">Descripcion</label>
+            <textarea
+                name="description"
+                cols="30"
+                rows="10"
+                #description
+            ></textarea>
+        </div>
+        <div class="form__btn">
+            <!-- <button class="btn" (click)="resetForm(name, description)">
+              Limpiar
+            </button> -->
+            <button class="btn" (click)="guardar()">Guardar</button>
+        </div>
     </div>
-</div> -->
+</form>

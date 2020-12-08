@@ -4,6 +4,8 @@ import { Community } from '../../../models/new_communities';
 
 import { CommunityService } from '../../services/community.service';
 import Swal from 'sweetalert2';
+import { JoinUserService } from '../../services/join-user.service';
+import { PostsService } from '../../services/posts.service';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -22,15 +24,23 @@ export class CommunityDetailComponent implements OnInit {
     photoSelected: string | ArrayBuffer;
     edit: boolean = false;
     error;
+    activitySelect = 1;
+    profile;
+    dataUser;
 
     constructor(
         private activateRoute: ActivatedRoute,
         private router: Router,
-        public communityService: CommunityService
+        public communityService: CommunityService,
+        public joinuserService: JoinUserService,
+        public postsService: PostsService
     ) {}
 
     ngOnInit(): void {
+        this.dataUser = localStorage.getItem('dataUser');
         this.getCommunityDetail();
+        this.getAllJoinUsers();
+        this.getProfile(this.dataUser);
     }
 
     guardar() {
@@ -49,6 +59,7 @@ export class CommunityDetailComponent implements OnInit {
             this.communityService.getCommunity(this.id).subscribe(
                 (res) => {
                     this.community = res;
+                    console.log(this.community);
                 },
                 (err) => console.log(err)
             );
@@ -65,12 +76,12 @@ export class CommunityDetailComponent implements OnInit {
                 name.value,
                 description.value,
                 this.file,
-                localStorage.getItem('dataUser')
+                localStorage.getItem('dataUser'),
+                this.activitySelect
             )
             .subscribe(
                 (res) => {
                     this.guardar();
-                    console.log(res);
                     this.edit = false;
                     this.getCommunityDetail();
                 },
@@ -107,10 +118,74 @@ export class CommunityDetailComponent implements OnInit {
         if (event.target.files && event.target.files[0]) {
             this.file = <File>event.target.files[0];
             // image preview
-            console.log(this.file);
             const reader = new FileReader();
             reader.onload = (e) => (this.photoSelected = reader.result);
             reader.readAsDataURL(this.file);
         }
+    }
+
+    selectActivity(e) {
+        this.activitySelect = parseInt(e.target.value);
+    }
+
+    // Profiles
+
+    getProfile(user_id: number) {
+        this.postsService.getProfile(user_id).subscribe(
+            (res) => {
+                this.profile = res;
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    // JoinUser
+
+    getAllJoinUsers() {
+        this.joinuserService.getAllJoinUser().subscribe(
+            (res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    getJoinUser(id: number) {
+        this.joinuserService.getJoinUser(id).subscribe(
+            (res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    addJoinUser(communityId, profileId) {
+        console.log(profileId);
+        console.log(communityId);
+        this.joinuserService.createJoinUser(communityId, profileId).subscribe(
+            (res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    deleteJoinUser(id: number) {
+        this.joinuserService.deleteJoinUser(id).subscribe(
+            (res) => {
+                console.log(res);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
     }
 }

@@ -8,6 +8,7 @@ from activities.models import Activity
 
 
 
+
 class NewCommunity(models.Model):
     # NewCommunities Model
 
@@ -23,7 +24,19 @@ class NewCommunity(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ('-created',)
+
     # Admin
     def __str__(self):
         # Return NewCommunitiesName
         return self.name
+
+class JoinUser(models.Model):
+    # JoinUser Model
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    community = models.ForeignKey(NewCommunity, on_delete=models.CASCADE)
+    text = models.CharField(max_length=300, blank=True, null=True)
+
+    def __str__(self):
+        return self.text

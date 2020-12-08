@@ -9,6 +9,8 @@ import { CommunityService } from '../../services/community.service';
     styleUrls: ['./featured-communities.component.scss'],
 })
 export class FeaturedCommunitiesComponent implements OnInit {
+    featureCommunities;
+
     constructor(
         public communityService: CommunityService,
         private router: Router
@@ -23,6 +25,13 @@ export class FeaturedCommunitiesComponent implements OnInit {
             (res) => {
                 this.communityService.communities = res;
                 console.log(this.communityService.communities);
+                this.featureCommunities = this.communityService.communities.filter(
+                    (item) => {
+                        console.log(item.joinusers.length);
+                        return item.joinusers.length;
+                    }
+                );
+                console.log(this.featureCommunities);
             },
             (err) => {
                 console.log(err);

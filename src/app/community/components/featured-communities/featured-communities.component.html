@@ -4,7 +4,7 @@
     <div class="contenedor-items">
         <div
             class="contenedor-items__item"
-            *ngFor="let community of communityService.communities"
+            *ngFor="let community of featureCommunities"
         >
             <div class="container-item">
                 <div class="container-item__image">
@@ -42,11 +42,8 @@
                 <p>{{ community.description }}</p>
             </div>
             <div class="community__data--btn">
-                <button class="btn btn-edit" (click)="editCommunity(community)">
-                    Editar
-                </button>
-                <button class="btn" (click)="deleteCommunity(community.id)">
-                    Eliminar
+                <button class="btn" (click)="communityDetail(community.id)">
+                    Unirse
                 </button>
             </div>
         </div>

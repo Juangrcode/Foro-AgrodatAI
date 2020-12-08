@@ -55,13 +55,15 @@ export class CommunityService {
         name: string,
         description: string,
         file: File,
-        profile
+        profile,
+        activity
     ) {
         const fd = new FormData();
         fd.append('name', name);
         fd.append('picture', file);
         fd.append('description', description);
-        fd.append('profile', profile);
+        fd.append('profileId', profile);
+        fd.append('activityId', activity);
         return this.http.put(`${this.URL_API}${id}/`, fd);
     }
 

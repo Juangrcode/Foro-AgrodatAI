@@ -1,10 +1,11 @@
 export interface Community {
     id?: number;
+    profile: any;
+    activity?: number;
+    joinusers?: any[];
     name: string;
     picture: string;
     description: string;
-    profile: any;
-    activity: number;
     created?: string;
     modified?: string;
 }
