@@ -17,9 +17,10 @@ export class PostsService {
         content: '',
         user: 0,
         profile: 0,
+        community: null,
     };
-
     profiles: Profile[];
+
     selectProfile: Profile = {
         url: '',
         user: '',
@@ -53,7 +54,7 @@ export class PostsService {
     // Profile
 
     getProfile(id: number) {
-        return this.http.get<Profile[]>(`${this.URL_API_PROFILE}${id}/`);
+        return this.http.get(`${this.URL_API_PROFILE}${id}/`);
     }
 
     // updateProfile(profile: Profile) {

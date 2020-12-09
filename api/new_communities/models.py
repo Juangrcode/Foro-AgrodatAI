@@ -40,3 +40,11 @@ class JoinUser(models.Model):
 
     def __str__(self):
         return self.text
+
+class Email(models.Model):
+    email = models.EmailField()
+
+    # Admin
+    def __str__(self):
+        # Return NewCommunitiesName
+        return self.email

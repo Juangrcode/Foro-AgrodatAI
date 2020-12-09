@@ -1,7 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PostsService } from '../community/services/posts.service';
 
 import { NoticiasService } from '../services/noticias.service';
+
+interface Profile {
+    id?: number;
+    user: string;
+    picture?: string;
+    created?: string;
+    modified?: string;
+}
 
 @Component({
     selector: 'app-header',
@@ -16,17 +25,37 @@ export class HeaderComponent implements OnInit {
     scroll = false;
     valor: number;
     caja: number;
+    dataUser;
+    profile: any = {
+        user: '',
+    };
+
     public noticias: any[];
 
     constructor(
         private _router: Router,
         private _activatedRoute: ActivatedRoute,
-        private noticiasSrv: NoticiasService
+        private noticiasSrv: NoticiasService,
+        public postsService: PostsService
     ) {
         this.noticias = this.noticiasSrv.noticias;
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+        this.dataUser = localStorage.getItem('dataUser');
+        this.getProfile(this.dataUser);
+    }
+
+    getProfile(id: number) {
+        this.postsService.getProfile(id).subscribe(
+            (res) => {
+                this.profile = res;
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
 
     notification() {
         alert('Notification');

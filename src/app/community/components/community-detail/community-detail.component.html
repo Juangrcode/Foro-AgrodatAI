@@ -29,9 +29,10 @@
                         <div class="community__info--container-data">
                             <h1>{{ community.name }}</h1>
                             <h3>{{ community.created | amTimeAgo }}</h3>
+                            <h2>{{ community.joinusers.length }} Miembros</h2>
                             <div class="community__info--data-user">
-                                <h2>{{ community.joinusers.length }}</h2>
                                 <a
+                                    *ngIf="!validateJoin"
                                     (click)="
                                         addJoinUser(
                                             community.id,
@@ -40,11 +41,22 @@
                                     "
                                     >Unirse</a
                                 >
+                                <a
+                                    *ngIf="validateJoin"
+                                    (click)="
+                                        deleteJoinUser(filterCommunity[0].id)
+                                    "
+                                    >Salir</a
+                                >
                             </div>
                         </div>
                     </div>
+                    <h3 class="posts__community--title">
+                        {{ community.posts.length }} Publicaciones
+                    </h3>
                     <div class="community__info--btn">
                         <button
+                            *ngIf="editCommunityAdmin"
                             class="btn btn-edit"
                             (click)="editCommunityView(true)"
                         >
@@ -61,7 +73,7 @@
                     <form
                         class="community__container--container-info"
                         (submit)="
-                            editCommunity(community.id, name, description)
+                            editCommunity(name, description, community.id)
                         "
                     >
                         <div class="community__info--container">
@@ -81,12 +93,13 @@
                                     alt="No images"
                                     (click)="photoInput.click()"
                                 />
+                                <p>Selecciona una Imagen</p>
                             </div>
 
                             <div class="community__info--container-data">
                                 <input
                                     type="text"
-                                    placeholder="Photo"
+                                    placeholder="Nombre"
                                     [value]="community.name"
                                     #name
                                 />
@@ -114,6 +127,16 @@
                         </div>
                     </form>
                 </div>
+                <div class="community__container--description">
+                    <textarea
+                        placeholder="Description"
+                        class="community__description"
+                        rows="2"
+                        name="description"
+                        [value]="community.description"
+                        #description
+                    ></textarea>
+                </div>
             </ng-template>
             <!--  -->
             <!--  -->
@@ -124,14 +147,15 @@
             </p>
             <h2>{{ community.activity.name }}</h2>
         </div>
-        <div *ngIf="edit" class="community__container--description">
-            <textarea
-                class="community__description"
+        <div *ngIf="edit" class="community__container--description content-end">
+            <!-- <textarea
+            class="community__description"
                 rows="2"
+                name="description"
                 placeholder="Description"
                 [value]="community.description"
                 #description
-            ></textarea>
+            ></textarea> -->
             <div class="community__description--select">
                 <select name="activity" (change)="selectActivity($event)">
                     <option value="1" selected>Agricola</option>
@@ -142,5 +166,17 @@
                 </select>
             </div>
         </div>
+    </div>
+    <div class="community-detail__container">
+        <app-join-users
+            class="joinUsers"
+            [profile]="profile"
+            [community]="community"
+            [joinUsers]="joinUsers"
+        ></app-join-users>
+        <app-posts-community
+            class="posts-community"
+            [community]="community"
+        ></app-posts-community>
     </div>
 </ng-template>

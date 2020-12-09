@@ -1,0 +1,15 @@
+<div class="banner-interests">
+    <div class="banner-interests__container" *ngFor="let interest of filterInt">
+        <h1>
+            {{ interest.name }}
+        </h1>
+        <div
+            class="banner-interests__container--item"
+            *ngFor="let i of interest.interests"
+        >
+            <h3 *ngIf="i.completed === true">
+                {{ i.name }}
+            </h3>
+        </div>
+    </div>
+</div>

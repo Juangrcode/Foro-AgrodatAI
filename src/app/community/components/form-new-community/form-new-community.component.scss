@@ -11,7 +11,7 @@ h6 {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     margin: 20px;
     border-radius: 10px;
@@ -168,4 +168,38 @@ h6 {
 }
 .community__data-post--info > h3 {
     color: #019a78;
+}
+
+@media only screen and (max-width: 1100px) {
+    .form {
+        height: 90vh;
+        margin: 10px;
+    }
+    .form-container {
+        flex-direction: column-reverse;
+    }
+    .form__container {
+        width: 80%;
+        margin: 0px 5px 5px;
+        padding: 10px;
+    }
+
+    .form-container__name {
+        margin: auto;
+    }
+    .form-container__activity {
+        margin: auto;
+    }
+    .form-container__image-photo {
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .foro {
+        flex-direction: column-reverse;
+    }
+    .banner-interests {
+        width: 100%;
+    }
 }

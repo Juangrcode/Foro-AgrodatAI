@@ -9,6 +9,7 @@ import { JoinUser } from 'src/app/models/join-user';
 export class JoinUserService {
     URL_API = 'http://localhost:8000/api/join-user/';
     // URL_API = 'http://localhost:5000/posts/';
+    URL_API_EMAIL = 'http://localhost:8000/api/send/';
 
     comments: JoinUser[];
     selectComment: JoinUser = {
@@ -35,5 +36,12 @@ export class JoinUserService {
 
     deleteJoinUser(id: number) {
         return this.http.delete(`${this.URL_API}${id}/`);
+    }
+
+    createEmail(email) {
+        let mail = {
+            email: email,
+        };
+        return this.http.post(this.URL_API_EMAIL, mail);
     }
 }

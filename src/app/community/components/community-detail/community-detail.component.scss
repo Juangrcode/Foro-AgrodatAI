@@ -11,7 +11,8 @@ h6 {
 .community {
     // background: url("../../../../assets/iconos/fondo-community\ -\ Copy.png");
     // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
-    width: 100%;
+    width: 70%;
+    margin: auto;
     background-color: white;
     -webkit-box-shadow: 0px 5px 10px -6px black;
     -moz-box-shadow: 0px 5px 10px -6px black;
@@ -19,7 +20,7 @@ h6 {
     border-bottom: 2px solid #e3e0e4;
 }
 .community__container {
-    width: 70%;
+    width: 90%;
     margin: auto;
     // border-radius: 10px;
     // border-top: none;
@@ -28,6 +29,12 @@ h6 {
     // box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
     padding: 30px;
 }
+.community-detail__container {
+    display: flex;
+    width: 70%;
+    margin: auto;
+}
+
 .community__container--info {
 }
 .community__info--container {
@@ -69,6 +76,7 @@ h6 {
     line-height: 12px;
     border: none;
     border-bottom: 2px solid #502975;
+    outline: none;
 }
 .community__info--data-user {
     display: flex;
@@ -129,6 +137,7 @@ h6 {
     width: 50%;
     border: none;
     border-bottom: 2px solid #502975;
+    outline: none;
 }
 .community__description--select {
     width: 40%;
@@ -137,6 +146,20 @@ h6 {
     width: 100%;
     border: none;
     border-bottom: 2px solid #502975;
+}
+.content-end {
+    justify-content: flex-end;
+}
+
+.joinUsers {
+    width: 30%;
+}
+.posts-community {
+    width: 70%;
+}
+.posts__community--title {
+    margin-right: 10px;
+    width: 125px;
 }
 
 // .form {

@@ -15,6 +15,10 @@ import { MomentModule } from 'ngx-moment';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { CommunityDetailComponent } from './components/community-detail/community-detail.component';
 import { ImageUploadModule } from 'angular2-image-upload';
+import { JoinUsersComponent } from './components/join-users/join-users.component';
+import { FilterUsersPipe } from '../shared/pipes/filter-users.pipe';
+import { PostsCommunityComponent } from './components/posts-community/posts-community.component';
+import { BannerInterestsComponent } from './components/banner-interests/banner-interests.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +31,10 @@ import { ImageUploadModule } from 'angular2-image-upload';
         CommunityNavbarComponent,
         PostDetailComponent,
         CommunityDetailComponent,
+        JoinUsersComponent,
+        FilterUsersPipe,
+        PostsCommunityComponent,
+        BannerInterestsComponent,
     ],
     imports: [
         CommonModule,

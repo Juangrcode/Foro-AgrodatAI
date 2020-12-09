@@ -15,7 +15,11 @@ export class CommunityService {
         name: '',
         picture: '',
         description: '',
-        profile: 0,
+        profile: {
+            id: 0,
+            user: '',
+            picture: '',
+        },
         activity: 0,
     };
     communities: Community[];
@@ -53,7 +57,7 @@ export class CommunityService {
     updateCommunity(
         id,
         name: string,
-        description: string,
+        description,
         file: File,
         profile,
         activity
@@ -64,7 +68,7 @@ export class CommunityService {
         fd.append('description', description);
         fd.append('profileId', profile);
         fd.append('activityId', activity);
-        return this.http.put(`${this.URL_API}${id}/`, fd);
+        return this.http.put<Community[]>(`${this.URL_API}${id}/`, fd);
     }
 
     deleteCommunity(id: number) {

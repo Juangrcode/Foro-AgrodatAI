@@ -1,0 +1,33 @@
+<div class="joinUsers">
+    <input
+        class="joinUsers__search"
+        type="text"
+        placeholder="Buscar miembro..."
+        [(ngModel)]="filter"
+        name="filter"
+    />
+    <div
+        class="joinUsers-container"
+        *ngFor="let user of this.filterCommunity | filterUsers: filter"
+    >
+        <div class="joinUsers__container">
+            <div class="joinUsers__container--image">
+                <img
+                    [src]="user.profile.picture"
+                    alt="profile-picture"
+                    class="joinUsers__image"
+                />
+            </div>
+            <h3 class="joinUsers__container--title">
+                @{{ user.profile.user }}
+            </h3>
+        </div>
+        <button *ngIf="editCommunityAdmin" class="joinUsers__btn">
+            <img
+                class="joinUsers__btn--image"
+                src="assets/iconos/delete-comment.svg"
+                alt="Delete"
+            />
+        </button>
+    </div>
+</div>

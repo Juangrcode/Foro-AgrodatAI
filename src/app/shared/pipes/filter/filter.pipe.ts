@@ -10,7 +10,6 @@ export class FilterPipe implements PipeTransform {
         if (arg === '' || arg.length < 2) return value;
         const resultPost = [];
         for (const tema of value) {
-            console.log(tema);
             if (tema.name.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
                 resultPost.push(tema);
             }

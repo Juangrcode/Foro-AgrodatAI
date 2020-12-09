@@ -234,3 +234,10 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # Pagination limit offset
 
+from decouple import config
+
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'juandagr1803@gmail.com'
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True

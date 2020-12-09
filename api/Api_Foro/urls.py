@@ -43,6 +43,7 @@ urlpatterns = [
     path('auth/', include('rest_auth.urls')),
     path('auth/signup/', include('rest_auth.registration.urls')),
     path('auth/refresh-token/', refresh_jwt_token),
+    
 
     path('admin/', admin.site.urls),
     # path('api/', include(router_interests.urls)),

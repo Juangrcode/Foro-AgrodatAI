@@ -1,166 +1,199 @@
 <app-community-navbar></app-community-navbar>
 <div class="foro">
-    <form
-        method="POST"
-        #postForm="ngForm"
-        (ngSubmit)="addPost(postForm)"
-        enctype="multipart/form-data"
-        class="form"
-    >
-        <input
-            type="hidden"
-            name="user"
-            [(ngModel)]="postsService.selectPost.user"
-        />
-        <input
-            type="hidden"
-            name="profile"
-            [(ngModel)]="postsService.selectPost.profile"
-        />
-        <input
-            class="form__container--input"
-            type="text"
-            name="content"
-            placeholder="Que estas pensando?"
-            [(ngModel)]="postsService.selectPost.content"
-        />
-
-        <div class="form__container">
-            <button class="form__container-btn">Publicar</button>
+    <div class="foro__container">
+        <div class="foro__container--banner">
+            <button
+                class="foro__banner"
+                *ngIf="stateBanner"
+                (click)="selectBanner()"
+            >
+                <img src="assets/iconos/arrow-1.png" alt="Banner" />
+            </button>
+            <button
+                class="foro__banner"
+                *ngIf="!stateBanner"
+                (click)="selectBanner()"
+            >
+                <img src="assets/iconos/arrow-2.png" alt="Banner" />
+            </button>
         </div>
-    </form>
-    <!--  -->
-    <!--  -->
-    <div class="posts" *ngFor="let post of this.postsService.posts">
-        <div class="posts__container">
-            <div class="posts__container--image">
-                <img
-                    class="posts__image"
-                    *ngIf="post.profile.picture"
-                    [src]="post.profile.picture"
-                    alt="AgrodatAI"
-                />
-                <img
-                    class="posts__image"
-                    *ngIf="!post.profile.picture"
-                    src="assets/images/borde-logo.png"
-                    alt="AgrodatAI"
-                />
-            </div>
-            <div class="posts__container--user">
-                <h2 *ngIf="dataUser">
-                    <a
-                        class="posts__user--title"
-                        (click)="postDetail(post.id)"
-                        >{{ post.user_name }}</a
-                    >
-                </h2>
-                <h2 *ngIf="!dataUser">
-                    <a class="posts__user--title" (click)="postDetail(post.id)"
-                        >Invitado</a
-                    >
-                </h2>
-                <p class="posts__user--time">
-                    {{ post.created | amTimeAgo }}
-                </p>
-            </div>
-        </div>
-        <div class="posts__container-info">
-            <p class="posts__container--content">{{ post.content }}</p>
-        </div>
-        <div class="posts__container-interactions">
-            <a class="posts__interactions-container">
-                <img src="assets/iconos/like-white.svg" alt="Like" />
-                <img src="assets/iconos/like-black.svg" alt="Like" />
-                <p>Me gusta</p>
-            </a>
-            <a class="posts__interactions-container" (click)="commentView()">
-                <img src="assets/iconos/comment.svg" alt="Comment" />
-                <p>Comentario</p>
-            </a>
-        </div>
-        <!--  -->
-        <!--  -->
-        <div
-            class="posts__container--comments"
-            *ngFor="let comment of post.comments"
+        <form
+            method="POST"
+            #postForm="ngForm"
+            (ngSubmit)="addPost(postForm)"
+            enctype="multipart/form-data"
+            class="form"
         >
-            <div class="posts__container--commentUser">
-                <div class="posts__container--image image__container-comments">
+            <input
+                type="hidden"
+                name="user"
+                [(ngModel)]="postsService.selectPost.user"
+            />
+            <input
+                type="hidden"
+                name="profile"
+                [(ngModel)]="postsService.selectPost.profile"
+            />
+            <input
+                class="form__container--input"
+                type="text"
+                name="content"
+                placeholder="Que estas pensando?"
+                [(ngModel)]="postsService.selectPost.content"
+            />
+
+            <div class="form__container">
+                <button class="form__container-btn">Publicar</button>
+            </div>
+        </form>
+        <!--  -->
+        <!--  -->
+        <div class="posts" *ngFor="let post of this.postsService.posts">
+            <div class="posts__container">
+                <div class="posts__container--image">
                     <img
-                        class="posts__image image-comments-profile"
-                        *ngIf="comment.profile.picture"
-                        [src]="comment.profile.picture"
+                        class="posts__image"
+                        *ngIf="post.profile.picture"
+                        [src]="post.profile.picture"
                         alt="AgrodatAI"
                     />
                     <img
-                        class="posts__image image-comments"
-                        *ngIf="!comment.profile.picture"
+                        class="posts__image"
+                        *ngIf="!post.profile.picture"
                         src="assets/images/borde-logo.png"
                         alt="AgrodatAI"
                     />
                 </div>
-                <div class="posts__container--text">
-                    <p>
-                        {{ comment.text }}
+                <div class="posts__container--user">
+                    <h2 *ngIf="dataUser">
+                        <a
+                            class="posts__user--title"
+                            (click)="postDetail(post.id)"
+                            >{{ post.user_name }}</a
+                        >
+                    </h2>
+                    <h2 *ngIf="!dataUser">
+                        <a
+                            class="posts__user--title"
+                            (click)="postDetail(post.id)"
+                            >Invitado</a
+                        >
+                    </h2>
+                    <p class="posts__user--time">
+                        {{ post.created | amTimeAgo }}
                     </p>
                 </div>
             </div>
-            <div>
-                <button (click)="deleteComment(comment.id)">
-                    <img src="assets/iconos/delete-comment.svg" alt="" />
-                </button>
+            <div class="posts__container-info">
+                <p class="posts__container--content">{{ post.content }}</p>
             </div>
-        </div>
-        <!--  -->
-        <!--  -->
-        <div class="posts__container--createComments">
-            <div class="posts__container--commentUser">
-                <div class="posts__container--image image__container-comments">
-                    <!-- <img
+            <div class="posts__container-interactions">
+                <a class="posts__interactions-container" (click)="likeUser()">
+                    <img src="assets/iconos/like-white.svg" alt="Like" />
+                    <img src="assets/iconos/like-black.svg" alt="Like" />
+
+                    <p>{{ like }} Me gusta</p>
+                </a>
+                <a
+                    class="posts__interactions-container"
+                    (click)="commentView()"
+                >
+                    <img src="assets/iconos/comment.svg" alt="Comment" />
+                    <p>{{ post.comments.length }} Comentarios</p>
+                </a>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div
+                class="posts__container--comments"
+                *ngFor="let comment of post.comments"
+            >
+                <div class="posts__container--commentUser">
+                    <div
+                        class="posts__container--image image__container-comments"
+                    >
+                        <img
+                            class="posts__image image-comments-profile"
+                            *ngIf="comment.profile.picture"
+                            [src]="comment.profile.picture"
+                            alt="AgrodatAI"
+                        />
+                        <img
+                            class="posts__image image-comments"
+                            *ngIf="!comment.profile.picture"
+                            src="assets/images/borde-logo.png"
+                            alt="AgrodatAI"
+                        />
+                    </div>
+                    <div class="posts__container--text">
+                        <p>
+                            {{ comment.text }}
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <button (click)="deleteComment(comment.id)">
+                        <img src="assets/iconos/delete-comment.svg" alt="" />
+                    </button>
+                </div>
+            </div>
+            <!--  -->
+            <!--  -->
+            <div class="posts__container--createComments">
+                <div class="posts__container--commentUser">
+                    <div
+                        class="posts__container--image image__container-comments"
+                    >
+                        <!-- <img
                 class="posts__image image-comments-profile"
                 *ngIf="post.profile.picture"
                 [src]="post.profile.picture"
                 alt="AgrodatAI"
                 /> -->
-                    <img
-                        class="posts__image image-comments"
-                        src="assets/images/borde-logo.png"
-                        alt="AgrodatAI"
-                    />
-                </div>
-                <form
-                    method="POST"
-                    #commentForm="ngForm"
-                    (ngSubmit)="addComment(text, post.id)"
-                    enctype="multipart/form-data"
-                    class="form__createComments"
-                >
-                    <!-- <input
-                        type="hidden"
-                        name="id"
-                        [(ngModel)]="commentsService.selectComment.id"
-                    /> -->
-                    <input
-                        type="hidden"
-                        name="profileId"
-                        [(ngModel)]="commentsService.selectComment.profileId"
-                    />
-                    <div class="form__container--text">
-                        <input
-                            class="form__createComments--text"
-                            type="text"
-                            name="text"
-                            placeholder="Escribe un comentario..."
-                            #text
+                        <img
+                            class="posts__image image-comments"
+                            src="assets/images/borde-logo.png"
+                            alt="AgrodatAI"
                         />
                     </div>
-                    <button>
-                        <img src="assets/iconos/send-comment.svg" alt="" />
-                    </button>
-                </form>
+                    <form
+                        method="POST"
+                        #commentForm="ngForm"
+                        (ngSubmit)="addComment(text, post.id)"
+                        enctype="multipart/form-data"
+                        class="form__createComments"
+                    >
+                        <!-- <input
+                type="hidden"
+                name="id"
+                [(ngModel)]="commentsService.selectComment.id"
+                /> -->
+                        <input
+                            type="hidden"
+                            name="profileId"
+                            [(ngModel)]="
+                                commentsService.selectComment.profileId
+                            "
+                        />
+                        <div class="form__container--text">
+                            <input
+                                class="form__createComments--text"
+                                type="text"
+                                name="text"
+                                placeholder="Escribe un comentario..."
+                                #text
+                            />
+                        </div>
+                        <button>
+                            <img src="assets/iconos/send-comment.svg" alt="" />
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
+    </div>
+    <div class="banner-interests" *ngIf="stateBanner">
+        <app-banner-interests></app-banner-interests>
     </div>
     <!--  -->
 </div>

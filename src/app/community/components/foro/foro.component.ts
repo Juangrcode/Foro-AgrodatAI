@@ -26,6 +26,8 @@ export class ForoComponent implements OnInit {
     newUserPost;
     pushUser = [];
     stateComment: boolean = false;
+    stateBanner: boolean = false;
+    like = 0;
 
     constructor(
         public interestsService: InterestsService,
@@ -167,5 +169,19 @@ export class ForoComponent implements OnInit {
 
     commentView() {
         this.stateComment = true;
+    }
+
+    selectBanner() {
+        if (this.stateBanner === false) {
+            this.stateBanner = true;
+        } else {
+            this.stateBanner = false;
+        }
+    }
+
+    // Interections
+
+    likeUser() {
+        this.like++;
     }
 }

@@ -3,10 +3,11 @@ from rest_framework import serializers
 # Models
 from .models import NewCommunity
 from users.models import Profile
-from new_communities.models import JoinUser
+from new_communities.models import JoinUser, Email
 from activities.models import Activity
 from users.serializers import ProfileSerializer
 from activities.serializers import ActivitySerializer
+from posts.serializers import PostSerializer
 
 
 
@@ -25,6 +26,12 @@ from activities.serializers import ActivitySerializer
 #     profileId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Profile.objects.all(), source='profile')
 #     comments = CommentSerializer(many=True, read_only=True, source='comment_set')
 
+class EmailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Email
+        fields = '__all__'
+
+
 class JoinUserSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     profileId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Profile.objects.all(), source='profile')
@@ -41,6 +48,7 @@ class NewCommunitySerializer(serializers.ModelSerializer):
     activity = ActivitySerializer(read_only=True)
     activityId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Activity.objects.all(), source='activity')
     joinusers = JoinUserSerializer(many=True, read_only=True, source='joinuser_set')
+    posts = PostSerializer(many=True, read_only=True, source='post_set')
     # jUsersId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=JoinUser.objects.all(), source='comments')
     # # interest = serializers.StringRelatedField(many=True)
     # interestsId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Interest.objects.all(), source='interest')

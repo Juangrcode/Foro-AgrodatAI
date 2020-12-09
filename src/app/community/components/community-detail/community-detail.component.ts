@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnDestroy,
+    Input,
+    Output,
+    EventEmitter,
+} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Community } from '../../../models/new_communities';
 
@@ -6,6 +13,8 @@ import { CommunityService } from '../../services/community.service';
 import Swal from 'sweetalert2';
 import { JoinUserService } from '../../services/join-user.service';
 import { PostsService } from '../../services/posts.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -16,7 +25,7 @@ interface HtmlInputEvent extends Event {
     templateUrl: './community-detail.component.html',
     styleUrls: ['./community-detail.component.scss'],
 })
-export class CommunityDetailComponent implements OnInit {
+export class CommunityDetailComponent implements OnInit, OnDestroy {
     id: number;
     communities: Community;
     community;
@@ -27,6 +36,12 @@ export class CommunityDetailComponent implements OnInit {
     activitySelect = 1;
     profile;
     dataUser;
+    validateJoin: boolean = false;
+    validateData;
+    filterCommunity;
+    editCommunityAdmin: boolean = false;
+    private unsubscribe = new Subject<void>();
+    joinUsers;
 
     constructor(
         private activateRoute: ActivatedRoute,
@@ -34,42 +49,53 @@ export class CommunityDetailComponent implements OnInit {
         public communityService: CommunityService,
         public joinuserService: JoinUserService,
         public postsService: PostsService
-    ) {}
+    ) {
+        this.dataUser = localStorage.getItem('dataUser');
+        this.getProfile(this.dataUser);
+        this.getCommunityDetail();
+    }
 
     ngOnInit(): void {
-        this.dataUser = localStorage.getItem('dataUser');
-        this.getCommunityDetail();
-        this.getAllJoinUsers();
-        this.getProfile(this.dataUser);
+        setTimeout(() => {
+            this.getAllJoinUsers();
+        }, 500);
     }
 
     guardar() {
         Swal.fire({
             icon: 'success',
-            title: 'gracias',
+            title: 'Cambios actualizados exitosamente',
             showConfirmButton: true,
         }).then(function () {
             console.log('Se hizo clic en el botón Aceptar.');
         });
     }
 
-    getCommunityDetail() {
-        this.activateRoute.params.subscribe((params: Params) => {
-            this.id = params['id'];
-            this.communityService.getCommunity(this.id).subscribe(
-                (res) => {
-                    this.community = res;
-                    console.log(this.community);
-                },
-                (err) => console.log(err)
-            );
-        });
+    async getCommunityDetail() {
+        await this.activateRoute.params
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe((params: Params) => {
+                this.id = params['id'];
+                this.communityService
+                    .getCommunity(this.id)
+                    .pipe(takeUntil(this.unsubscribe))
+                    .subscribe(
+                        (res) => {
+                            this.community = res;
+                        },
+                        (err) => console.log(err)
+                    );
+            });
     }
+
     editCommunityView(view: boolean) {
         this.edit = view;
     }
-
-    editCommunity(id, name, description): boolean {
+    editCommunity(
+        name: HTMLInputElement,
+        description: HTMLTextAreaElement,
+        id: number
+    ): boolean {
         this.communityService
             .updateCommunity(
                 id,
@@ -130,28 +156,54 @@ export class CommunityDetailComponent implements OnInit {
 
     // Profiles
 
-    getProfile(user_id: number) {
-        this.postsService.getProfile(user_id).subscribe(
-            (res) => {
-                this.profile = res;
-            },
-            (err) => {
-                console.log(err);
-            }
-        );
+    async getProfile(user_id) {
+        await this.postsService
+            .getProfile(user_id)
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe(
+                (res) => {
+                    this.profile = res;
+                },
+                (err) => {
+                    console.log(err);
+                }
+            );
+    }
+
+    validateProfileAdmin() {
+        if (this.community.profile.id === this.profile.id) {
+            this.editCommunityAdmin = true;
+        } else {
+            this.editCommunityAdmin = false;
+        }
+        this.filterCommunity = this.joinUsers.filter((item) => {
+            return (
+                item.community === this.community.id &&
+                item.profile.id === this.profile.id
+            );
+        });
+        if (this.filterCommunity.length) {
+            this.validateJoin = true;
+        } else {
+            this.validateJoin = false;
+        }
     }
 
     // JoinUser
 
-    getAllJoinUsers() {
-        this.joinuserService.getAllJoinUser().subscribe(
-            (res) => {
-                console.log(res);
-            },
-            (err) => {
-                console.log(err);
-            }
-        );
+    async getAllJoinUsers() {
+        await this.joinuserService
+            .getAllJoinUser()
+            .pipe(takeUntil(this.unsubscribe))
+            .subscribe(
+                (res) => {
+                    this.joinUsers = res;
+                    this.validateProfileAdmin();
+                },
+                (err) => {
+                    console.log(err);
+                }
+            );
     }
 
     getJoinUser(id: number) {
@@ -166,9 +218,18 @@ export class CommunityDetailComponent implements OnInit {
     }
 
     addJoinUser(communityId, profileId) {
-        console.log(profileId);
-        console.log(communityId);
         this.joinuserService.createJoinUser(communityId, profileId).subscribe(
+            (res) => {
+                console.log(res);
+                this.getCommunityDetail();
+                this.getProfile(this.dataUser);
+                this.getAllJoinUsers();
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+        this.joinuserService.createEmail(this.profile.email).subscribe(
             (res) => {
                 console.log(res);
             },
@@ -182,10 +243,20 @@ export class CommunityDetailComponent implements OnInit {
         this.joinuserService.deleteJoinUser(id).subscribe(
             (res) => {
                 console.log(res);
+                this.getCommunityDetail();
+                this.getProfile(this.dataUser);
+                this.validateJoin = false;
+                this.getAllJoinUsers();
+                // this.validateProfileJoin();
             },
             (err) => {
                 console.log(err);
             }
         );
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribe.next();
+        this.unsubscribe.complete();
     }
 }

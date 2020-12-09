@@ -7,4 +7,5 @@ export interface Post {
     modified?: string;
     user: number;
     profile: number;
+    community?: any;
 }

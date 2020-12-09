@@ -5,7 +5,7 @@ export interface Community {
     joinusers?: any[];
     name: string;
     picture: string;
-    description: string;
+    description?: string;
     created?: string;
     modified?: string;
 }
