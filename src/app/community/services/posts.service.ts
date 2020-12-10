@@ -8,8 +8,8 @@ import { Profile } from 'src/app/models/profile';
     providedIn: 'root',
 })
 export class PostsService {
-    URL_API = 'http://localhost:8000/api/posts/';
-    // URL_API = 'http://localhost:5000/posts/';
+    // URL_API = 'http://localhost:8000/api/posts/';
+    URL_API = 'http://localhost:5000/posts/';
     URL_API_PROFILE = 'http://localhost:8000/api/profiles/';
 
     posts: Post[];

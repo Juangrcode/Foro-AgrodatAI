@@ -1,46 +1,280 @@
 {
-    "posts": [
-        {
-            "content": "hola que hace",
-            "id": 1,
-            "owner_id": 1,
-            "timestamp": "2020-12-02 04:56:32"
-        },
-        {
-            "content": "quiuvo",
-            "id": 2,
-            "owner_id": 1,
-            "timestamp": "2020-12-02 05:28:36"
-        },
-        {
-            "content": "asddsasad",
-            "id": 3,
-            "owner_id": null,
-            "timestamp": "2020-12-02 05:34:38.165645"
-        },
-        {
-            "content": "Hola que hace",
-            "id": 5,
-            "owner_id": 1,
-            "timestamp": "2020-12-02 05:36:48"
-        },
-        {
-            "content": "holaaa",
-            "id": 6,
-            "owner_id": null,
-            "timestamp": "2020-12-02 06:15:51.309995"
-        },
-        {
-            "content": "holaaa",
-            "id": 7,
-            "owner_id": null,
-            "timestamp": "2020-12-02 06:19:47.428700"
-        },
-        {
-            "content": "AgrodatAI es genial !!",
-            "id": 8,
-            "owner_id": null,
-            "timestamp": "2020-12-02 09:48:38.580333"
-        }
-    ]
+  "posts":[
+      {
+          "id": 9,
+          "user_name": "Edgar",
+          "profile": {
+              "id": 3,
+              "user": "Edgar",
+              "email": "Edgar@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-08T17:36:17.458022Z",
+              "modified": "2020-12-08T17:36:17.458071Z"
+          },
+          "comments": [],
+          "title": null,
+          "photo": null,
+          "content": "holaaa",
+          "created": "2020-12-10T13:44:35.903155Z",
+          "modified": "2020-12-10T13:44:35.903190Z",
+          "user": 3,
+          "community": 7
+      },
+      {
+          "id": 8,
+          "user_name": "Edgar",
+          "profile": {
+              "id": 3,
+              "user": "Edgar",
+              "email": "Edgar@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-08T17:36:17.458022Z",
+              "modified": "2020-12-08T17:36:17.458071Z"
+          },
+          "comments": [],
+          "title": null,
+          "photo": null,
+          "content": "Como se cultiva la papa?",
+          "created": "2020-12-10T13:42:35.636975Z",
+          "modified": "2020-12-10T13:42:35.637013Z",
+          "user": 3,
+          "community": null
+      },
+      {
+          "id": 7,
+          "user_name": "Sandra",
+          "profile": {
+              "id": 2,
+              "user": "Sandra",
+              "email": "sanvaju18@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-07T03:00:13.927188Z",
+              "modified": "2020-12-07T03:00:13.927227Z"
+          },
+          "comments": [],
+          "title": null,
+          "photo": null,
+          "content": "Hola soy Sandra !!!",
+          "created": "2020-12-09T23:39:01.811188Z",
+          "modified": "2020-12-09T23:39:01.811221Z",
+          "user": 2,
+          "community": 9
+      },
+      {
+          "id": 6,
+          "user_name": "juangr1803",
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "comments": [
+              {
+                  "id": 8,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": "La papa se cultiva en la tierra....",
+                  "post": 6
+              }
+          ],
+          "title": null,
+          "photo": null,
+          "content": "Como se cultiva la papa?",
+          "created": "2020-12-09T23:31:10.210500Z",
+          "modified": "2020-12-09T23:31:10.210543Z",
+          "user": 1,
+          "community": null
+      },
+      {
+          "id": 5,
+          "user_name": "Sandra",
+          "profile": {
+              "id": 2,
+              "user": "Sandra",
+              "email": "sanvaju18@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-07T03:00:13.927188Z",
+              "modified": "2020-12-07T03:00:13.927227Z"
+          },
+          "comments": [
+              {
+                  "id": 9,
+                  "profile": {
+                      "id": 3,
+                      "user": "Edgar",
+                      "email": "Edgar@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-08T17:36:17.458022Z",
+                      "modified": "2020-12-08T17:36:17.458071Z"
+                  },
+                  "text": "holaaaaaaa",
+                  "post": 5
+              }
+          ],
+          "title": null,
+          "photo": null,
+          "content": "AgrodatAI es genial !!",
+          "created": "2020-12-09T22:42:47.115628Z",
+          "modified": "2020-12-09T22:42:47.115672Z",
+          "user": 2,
+          "community": 8
+      },
+      {
+          "id": 4,
+          "user_name": "juangr1803",
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "comments": [],
+          "title": null,
+          "photo": null,
+          "content": "AgrodatAI es genial !!",
+          "created": "2020-12-09T16:55:43.474866Z",
+          "modified": "2020-12-09T16:55:43.475166Z",
+          "user": 1,
+          "community": 1
+      },
+      {
+          "id": 3,
+          "user_name": "Edgar",
+          "profile": {
+              "id": 3,
+              "user": "Edgar",
+              "email": "Edgar@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-08T17:36:17.458022Z",
+              "modified": "2020-12-08T17:36:17.458071Z"
+          },
+          "comments": [
+              {
+                  "id": 6,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": "Bienvenido a AgrodatAI !!",
+                  "post": 3
+              }
+          ],
+          "title": null,
+          "photo": null,
+          "content": "Hola soy Edgar !!",
+          "created": "2020-12-08T17:36:47.342870Z",
+          "modified": "2020-12-08T17:36:47.342905Z",
+          "user": 3,
+          "community": null
+      },
+      {
+          "id": 2,
+          "user_name": "Sandra",
+          "profile": {
+              "id": 2,
+              "user": "Sandra",
+              "email": "sanvaju18@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-07T03:00:13.927188Z",
+              "modified": "2020-12-07T03:00:13.927227Z"
+          },
+          "comments": [
+              {
+                  "id": 2,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": "Que hace Juan !!... :D",
+                  "post": 2
+              },
+              {
+                  "id": 3,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": "Que hace Sandra!!... :D",
+                  "post": 2
+              },
+              {
+                  "id": 5,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": "Nada y usted?",
+                  "post": 2
+              }
+          ],
+          "title": null,
+          "photo": null,
+          "content": "Hola soy Sandra !!!",
+          "created": "2020-12-07T05:02:55.788003Z",
+          "modified": "2020-12-07T05:02:55.788054Z",
+          "user": 2,
+          "community": null
+      },
+      {
+          "id": 1,
+          "user_name": "juangr1803",
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "comments": [
+              {
+                  "id": 1,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": "Que hace Juan !!... :D",
+                  "post": 1
+              }
+          ],
+          "title": null,
+          "photo": null,
+          "content": "Hola soy Juan !!!",
+          "created": "2020-12-07T03:16:17.286753Z",
+          "modified": "2020-12-07T03:16:17.287351Z",
+          "user": 1,
+          "community": null
+      }
+  ]
 }

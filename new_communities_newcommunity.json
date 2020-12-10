@@ -1,108 +1,995 @@
 {
-  "new_communities": [
-    {
-      "created": "2020-11-24 21:10:48.675788",
-      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
-      "id": 1,
-      "modified": "2020-11-24 21:10:48.676037",
-      "name": "Fertilización del campo",
-      "picture": "new_communities/pictures/WIN_20200821_15_27_26_Pro_2.jpg"
-    },
-    {
-      "created": "2020-11-25 04:56:31.217740",
-      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
-      "id": 2,
-      "modified": "2020-11-25 04:56:31.217780",
-      "name": "Bovinooooo",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 05:03:36.452790",
-      "description": "hablamos sobre como fertilizar el campo , damos tips y comsejos para nuestros agriculotores",
-      "id": 3,
-      "modified": "2020-11-25 05:03:36.452876",
-      "name": "Acuicola - Pesca",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 05:41:55.280806",
-      "description": "sadsasda",
-      "id": 4,
-      "modified": "2020-11-25 05:41:55.281562",
-      "name": "Bovino",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 05:41:55.298161",
-      "description": "sadsasda",
-      "id": 5,
-      "modified": "2020-11-25 05:41:55.298219",
-      "name": "Bovino",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 05:42:07.817348",
-      "description": "sdad",
-      "id": 6,
-      "modified": "2020-11-25 05:42:07.817392",
-      "name": "Bovino",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 05:58:29.683504",
-      "description": "",
-      "id": 7,
-      "modified": "2020-11-25 05:58:29.683828",
-      "name": "Fertilización del campo",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 11:16:33.214878",
-      "description": "iuiklkk",
-      "id": 8,
-      "modified": "2020-11-25 11:16:33.215852",
-      "name": "juan",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 23:39:14.164793",
-      "description": "hbapsllsd",
-      "id": 9,
-      "modified": "2020-11-25 23:39:14.164843",
-      "name": "Fertilización",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 23:47:31.601622",
-      "description": "sadasjsadklask",
-      "id": 10,
-      "modified": "2020-11-25 23:47:31.601671",
-      "name": "Fertilización del campo",
-      "picture": ""
-    },
-    {
-      "created": "2020-11-25 23:47:58.860229",
-      "description": "sadasdsdas",
-      "id": 11,
-      "modified": "2020-11-25 23:47:58.860271",
-      "name": "Bovino",
-      "picture": ""
-    },
-    {
-      "name": "Bovino",
-      "activities": [
-        "3"
-      ],
-      "description": "sadsadas",
-      "id": 12
-    },
-    {
-      "id": 13,
-      "name": "juan",
-      "activities": [
-        "1"
-      ],
-      "description": "adssasa"
-    }
+  "new_communities":[
+      {
+          "id": 9,
+          "profile": {
+              "id": 2,
+              "user": "Sandra",
+              "email": "sanvaju18@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-07T03:00:13.927188Z",
+              "modified": "2020-12-07T03:00:13.927227Z"
+          },
+          "activity": {
+              "id": 1,
+              "interests": [
+                  {
+                      "id": 1,
+                      "name": "Concentración de la tierra",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 2,
+                      "name": "Reconversión de ganadería",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 3,
+                      "name": "Suelos Arenosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 4,
+                      "name": "Suelos Arcillosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 5,
+                      "name": "Fruticultura",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 6,
+                      "name": "Fertirrigación",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 7,
+                      "name": "Fertilidad del Suelo",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 8,
+                      "name": "Suelos Ácidos",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 9,
+                      "name": "Fertilidad del Suelo",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 10,
+                      "name": "Fitomejoramiento",
+                      "completed": false,
+                      "activities": [1]
+                  }
+              ],
+              "name": "Agrícola"
+          },
+          "joinusers": [
+              {
+                  "id": 34,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": null,
+                  "community": 9
+              }
+          ],
+          "posts": [
+              {
+                  "id": 7,
+                  "user_name": "Sandra",
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "comments": [],
+                  "title": null,
+                  "photo": null,
+                  "content": "Hola soy Sandra !!!",
+                  "created": "2020-12-09T23:39:01.811188Z",
+                  "modified": "2020-12-09T23:39:01.811221Z",
+                  "user": 2,
+                  "community": 9
+              }
+          ],
+          "name": "Fertilización del campo",
+          "picture": "http://localhost:8000/media/new_communities/pictures/porcinno_T6dD34H.jpg",
+          "description": "Hablamos del campoiooooo",
+          "created": "2020-12-09T23:36:55.326557Z",
+          "modified": "2020-12-09T23:38:46.124903Z"
+      },
+      {
+          "id": 8,
+          "profile": {
+              "id": 2,
+              "user": "Sandra",
+              "email": "sanvaju18@gmail.com",
+              "picture": "http://localhost:8000/media/borde.png",
+              "created": "2020-12-07T03:00:13.927188Z",
+              "modified": "2020-12-07T03:00:13.927227Z"
+          },
+          "activity": {
+              "id": 1,
+              "interests": [
+                  {
+                      "id": 1,
+                      "name": "Concentración de la tierra",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 2,
+                      "name": "Reconversión de ganadería",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 3,
+                      "name": "Suelos Arenosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 4,
+                      "name": "Suelos Arcillosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 5,
+                      "name": "Fruticultura",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 6,
+                      "name": "Fertirrigación",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 7,
+                      "name": "Fertilidad del Suelo",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 8,
+                      "name": "Suelos Ácidos",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 9,
+                      "name": "Fertilidad del Suelo",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 10,
+                      "name": "Fitomejoramiento",
+                      "completed": false,
+                      "activities": [1]
+                  }
+              ],
+              "name": "Agrícola"
+          },
+          "joinusers": [
+              {
+                  "id": 23,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": null,
+                  "community": 8
+              },
+              {
+                  "id": 35,
+                  "profile": {
+                      "id": 3,
+                      "user": "Edgar",
+                      "email": "Edgar@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-08T17:36:17.458022Z",
+                      "modified": "2020-12-08T17:36:17.458071Z"
+                  },
+                  "text": null,
+                  "community": 8
+              }
+          ],
+          "posts": [
+              {
+                  "id": 5,
+                  "user_name": "Sandra",
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "comments": [
+                      {
+                          "id": 9,
+                          "profile": {
+                              "id": 3,
+                              "user": "Edgar",
+                              "email": "Edgar@gmail.com",
+                              "picture": "http://localhost:8000/media/borde.png",
+                              "created": "2020-12-08T17:36:17.458022Z",
+                              "modified": "2020-12-08T17:36:17.458071Z"
+                          },
+                          "text": "holaaaaaaa",
+                          "post": 5
+                      }
+                  ],
+                  "title": null,
+                  "photo": null,
+                  "content": "AgrodatAI es genial !!",
+                  "created": "2020-12-09T22:42:47.115628Z",
+                  "modified": "2020-12-09T22:42:47.115672Z",
+                  "user": 2,
+                  "community": 8
+              }
+          ],
+          "name": "Fertilización del campo",
+          "picture": "http://localhost:8000/media/new_communities/pictures/campo_HLsyvax.jfif",
+          "description": "En esta comunidad hablamos de fertilizantes ya que es una sustancia destinada a abastecer y suministrar los elementos químicos al suelo o al follaje para que la planta los absorba. ... Un fertilizante mineral es un producto de origen inorgánico, que contiene, por lo menos, un elemento químico que la planta necesita para su ciclo vital.",
+          "created": "2020-12-09T22:41:54.823423Z",
+          "modified": "2020-12-09T22:41:54.825827Z"
+      },
+      {
+          "id": 7,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 5,
+              "interests": [
+                  {
+                      "id": 39,
+                      "name": "Planctonicos",
+                      "completed": true,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 40,
+                      "name": "Microalgas",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 41,
+                      "name": "Artemia",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 42,
+                      "name": "Macroalgas",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 43,
+                      "name": "Moluscos",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 44,
+                      "name": "Crustaceos",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 45,
+                      "name": "Ingenieros Pesqueros",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 46,
+                      "name": "Ingenieron Zootecnistas",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 47,
+                      "name": "Ingenieros Acuicola",
+                      "completed": false,
+                      "activities": [5]
+                  },
+                  {
+                      "id": 48,
+                      "name": "Biologos Marinos",
+                      "completed": false,
+                      "activities": [5]
+                  }
+              ],
+              "name": "Acuícola - Pesca"
+          },
+          "joinusers": [
+              {
+                  "id": 29,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": null,
+                  "community": 7
+              }
+          ],
+          "posts": [
+              {
+                  "id": 9,
+                  "user_name": "Edgar",
+                  "profile": {
+                      "id": 3,
+                      "user": "Edgar",
+                      "email": "Edgar@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-08T17:36:17.458022Z",
+                      "modified": "2020-12-08T17:36:17.458071Z"
+                  },
+                  "comments": [],
+                  "title": null,
+                  "photo": null,
+                  "content": "holaaa",
+                  "created": "2020-12-10T13:44:35.903155Z",
+                  "modified": "2020-12-10T13:44:35.903190Z",
+                  "user": 3,
+                  "community": 7
+              }
+          ],
+          "name": "Acuicola - Pesca",
+          "picture": null,
+          "description": "Hablamos sobre crías de organismos acuáticos, comprendidos peces, moluscos, crustáceos y plantas. ... Sin embargo, la mayor parte de la acuicultura se lleva a cabo en el mundo en desarrollo, para la producción de especies de peces de agua dulce de poco consumo en la cadena alimentaria, como la tilapia o la carpa.",
+          "created": "2020-12-09T15:57:01.367685Z",
+          "modified": "2020-12-09T21:38:23.792304Z"
+      },
+      {
+          "id": 6,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 1,
+              "interests": [
+                  {
+                      "id": 1,
+                      "name": "Concentración de la tierra",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 2,
+                      "name": "Reconversión de ganadería",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 3,
+                      "name": "Suelos Arenosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 4,
+                      "name": "Suelos Arcillosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 5,
+                      "name": "Fruticultura",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 6,
+                      "name": "Fertirrigación",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 7,
+                      "name": "Fertilidad del Suelo",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 8,
+                      "name": "Suelos Ácidos",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 9,
+                      "name": "Fertilidad del Suelo",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 10,
+                      "name": "Fitomejoramiento",
+                      "completed": false,
+                      "activities": [1]
+                  }
+              ],
+              "name": "Agrícola"
+          },
+          "joinusers": [
+              {
+                  "id": 10,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": null,
+                  "community": 6
+              },
+              {
+                  "id": 22,
+                  "profile": {
+                      "id": 3,
+                      "user": "Edgar",
+                      "email": "Edgar@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-08T17:36:17.458022Z",
+                      "modified": "2020-12-08T17:36:17.458071Z"
+                  },
+                  "text": null,
+                  "community": 6
+              },
+              {
+                  "id": 33,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": null,
+                  "community": 6
+              }
+          ],
+          "posts": [],
+          "name": "Campo",
+          "picture": "http://localhost:8000/media/new_communities/pictures/campo.jfif",
+          "description": "Hablamos acerca del campo agricola y sus ventajas para nosotros los campesinos",
+          "created": "2020-12-07T18:26:49.054479Z",
+          "modified": "2020-12-09T21:39:25.781926Z"
+      },
+      {
+          "id": 5,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 4,
+              "interests": [
+                  {
+                      "id": 30,
+                      "name": "Aves",
+                      "completed": false,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 31,
+                      "name": "Gallinas",
+                      "completed": false,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 32,
+                      "name": "Pavos",
+                      "completed": false,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 33,
+                      "name": "Pollos",
+                      "completed": false,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 34,
+                      "name": "Patos",
+                      "completed": true,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 35,
+                      "name": "Cordonices",
+                      "completed": false,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 36,
+                      "name": "Huevo",
+                      "completed": true,
+                      "activities": [4]
+                  },
+                  {
+                      "id": 37,
+                      "name": "Granjas",
+                      "completed": false,
+                      "activities": [4]
+                  }
+              ],
+              "name": "Avícola"
+          },
+          "joinusers": [
+              {
+                  "id": 32,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": null,
+                  "community": 5
+              }
+          ],
+          "posts": [],
+          "name": "Granja Avícola",
+          "picture": "http://localhost:8000/media/new_communities/pictures/avicola.jfif",
+          "description": "Somos  granja avícola es un establecimiento agropecuario para la cría de aves de corral tales como pollos, pavos, patos, y gansos, con el propósito de usarlos como base alimenticia sea cosechándolos por su carne o recogiendo sus huevos.",
+          "created": "2020-12-07T18:23:03.966444Z",
+          "modified": "2020-12-09T21:40:58.881876Z"
+      },
+      {
+          "id": 4,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 2,
+              "interests": [
+                  {
+                      "id": 11,
+                      "name": "Ganado",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 12,
+                      "name": "Carne",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 13,
+                      "name": "Ganaderia",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 14,
+                      "name": "Brahman",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 15,
+                      "name": "Antrax",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 16,
+                      "name": "Charolais",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 17,
+                      "name": "Razas",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 18,
+                      "name": "Jersey",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 19,
+                      "name": "Vacuno",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 20,
+                      "name": "Mastitis",
+                      "completed": false,
+                      "activities": [2]
+                  }
+              ],
+              "name": "Bovino"
+          },
+          "joinusers": [],
+          "posts": [],
+          "name": "Bovino",
+          "picture": "http://localhost:8000/media/new_communities/pictures/bovino.jfif",
+          "description": "En esta comunidad encontraras temas relacionados a los bovinos ya que son animales mamíferos y rumiantes que constituyen una subfamilia del grupo de los bóvidos. Disponen de una cola extensa que finaliza en un mechón y de un hocico ancho, mientras que el estuche de sus cuernos resulta liso.",
+          "created": "2020-12-07T16:45:43.873508Z",
+          "modified": "2020-12-09T21:43:03.001875Z"
+      },
+      {
+          "id": 3,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 2,
+              "interests": [
+                  {
+                      "id": 11,
+                      "name": "Ganado",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 12,
+                      "name": "Carne",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 13,
+                      "name": "Ganaderia",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 14,
+                      "name": "Brahman",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 15,
+                      "name": "Antrax",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 16,
+                      "name": "Charolais",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 17,
+                      "name": "Razas",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 18,
+                      "name": "Jersey",
+                      "completed": true,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 19,
+                      "name": "Vacuno",
+                      "completed": false,
+                      "activities": [2]
+                  },
+                  {
+                      "id": 20,
+                      "name": "Mastitis",
+                      "completed": false,
+                      "activities": [2]
+                  }
+              ],
+              "name": "Bovino"
+          },
+          "joinusers": [],
+          "posts": [],
+          "name": "Bovinos al instante",
+          "picture": "http://localhost:8000/media/new_communities/pictures/bovino-2.jpg",
+          "description": "Los bovinos son animales mamíferos y rumiantes que constituyen una subfamilia del grupo de los bóvidos. Disponen de una cola extensa que finaliza en un mechón y de un hocico ancho, mientras que el estuche de sus cuernos resulta liso.",
+          "created": "2020-12-07T16:11:56.724408Z",
+          "modified": "2020-12-09T21:44:30.221950Z"
+      },
+      {
+          "id": 2,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 1,
+              "interests": [
+                  {
+                      "id": 1,
+                      "name": "Concentración de la tierra",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 2,
+                      "name": "Reconversión de ganadería",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 3,
+                      "name": "Suelos Arenosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 4,
+                      "name": "Suelos Arcillosos",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 5,
+                      "name": "Fruticultura",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 6,
+                      "name": "Fertirrigación",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 7,
+                      "name": "Fertilidad del Suelo",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 8,
+                      "name": "Suelos Ácidos",
+                      "completed": true,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 9,
+                      "name": "Fertilidad del Suelo",
+                      "completed": false,
+                      "activities": [1]
+                  },
+                  {
+                      "id": 10,
+                      "name": "Fitomejoramiento",
+                      "completed": false,
+                      "activities": [1]
+                  }
+              ],
+              "name": "Agrícola"
+          },
+          "joinusers": [],
+          "posts": [],
+          "name": "Fertilización del campo",
+          "picture": "http://localhost:8000/media/new_communities/pictures/fetilizador.jfif",
+          "description": "En esta comunidad hablamos de fertilizantes ya que es una sustancia destinada a abastecer y suministrar los elementos químicos al suelo o al follaje para que la planta los absorba. ... Un fertilizante mineral es un producto de origen inorgánico, que contiene, por lo menos, un elemento químico que la planta necesita para su ciclo vital.",
+          "created": "2020-12-07T07:04:57.036999Z",
+          "modified": "2020-12-09T21:45:54.912514Z"
+      },
+      {
+          "id": 1,
+          "profile": {
+              "id": 1,
+              "user": "juangr1803",
+              "email": "j3045771061@gmail.com",
+              "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+              "created": "2020-12-07T02:59:39.569145Z",
+              "modified": "2020-12-07T05:03:57.307970Z"
+          },
+          "activity": {
+              "id": 3,
+              "interests": [
+                  {
+                      "id": 21,
+                      "name": "Vaca",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 22,
+                      "name": "Cerdo",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 23,
+                      "name": "Pietrain",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 24,
+                      "name": "Landrace",
+                      "completed": true,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 25,
+                      "name": "Yorkshire",
+                      "completed": true,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 26,
+                      "name": "Duroc",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 27,
+                      "name": "Ovino",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 28,
+                      "name": "Caprino",
+                      "completed": true,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 29,
+                      "name": "Estiercol",
+                      "completed": false,
+                      "activities": [3]
+                  },
+                  {
+                      "id": 38,
+                      "name": "Crias",
+                      "completed": false,
+                      "activities": [3]
+                  }
+              ],
+              "name": "Porcino"
+          },
+          "joinusers": [
+              {
+                  "id": 1,
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "text": "Que hace Juan !!... :D",
+                  "community": 1
+              },
+              {
+                  "id": 9,
+                  "profile": {
+                      "id": 3,
+                      "user": "Edgar",
+                      "email": "Edgar@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-08T17:36:17.458022Z",
+                      "modified": "2020-12-08T17:36:17.458071Z"
+                  },
+                  "text": null,
+                  "community": 1
+              },
+              {
+                  "id": 15,
+                  "profile": {
+                      "id": 2,
+                      "user": "Sandra",
+                      "email": "sanvaju18@gmail.com",
+                      "picture": "http://localhost:8000/media/borde.png",
+                      "created": "2020-12-07T03:00:13.927188Z",
+                      "modified": "2020-12-07T03:00:13.927227Z"
+                  },
+                  "text": null,
+                  "community": 1
+              }
+          ],
+          "posts": [
+              {
+                  "id": 4,
+                  "user_name": "juangr1803",
+                  "profile": {
+                      "id": 1,
+                      "user": "juangr1803",
+                      "email": "j3045771061@gmail.com",
+                      "picture": "http://localhost:8000/media/users/pictures/foto2_AZ0yOnA.png",
+                      "created": "2020-12-07T02:59:39.569145Z",
+                      "modified": "2020-12-07T05:03:57.307970Z"
+                  },
+                  "comments": [],
+                  "title": null,
+                  "photo": null,
+                  "content": "AgrodatAI es genial !!",
+                  "created": "2020-12-09T16:55:43.474866Z",
+                  "modified": "2020-12-09T16:55:43.475166Z",
+                  "user": 1,
+                  "community": 1
+              }
+          ],
+          "name": "Cerdos",
+          "picture": "http://localhost:8000/media/new_communities/pictures/porcinno.jpg",
+          "description": "El cerdo, también denominado chancho, ​ puerco, porcino, marrano, gorrino o cochino, es una subespecie de mamífero artiodáctilo de la familia Suidae. Es un animal doméstico usado en la alimentación humana por muchos pueblos.",
+          "created": "2020-12-07T03:05:09.865177Z",
+          "modified": "2020-12-09T21:47:50.179643Z"
+      }
   ]
 }
