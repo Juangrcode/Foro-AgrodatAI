@@ -96,41 +96,41 @@ export class PostsCommunityComponent implements OnInit {
         console.log(this.postCommunity);
     }
 
-    addPost(form: NgForm) {
-        console.log(form);
-        let formUser = {
-            user: this.profile.id,
-            profile: this.profile.id,
-            content: form.value.content,
-            profileId: this.profile.id,
-            community: this.community.id,
-        };
-        console.log(formUser);
-        if (form.value.id) {
-            this.postsService.updatePost(formUser).subscribe(
-                (res) => {
-                    console.log(res);
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        } else {
-            this.postsService.createPost(formUser).subscribe(
-                (res) => {
-                    console.log('anadir al post');
-                    // this.communityClicked.emit(this.community.id);
-                    this.getAllPosts();
-                    form.reset();
-                    this.pushUser = [];
-                    // alert('pOst Creada');
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        }
-    }
+    // addPost(form: NgForm) {
+    //     console.log(form);
+    //     let formUser = {
+    //         user: this.profile.id,
+    //         profile: this.profile.id,
+    //         content: form.value.content,
+    //         profileId: this.profile.id,
+    //         community: this.community.id,
+    //     };
+    //     console.log(formUser);
+    //     if (form.value.id) {
+    //         this.postsService.updatePost(formUser).subscribe(
+    //             (res) => {
+    //                 console.log(res);
+    //             },
+    //             (err) => {
+    //                 console.log(err);
+    //             }
+    //         );
+    //     } else {
+    //         this.postsService.createPost(formUser).subscribe(
+    //             (res) => {
+    //                 console.log('anadir al post');
+    //                 // this.communityClicked.emit(this.community.id);
+    //                 this.getAllPosts();
+    //                 form.reset();
+    //                 this.pushUser = [];
+    //                 // alert('pOst Creada');
+    //             },
+    //             (err) => {
+    //                 console.log(err);
+    //             }
+    //         );
+    //     }
+    // }
 
     postDetail(id: number) {
         this.router.navigate(['/comunidad/foro', id]);

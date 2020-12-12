@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'new_communities.apps.NewCommunitiesConfig',
     'users.apps.UsersConfig',
     'posts.apps.PostsConfig',
+    'posts_communities.apps.PostsCommunitiesConfig',
 
     'django.contrib.sites',
     'allauth',

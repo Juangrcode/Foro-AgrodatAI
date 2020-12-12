@@ -5,7 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from users.models import Profile
 from new_communities.models import NewCommunity
-
+from activities.models import Activity
 
 class Post(models.Model):
     """Post model."""
@@ -13,6 +13,7 @@ class Post(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     community = models.ForeignKey(NewCommunity, on_delete=models.CASCADE, blank=True, null=True)
+    activity = models.ForeignKey(Activity, on_delete=models.CASCADE , blank=True, null=True)
 
     title = models.CharField(max_length=255, blank=True, null=True)
     photo = models.ImageField(upload_to='posts/photos', blank=True, null=True)

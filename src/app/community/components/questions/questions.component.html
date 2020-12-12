@@ -1,0 +1,102 @@
+<div class="questions">
+    <div class="questions__container">
+        <h1 class="questions__container--title">Formula una pregunta</h1>
+        <form
+            method="POST"
+            #postForm="ngForm"
+            (ngSubmit)="addPost(postForm)"
+            enctype="multipart/form-data"
+            class="form"
+        >
+            <input
+                type="hidden"
+                name="user"
+                [(ngModel)]="postsService.selectPost.user"
+            />
+            <input
+                type="hidden"
+                name="profile"
+                [(ngModel)]="postsService.selectPost.profile"
+            />
+            <div class="form__container">
+                <label for="title">Titulo</label>
+                <p>Se especifico</p>
+                <input
+                    class="form__container--input"
+                    type="text"
+                    name="title"
+                    placeholder="¿Cual es tu pregunta sobre el Agro? Se especifico"
+                    [(ngModel)]="postsService.selectPost.title"
+                />
+            </div>
+            <div class="form__container">
+                <label for="content">Contenido</label>
+                <p>
+                    Incluye toda la información que alguien necesitaría para
+                    responder tu pregunta
+                </p>
+                <textarea
+                    class="form__container--textarea"
+                    type="text"
+                    name="content"
+                    [(ngModel)]="postsService.selectPost.content"
+                    rows="8"
+                ></textarea>
+                <div class="form-container__image">
+                    <input
+                        class="form-container__image-photo container--picture"
+                        type="file"
+                        name="picture"
+                        id="picture"
+                        (change)="onPhotoSelected($event)"
+                        #photoInput
+                    />
+                    <img
+                        class="form-container__image-photo"
+                        [src]="photoSelected || 'assets/iconos/no_photo.png'"
+                        alt="No images"
+                        (click)="photoInput.click()"
+                    />
+                </div>
+            </div>
+            <div class="form__container">
+                <label for="interest">Tema</label>
+                <p>Añade un tema para describir sobre qué trata tu pregunta</p>
+                <input
+                    class="form__container--input"
+                    list="activity"
+                    name="activity"
+                    [(ngModel)]="postsService.selectPost.activity"
+                    placeholder="Agricola"
+                />
+            </div>
+
+            <datalist id="activity">
+                <option
+                    *ngFor="let interest of activities"
+                    [value]="interest.name"
+                ></option>
+            </datalist>
+            <div class="form__container-btn">
+                <button>Publicar</button>
+            </div>
+        </form>
+    </div>
+    <div class="instructions">
+        <div class="instructions__container-first">
+            <h2>Redacta tu pregunta</h2>
+            <p>
+                La comunidad está aquí para ayudarte con problemas específicos
+                como Agricolas, Bovino, Porcino, Avicola, Acuicola.
+            </p>
+        </div>
+        <div class="instructions__container-second">
+            <h2><strong>1. </strong>Resume el problema</h2>
+            <h2>
+                <strong>2. </strong>Enseña lo que has intentado y dinos qué has
+                encontrado
+            </h2>
+            <h2><strong>3. </strong>Comparte fotos y videos</h2>
+        </div>
+    </div>
+</div>

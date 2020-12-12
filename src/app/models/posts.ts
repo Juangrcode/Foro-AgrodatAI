@@ -6,6 +6,9 @@ export interface Post {
     created?: string;
     modified?: string;
     user: number;
-    profile: number;
+    user_name?: string;
+    profile: any;
     community?: any;
+    activity?: any;
+    comments?: any;
 }

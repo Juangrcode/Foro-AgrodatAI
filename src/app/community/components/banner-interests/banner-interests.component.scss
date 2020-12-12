@@ -29,3 +29,16 @@ h3 {
     width: 100%;
     text-align: center;
 }
+
+@media only screen and (max-width: 1100px) {
+    .posts {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .interests__list--checklist {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    }
+}

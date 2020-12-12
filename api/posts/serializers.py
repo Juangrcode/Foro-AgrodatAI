@@ -6,7 +6,8 @@ from django.contrib.auth.models import User
 from users.serializers import UserSerializer, ProfileSerializer
 from users.models import Profile
 from posts.models import Comment
-
+from activities.serializers import ActivitySerializer
+from activities.models import Activity
 
 class CommentSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
@@ -22,6 +23,12 @@ class PostSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     profileId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Profile.objects.all(), source='profile')
     comments = CommentSerializer(many=True, read_only=True, source='comment_set')
+    activity = ActivitySerializer(read_only=True)
+    activityId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Activity.objects.all(), source='activity')
+    # activities = ActivitySerializer(many=True, read_only=True, source='activity_set')
+    # interest = InterestSerializer(many=True, read_only=True, source='interest_set')
+    # interest = InterestSerializer(read_only=True)
+    # interestsId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Interest.objects.all(), source='interest')
     # user = UserSerializer(no_required=True)
     # user = UserSerializer(source='user.username')
     # user = serializers.PrimaryKeyRelatedField(write_only=True, queryset=User.objects.all(), required=True)

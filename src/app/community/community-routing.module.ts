@@ -6,11 +6,16 @@ import { CommunityComponent } from './components/community/community.component';
 import { CreateCommunityComponent } from './components/create-community/create-community.component';
 import { FeaturedCommunitiesComponent } from './components/featured-communities/featured-communities.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { QuestionsComponent } from './components/questions/questions.component';
 
 const routes: Routes = [
     {
         path: '',
         component: CommunityComponent,
+    },
+    {
+        path: 'questions',
+        component: QuestionsComponent,
     },
     {
         path: 'foro/:id',

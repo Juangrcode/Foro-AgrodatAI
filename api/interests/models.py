@@ -7,7 +7,8 @@ class Interest(models.Model):
     # Interest Model
     name = models.CharField(max_length=100, blank=True)
     completed = models.BooleanField(default=False, blank=True, null=True)
-    activities = models.ManyToManyField(Activity, blank=True, null=True)
+    activities = models.ForeignKey(Activity,on_delete=models.CASCADE, blank=True, null=True)
+    description = models.TextField()
     
 
     # Admin

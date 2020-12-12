@@ -7,8 +7,8 @@ import { Community } from '../../models/new_communities';
     providedIn: 'root',
 })
 export class CommunityService {
-    // URL_API = 'http://localhost:8000/api/new-communities/';
-    URL_API = 'http://localhost:2000/new_communities/';
+    URL_API = 'http://localhost:8000/api/new-communities/';
+    // URL_API = 'http://localhost:2000/new_communities/';
     myCommunities: boolean = false;
     selectedCommunity: Community = {
         id: 0,

@@ -19,6 +19,8 @@ import { JoinUsersComponent } from './components/join-users/join-users.component
 import { FilterUsersPipe } from '../shared/pipes/filter-users.pipe';
 import { PostsCommunityComponent } from './components/posts-community/posts-community.component';
 import { BannerInterestsComponent } from './components/banner-interests/banner-interests.component';
+import { QuestionsComponent } from './components/questions/questions.component';
+import { FilterActivitiesPipe } from '../shared/pipes/filter-activities.pipe';
 
 @NgModule({
     declarations: [
@@ -33,8 +35,10 @@ import { BannerInterestsComponent } from './components/banner-interests/banner-i
         CommunityDetailComponent,
         JoinUsersComponent,
         FilterUsersPipe,
+        FilterActivitiesPipe,
         PostsCommunityComponent,
         BannerInterestsComponent,
+        QuestionsComponent,
     ],
     imports: [
         CommonModule,

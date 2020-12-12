@@ -8,6 +8,7 @@ from activities.models import Activity
 from users.serializers import ProfileSerializer
 from activities.serializers import ActivitySerializer
 from posts.serializers import PostSerializer
+from posts_communities.serializers import PostCommunitySerializer
 
 
 
@@ -49,6 +50,7 @@ class NewCommunitySerializer(serializers.ModelSerializer):
     activityId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Activity.objects.all(), source='activity')
     joinusers = JoinUserSerializer(many=True, read_only=True, source='joinuser_set')
     posts = PostSerializer(many=True, read_only=True, source='post_set')
+    postscommunities = PostCommunitySerializer(many=True, read_only=True, source='postcommunity_set')
     # jUsersId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=JoinUser.objects.all(), source='comments')
     # # interest = serializers.StringRelatedField(many=True)
     # interestsId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Interest.objects.all(), source='interest')

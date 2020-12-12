@@ -54,6 +54,7 @@ urlpatterns = [
     path('api/', include('posts.urls')),
     path('api/', include('interests.urls')),
     path('api/', include('new_communities.urls')),
+    path('api/', include('posts_communities.urls')),
     # path('api/', include(router_posts.urls)),
     # path('api/', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { InterestsService } from '../../services/interests.service';
 import { PostsService } from '../../services/posts.service';
 import { NgForm } from '@angular/forms';
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CommentsService } from '../../services/comments.service';
+import { ActivitiesService } from '../../services/activities.service';
 
 interface HtmlInputEvent extends Event {
     target: HTMLInputElement & EventTarget;
@@ -28,10 +29,15 @@ export class ForoComponent implements OnInit {
     stateComment: boolean = false;
     stateBanner: boolean = false;
     like = 0;
+    activities;
+    @ViewChild('busca')
+    busca;
+    filter: string = '';
 
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
+        public activitiesService: ActivitiesService,
         public commentsService: CommentsService,
         private router: Router,
         public authService: AuthService
@@ -45,6 +51,7 @@ export class ForoComponent implements OnInit {
         this.getAllInterests();
         this.getAllPosts();
         this.getProfile(this.dataUser);
+        this.getAllActivities();
     }
 
     getAllInterests() {
@@ -57,7 +64,7 @@ export class ForoComponent implements OnInit {
                         return item.completed == true;
                     }
                 );
-                console.log(this.filterInterests);
+                // console.log(this.filterInterests);
             },
             (err) => {
                 if (err instanceof HttpErrorResponse) {
@@ -94,46 +101,56 @@ export class ForoComponent implements OnInit {
 
     getUserPost(id: number) {}
 
-    addPost(form: NgForm) {
-        console.log(this.profile);
-        let formUser = {
-            user: this.profile.id,
-            profile: this.profile.id,
-            content: form.value.content,
-            profileId: this.profile.id,
-        };
-        console.log(formUser);
-        if (form.value.id) {
-            this.postsService.updatePost(formUser).subscribe(
-                (res) => {
-                    console.log(res);
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        } else {
-            this.postsService.createPost(formUser).subscribe(
-                (res) => {
-                    console.log('anadir al post');
-                    // this.communityClicked.emit(this.community.id);
-                    this.getAllPosts();
-                    form.reset();
-                    this.pushUser = [];
-                    // alert('pOst Creada');
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
-        }
-    }
+    // addPost(form: NgForm) {
+    //     console.log(this.profile);
+    //     let formUser = {
+    //         user: this.profile.id,
+    //         profile: this.profile.id,
+    //         content: form.value.content,
+    //         profileId: this.profile.id,
+    //     };
+    //     console.log(formUser);
+    //     if (form.value.id) {
+    //         this.postsService.updatePost(formUser).subscribe(
+    //             (res) => {
+    //                 console.log(res);
+    //             },
+    //             (err) => {
+    //                 console.log(err);
+    //             }
+    //         );
+    //     } else {
+    //         this.postsService.createPost(formUser).subscribe(
+    //             (res) => {
+    //                 console.log('anadir al post');
+    //                 // this.communityClicked.emit(this.community.id);
+    //                 this.getAllPosts();
+    //                 form.reset();
+    //                 this.pushUser = [];
+    //                 // alert('pOst Creada');
+    //             },
+    //             (err) => {
+    //                 console.log(err);
+    //             }
+    //         );
+    //     }
+    // }
 
     postDetail(id: number) {
         this.router.navigate(['/comunidad/foro', id]);
         this.postsService.getPost(id).subscribe(
             (res) => console.log(res),
             (err) => console.log(err)
+        );
+    }
+
+    getAllActivities() {
+        this.activitiesService.getAllActivities().subscribe(
+            (res) => {
+                console.log(res);
+                this.activities = res;
+            },
+            (err) => console.error(err)
         );
     }
 
@@ -183,5 +200,9 @@ export class ForoComponent implements OnInit {
 
     likeUser() {
         this.like++;
+    }
+
+    questionAsk() {
+        this.router.navigate(['/comunidad/questions']);
     }
 }
