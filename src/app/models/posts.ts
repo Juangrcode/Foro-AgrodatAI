@@ -10,5 +10,5 @@ export interface Post {
     profile: any;
     community?: any;
     activity?: any;
-    comments?: any;
+    comments?: any[];
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ActivitiesService } from '../../services/activities.service';
 import { InterestsService } from '../../services/interests.service';
 import { PostsService } from '../../services/posts.service';
@@ -27,15 +27,21 @@ export class QuestionsComponent implements OnInit {
 
     // Contiene todos los intereses que la persona le dio checklist
     filterInterests: any[];
+    id;
 
     constructor(
-        private postsService: PostsService,
+        public postsService: PostsService,
         private router: Router,
         public interestsService: InterestsService,
-        public activitiesService: ActivitiesService
+        public activitiesService: ActivitiesService,
+        private activateRoute: ActivatedRoute
     ) {}
 
     ngOnInit(): void {
+        this.activateRoute.params.subscribe((params: Params) => {
+            this.id = params['id'];
+            console.log(this.id);
+        });
         this.dataUser = localStorage.getItem('dataUser');
         this.getProfile(this.dataUser);
         this.getAllInterests();
@@ -150,6 +156,7 @@ export class QuestionsComponent implements OnInit {
     }
 
     onPhotoSelected(event: HtmlInputEvent): void {
+        console.log(event.target.files[0]);
         if (event.target.files && event.target.files[0]) {
             this.file = <File>event.target.files[0];
             // image preview

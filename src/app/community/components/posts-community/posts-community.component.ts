@@ -1,11 +1,16 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InterestsService } from 'src/app/interests/services/interests.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivitiesService } from '../../services/activities.service';
 import { CommentsService } from '../../services/comments.service';
 import { PostsService } from '../../services/posts.service';
+
+interface HtmlInputEvent extends Event {
+    target: HTMLInputElement & EventTarget;
+}
 
 @Component({
     selector: 'app-posts-community',
@@ -24,13 +29,23 @@ export class PostsCommunityComponent implements OnInit {
     posts;
     @Input() community; // Enviar  datos
     postCommunity;
+    postsCommunities: any;
+    @ViewChild('busca')
+    busca;
+    filter: string = '';
+    stateQuestions: boolean = false;
+    photoSelected;
+    file: File;
+    activityId;
+    activities;
 
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
         public commentsService: CommentsService,
         private router: Router,
-        public authService: AuthService
+        public authService: AuthService,
+        public activitiesService: ActivitiesService
     ) {}
 
     ngOnInit(): void {
@@ -41,6 +56,7 @@ export class PostsCommunityComponent implements OnInit {
         this.getAllInterests();
         this.getAllPosts();
         this.getProfile(this.dataUser);
+        this.postsCommunities = this.community.postscommunities;
     }
 
     getAllInterests() {
@@ -77,7 +93,7 @@ export class PostsCommunityComponent implements OnInit {
     }
 
     getAllPosts() {
-        this.postsService.getAllPosts().subscribe(
+        this.postsService.getAllPostsCommunities().subscribe(
             (res) => {
                 this.posts = res;
                 console.log(this.posts);
@@ -132,6 +148,7 @@ export class PostsCommunityComponent implements OnInit {
     //     }
     // }
 
+    commentView() {}
     postDetail(id: number) {
         this.router.navigate(['/comunidad/foro', id]);
         this.postsService.getPost(id).subscribe(
@@ -149,15 +166,15 @@ export class PostsCommunityComponent implements OnInit {
             post: id,
         };
         console.log(formUser);
-        this.commentsService.createComment(formUser).subscribe(
-            (res) => {
-                this.getAllPosts();
-                console.log(res);
-            },
-            (err) => {
-                console.log(err);
-            }
-        );
+        // this.commentsService.createComment(formUser).subscribe(
+        //     (res) => {
+        //         this.getAllPosts();
+        //         console.log(res);
+        //     },
+        //     (err) => {
+        //         console.log(err);
+        //     }
+        // );
     }
 
     deleteComment(id: number) {
@@ -169,8 +186,108 @@ export class PostsCommunityComponent implements OnInit {
             (err) => console.log(err)
         );
     }
+    questionAsk() {
+        if (!this.stateQuestions) {
+            this.stateQuestions = true;
+        } else {
+            this.stateQuestions = false;
+        }
+    }
 
-    commentView() {
-        this.stateComment = true;
+    getAllActivities() {
+        this.activitiesService.getAllActivities().subscribe(
+            (res) => {
+                console.log(res);
+                this.activities = res;
+            },
+            (err) => console.error(err)
+        );
+    }
+
+    addPost(form: NgForm) {
+        switch (form.value.activity) {
+            case 'Agricola':
+                this.activityId = 1;
+                break;
+            case 'Bovino':
+                this.activityId = 2;
+                break;
+            case 'Porcino':
+                this.activityId = 3;
+                break;
+            case 'Avicola':
+                this.activityId = 4;
+                break;
+            case 'Acuicola - Pesca':
+                this.activityId = 5;
+                break;
+            default:
+                this.activityId = 1;
+                break;
+        }
+
+        // let formUser = {
+        //     user: this.profile.id,
+        //     profile: this.profile.id,
+        //     content: form.value.content,
+        //     profileId: this.profile.id,
+        //     activityId: this.activityId,
+        //     title: form.value.title,
+        //     photo: this.file,
+        // };
+        console.log(form.value);
+        // console.log(formUser);
+        if (form.value.id) {
+            this.postsService
+                .updatePostCommunity(
+                    this.profile.id,
+                    form,
+                    this.activityId,
+                    this.file,
+                    form.value.id
+                )
+                .subscribe(
+                    (res) => {
+                        console.log(res);
+                        this.router.navigate(['/comunidad/']);
+                    },
+                    (err) => {
+                        console.log(err);
+                    }
+                );
+        } else {
+            this.postsService
+                .createPostCommunity(
+                    this.profile.id,
+                    form,
+                    this.activityId,
+                    this.file,
+                    this.community.id
+                )
+                .subscribe(
+                    (res) => {
+                        console.log('anadir al post');
+                        this.getAllPosts();
+                        // this.communityClicked.emit(this.community.id);
+                        // this.getAllPosts();
+                        form.reset();
+                        this.pushUser = [];
+                        // alert('pOst Creada');
+                    },
+                    (err) => {
+                        console.log(err);
+                    }
+                );
+        }
+    }
+
+    onPhotoSelected(event: HtmlInputEvent): void {
+        if (event.target.files && event.target.files[0]) {
+            this.file = <File>event.target.files[0];
+            // image preview
+            const reader = new FileReader();
+            reader.onload = (e) => (this.photoSelected = reader.result);
+            reader.readAsDataURL(this.file);
+        }
     }
 }

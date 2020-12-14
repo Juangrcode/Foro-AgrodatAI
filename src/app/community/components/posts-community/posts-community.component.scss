@@ -74,6 +74,12 @@ p {
     display: flex;
     align-items: center;
     width: 100%;
+    justify-content: space-between;
+}
+.posts__container-user {
+    display: flex;
+    align-items: center;
+    width: 100%;
     margin-left: 20px;
 }
 .posts__container--image {
@@ -105,6 +111,10 @@ p {
 
 .posts__container--content {
     font-size: 20px;
+}
+.posts__container--topic {
+    width: 50%;
+    text-align: end;
 }
 
 .posts__container-interactions {
@@ -197,4 +207,203 @@ button {
 }
 button > img {
     width: 20px;
+}
+
+.posts__container-info--title {
+    margin: 10px;
+}
+
+.posts__image {
+    height: 40px;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+.posts__container-info {
+    width: 100%;
+    padding: 20px;
+    padding-left: 30px;
+}
+.posts__info-photo {
+    width: 100%;
+    max-height: 500px;
+}
+.posts__info--image {
+    object-fit: cover;
+    width: 100%;
+    height: 500px;
+}
+
+.foro__container--banner {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.foro__banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+    background-color: #9c4dad;
+    margin: 20px;
+    outline: none;
+}
+.foro__banner:hover {
+    background-color: #019a78;
+}
+.foro__banner img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40px;
+}
+
+.foro__search--title {
+    color: #009a74;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.foro__search--input {
+    width: 100%;
+    border: 1px solid #009a74;
+    border-radius: 15px;
+    height: 30px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.foro__container--search {
+    width: 100%;
+}
+
+.foro__container-btn {
+    width: 95%;
+    margin: auto;
+}
+
+.foro__container--btn {
+    height: 50px;
+    width: 210px;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 60px;
+    border: 1px solid #502975;
+    background-color: #502975;
+    color: #fff;
+    margin: 10px 0px;
+    outline: none;
+}
+
+.foro__container--questions {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin: auto;
+    width: 95%;
+}
+.questions__container {
+    width: 100%;
+}
+
+.form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+.form__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.form__container label {
+    font-family: "Hammersmith One", sans-serif;
+    line-height: 12px;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.form__container p {
+    margin-bottom: 5px;
+}
+
+.form__container--input {
+    margin-bottom: 30px;
+    height: 30px;
+    padding-left: 20px;
+    border: 1px solid #019a78;
+    border-radius: 50px;
+    outline: none;
+    width: 96%;
+}
+.form__container--textarea {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #019a78;
+    border-radius: 10px;
+    outline: none;
+    padding-top: 55px;
+    width: 96%;
+}
+.form__container-btn-posts {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 100%;
+}
+.form__container-btn--button {
+    height: 40px;
+    width: 125px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    border: 1px solid #502975;
+    background-color: #502975;
+    color: #fff;
+}
+.container--picture {
+    display: none;
+}
+
+.instructions {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(107, 96, 96, 0.3);
+    margin: 20px;
+}
+.instructions__container-first {
+    border-bottom: 1px solid #e3e0e4;
+    height: 80px;
+}
+.instructions__container-second h2 {
+    border-bottom: 1px solid #e3e0e4;
+    padding: 20px;
+    color: #502975;
+}
+.instructions__container-second strong {
+    color: #019a78;
+}
+
+.form-container__image-photo {
+    position: relative;
+    top: -230px;
+    width: 50px;
+    left: 10px;
+    cursor: pointer;
+}
+.form-container__image {
+    height: 0;
 }

@@ -21,6 +21,7 @@ import { PostsCommunityComponent } from './components/posts-community/posts-comm
 import { BannerInterestsComponent } from './components/banner-interests/banner-interests.component';
 import { QuestionsComponent } from './components/questions/questions.component';
 import { FilterActivitiesPipe } from '../shared/pipes/filter-activities.pipe';
+import { FilterMyCommunitiesPipe } from '../shared/pipes/filter-my-communities.pipe';
 
 @NgModule({
     declarations: [
@@ -36,6 +37,7 @@ import { FilterActivitiesPipe } from '../shared/pipes/filter-activities.pipe';
         JoinUsersComponent,
         FilterUsersPipe,
         FilterActivitiesPipe,
+        FilterMyCommunitiesPipe,
         PostsCommunityComponent,
         BannerInterestsComponent,
         QuestionsComponent,

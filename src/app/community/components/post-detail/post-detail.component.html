@@ -1,33 +1,44 @@
 <div class="posts">
     <div class="posts__container">
-        <div class="posts__container--image">
-            <img
-                class="posts__image"
-                *ngIf="post.profile.picture"
-                [src]="post.profile.picture"
-                alt="AgrodatAI"
-            />
-            <img
-                class="posts__image"
-                *ngIf="!post.profile.picture"
-                src="assets/images/borde-logo.png"
-                alt="AgrodatAI"
-            />
+        <div class="posts__container-user">
+            <div class="posts__container--image">
+                <img
+                    class="posts__image"
+                    *ngIf="post.profile.picture"
+                    [src]="post.profile.picture"
+                    alt="AgrodatAI"
+                />
+                <img
+                    class="posts__image"
+                    *ngIf="!post.profile.picture"
+                    src="assets/images/borde-logo.png"
+                    alt="AgrodatAI"
+                />
+            </div>
+            <div class="posts__container--user">
+                <h2 *ngIf="dataUser">
+                    <a class="posts__user--title">{{ post.user_name }}</a>
+                </h2>
+                <h2 *ngIf="!dataUser">
+                    <a class="posts__user--title">Invitado</a>
+                </h2>
+                <p class="posts__user--time">
+                    {{ post.created | amTimeAgo }}
+                </p>
+            </div>
         </div>
-        <div class="posts__container--user">
-            <h2 *ngIf="dataUser">
-                <a class="posts__user--title">{{ post.user_name }}</a>
-            </h2>
-            <h2 *ngIf="!dataUser">
-                <a class="posts__user--title">Invitado</a>
-            </h2>
-            <p class="posts__user--time">
-                {{ post.created | amTimeAgo }}
-            </p>
+        <div class="posts__container--topic">
+            <h2>{{ post.activity.name }}</h2>
         </div>
     </div>
     <div class="posts__container-info">
+        <h1 class="posts__container-info--title">
+            <strong>{{ post.title }}</strong>
+        </h1>
         <p class="posts__container--content">{{ post.content }}</p>
+        <div class="posts__info-photo" *ngIf="post.photo">
+            <img class="posts__info--image" [src]="post.photo" alt="Photo" />
+        </div>
     </div>
     <div class="posts__container-interactions">
         <a class="posts__interactions-container">

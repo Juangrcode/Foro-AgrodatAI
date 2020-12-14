@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Post } from 'src/app/models/posts';
 import { CommentsService } from '../../services/comments.service';
 import { PostsService } from '../../services/posts.service';
 
@@ -10,7 +11,16 @@ import { PostsService } from '../../services/posts.service';
 })
 export class PostDetailComponent implements OnInit {
     id;
-    post;
+    post: any = {
+        user_name: '',
+        created: '',
+        profile: {},
+        comments: [],
+        activity: {
+            name: '',
+        },
+        content: '',
+    };
     profile;
     stateComment: boolean = false;
     dataUser;

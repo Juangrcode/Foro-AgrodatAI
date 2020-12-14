@@ -48,9 +48,9 @@ export class ForoComponent implements OnInit {
         //     this.router.navigate(['login']);
         // }
         this.dataUser = localStorage.getItem('dataUser');
+        this.getProfile(this.dataUser);
         this.getAllInterests();
         this.getAllPosts();
-        this.getProfile(this.dataUser);
         this.getAllActivities();
     }
 

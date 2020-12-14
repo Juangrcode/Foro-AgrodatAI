@@ -1,8 +1,21 @@
 <div class="contenedor">
+    <div class="foro__container--search">
+        <h2 class="foro__search--title">Búsqueda</h2>
+        <input
+            class="foro__search--input"
+            [(ngModel)]="filter"
+            value="Buscar Interes"
+            name="filter"
+            list="activity"
+        />
+    </div>
     <div class="contenedor-items">
         <div
             class="contenedor-items__item"
-            *ngFor="let community of profileMyCommunities"
+            *ngFor="
+                let community of profileMyCommunities
+                    | filterMyCommunities: filter
+            "
             (click)="communityDetail(community.id)"
         >
             <div class="container-item">

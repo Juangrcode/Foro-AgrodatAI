@@ -1,5 +1,5 @@
 import { ConstantPool } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Community } from 'src/app/models/new_communities';
 
@@ -13,6 +13,9 @@ import { CommunityService } from '../../services/community.service';
 export class MyCommunitiesComponent implements OnInit {
     profileMyCommunities;
     dataUser;
+    @ViewChild('busca')
+    busca;
+    filter: string = '';
 
     constructor(
         public communityService: CommunityService,

@@ -1,5 +1,5 @@
 <div class="foro">
-    <form
+    <!-- <form
         method="POST"
         #postForm="ngForm"
         (ngSubmit)="addPost(postForm)"
@@ -27,45 +27,183 @@
         <div class="form__container">
             <button class="form__container-btn">Publicar</button>
         </div>
-    </form>
+    </form> -->
+    <div class="foro__container--banner">
+        <div class="foro__container--search">
+            <h2 class="foro__search--title">Búsqueda</h2>
+            <input
+                class="foro__search--input"
+                [(ngModel)]="filter"
+                value="Buscar Interes"
+                name="filter"
+                list="activity"
+            />
+            <datalist id="activity">
+                <option
+                    *ngFor="let interest of activities"
+                    [value]="interest.name"
+                ></option>
+            </datalist>
+        </div>
+    </div>
+    <div class="foro__container-btn">
+        <button class="foro__container--btn" (click)="questionAsk()">
+            Formula una pregunta
+        </button>
+    </div>
+
     <!--  -->
     <!--  -->
-    <div class="posts" *ngFor="let post of this.postCommunity">
+
+    <div *ngIf="this.stateQuestions" class="foro__container--questions">
+        <div class="questions__container">
+            <form
+                method="POST"
+                #postForm="ngForm"
+                (ngSubmit)="addPost(postForm)"
+                enctype="multipart/form-data"
+                class="form"
+            >
+                <input
+                    type="hidden"
+                    name="user"
+                    [(ngModel)]="postsService.selectPost.user"
+                />
+                <input
+                    type="hidden"
+                    name="profile"
+                    [(ngModel)]="postsService.selectPost.profile"
+                />
+                <div class="form__container">
+                    <label for="title">Titulo</label>
+                    <p>Se especifico</p>
+                    <input
+                        class="form__container--input"
+                        type="text"
+                        name="title"
+                        placeholder="¿Cual es tu pregunta sobre el Agro? Se especifico"
+                        [(ngModel)]="postsService.selectPost.title"
+                    />
+                </div>
+                <div class="form__container">
+                    <label for="content">Contenido</label>
+                    <p>
+                        Incluye toda la información que alguien necesitaría para
+                        responder tu pregunta
+                    </p>
+                    <textarea
+                        class="form__container--textarea"
+                        type="text"
+                        name="content"
+                        [(ngModel)]="postsService.selectPost.content"
+                        rows="8"
+                    ></textarea>
+                    <div class="form-container__image">
+                        <input
+                            class="form-container__image-photo container--picture"
+                            type="file"
+                            name="picture"
+                            id="picture"
+                            (change)="onPhotoSelected($event)"
+                            #photoInput
+                        />
+                        <img
+                            class="form-container__image-photo"
+                            [src]="
+                                photoSelected || 'assets/iconos/no_photo.png'
+                            "
+                            alt="No images"
+                            (click)="photoInput.click()"
+                        />
+                    </div>
+                </div>
+                <div class="form__container">
+                    <label for="interest">Tema</label>
+                    <p>
+                        Añade un tema para describir sobre qué trata tu pregunta
+                    </p>
+                    <input
+                        class="form__container--input"
+                        list="activity"
+                        name="activity"
+                        [(ngModel)]="postsService.selectPost.activity"
+                        placeholder="Agricola"
+                    />
+                </div>
+
+                <datalist id="activity">
+                    <option
+                        *ngFor="let interest of activities"
+                        [value]="interest.name"
+                    ></option>
+                </datalist>
+                <div class="form__container-btn-posts">
+                    <button class="form__container-btn--button">
+                        Publicar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--  -->
+    <!--  -->
+    <div
+        class="posts"
+        *ngFor="let post of this.postsCommunities | filterActivities: filter"
+    >
         <div class="posts__container">
-            <div class="posts__container--image">
-                <img
-                    class="posts__image"
-                    *ngIf="post.profile.picture"
-                    [src]="post.profile.picture"
-                    alt="AgrodatAI"
-                />
-                <img
-                    class="posts__image"
-                    *ngIf="!post.profile.picture"
-                    src="assets/images/borde-logo.png"
-                    alt="AgrodatAI"
-                />
+            <div class="posts__container-user">
+                <div class="posts__container--image">
+                    <img
+                        class="posts__image"
+                        *ngIf="post.profile.picture"
+                        [src]="post.profile.picture"
+                        alt="AgrodatAI"
+                    />
+                    <img
+                        class="posts__image"
+                        *ngIf="!post.profile.picture"
+                        src="assets/images/borde-logo.png"
+                        alt="AgrodatAI"
+                    />
+                </div>
+                <div class="posts__container--user">
+                    <h2 *ngIf="dataUser">
+                        <a
+                            class="posts__user--title"
+                            (click)="postDetail(post.id)"
+                            >{{ post.user_name }}</a
+                        >
+                    </h2>
+                    <h2 *ngIf="!dataUser">
+                        <a
+                            class="posts__user--title"
+                            (click)="postDetail(post.id)"
+                            >Invitado</a
+                        >
+                    </h2>
+                    <p class="posts__user--time">
+                        {{ post.created | amTimeAgo }}
+                    </p>
+                </div>
             </div>
-            <div class="posts__container--user">
-                <h2 *ngIf="dataUser">
-                    <a
-                        class="posts__user--title"
-                        (click)="postDetail(post.id)"
-                        >{{ post.user_name }}</a
-                    >
-                </h2>
-                <h2 *ngIf="!dataUser">
-                    <a class="posts__user--title" (click)="postDetail(post.id)"
-                        >Invitado</a
-                    >
-                </h2>
-                <p class="posts__user--time">
-                    {{ post.created | amTimeAgo }}
-                </p>
+            <div class="posts__container--topic">
+                <h2>{{ post.activity.name }}</h2>
             </div>
         </div>
         <div class="posts__container-info">
+            <h1 class="posts__container-info--title">
+                <strong>{{ post.title }}</strong>
+            </h1>
             <p class="posts__container--content">{{ post.content }}</p>
+            <div class="posts__info-photo" *ngIf="post.photo">
+                <img
+                    class="posts__info--image"
+                    [src]="post.photo"
+                    alt="Photo"
+                />
+            </div>
         </div>
         <div class="posts__container-interactions">
             <a class="posts__interactions-container">
@@ -75,14 +213,14 @@
             </a>
             <a class="posts__interactions-container" (click)="commentView()">
                 <img src="assets/iconos/comment.svg" alt="Comment" />
-                <p>{{ post.comments.length }} Comentario</p>
+                <p>{{ post.commentscommunities.length }} Comentarios</p>
             </a>
         </div>
         <!--  -->
         <!--  -->
         <div
             class="posts__container--comments"
-            *ngFor="let comment of post.comments"
+            *ngFor="let comment of post.commentscommunities"
         >
             <div class="posts__container--commentUser">
                 <div class="posts__container--image image__container-comments">
