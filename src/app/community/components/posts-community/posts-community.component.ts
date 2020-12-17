@@ -1,11 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { EventEmitter } from 'events';
 import { InterestsService } from 'src/app/interests/services/interests.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActivitiesService } from '../../services/activities.service';
 import { CommentsService } from '../../services/comments.service';
+import { CommunityService } from '../../services/community.service';
+import { JoinUserService } from '../../services/join-user.service';
 import { PostsService } from '../../services/posts.service';
 
 interface HtmlInputEvent extends Event {
@@ -27,7 +30,9 @@ export class PostsCommunityComponent implements OnInit {
     pushUser = [];
     stateComment: boolean = false;
     posts;
-    @Input() community; // Enviar  datos
+    // @Input() community; // Enviar
+    community;
+    // @Output() refreshPosts = new EventEmitter();
     postCommunity;
     postsCommunities: any;
     @ViewChild('busca')
@@ -38,25 +43,90 @@ export class PostsCommunityComponent implements OnInit {
     file: File;
     activityId;
     activities;
-
+    joinUsers;
+    editCommunityAdmin;
+    filterCommunity;
+    validateJoinUsers;
+    id;
     constructor(
         public interestsService: InterestsService,
         public postsService: PostsService,
         public commentsService: CommentsService,
         private router: Router,
         public authService: AuthService,
-        public activitiesService: ActivitiesService
+        public activitiesService: ActivitiesService,
+        public joinuserService: JoinUserService,
+        private activateRoute: ActivatedRoute,
+        public communityService: CommunityService
     ) {}
 
     ngOnInit(): void {
         // if (!this.authService.isLoggedIn()) {
         //     this.router.navigate(['login']);
         // }
-        this.dataUser = localStorage.getItem('dataUser');
-        this.getAllInterests();
-        this.getAllPosts();
-        this.getProfile(this.dataUser);
-        this.postsCommunities = this.community.postscommunities;
+        this.getCommunityDetail();
+    }
+
+    async getCommunityDetail() {
+        await this.activateRoute.params.subscribe((params: Params) => {
+            this.id = params['id'];
+            this.communityService.getCommunity(this.id).subscribe(
+                (res) => {
+                    this.community = res;
+                    console.log(this.community);
+                    this.dataUser = localStorage.getItem('dataUser');
+                    this.getAllInterests();
+                    this.getAllPosts();
+                    this.getProfile(this.dataUser);
+                    // this.postsCommunities = this.community.postscommunities;
+                    this.getAllJoinUser();
+                },
+                (err) => console.log(err)
+            );
+        });
+    }
+
+    async getAllJoinUser() {
+        await this.joinuserService.getAllJoinUser().subscribe(
+            (res) => {
+                this.joinUsers = res;
+                this.validateProfileAdmin();
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
+    }
+
+    validateProfileAdmin() {
+        if (this.community.profile.id === this.profile.id) {
+            this.editCommunityAdmin = true;
+        } else {
+            this.editCommunityAdmin = false;
+        }
+        this.filterCommunity = this.joinUsers.filter((item) => {
+            console.log();
+            return item.community === this.community.id;
+        });
+        console.log(this.filterCommunity);
+
+        this.validateJoinUsers = this.filterCommunity.filter((i) => {
+            console.log(this.profile);
+            console.log(i);
+            return this.profile.id === i.profile.id;
+        });
+
+        console.log(this.validateJoinUsers);
+        if (this.validateJoinUsers[0]) {
+            this.validateJoinUsers = true;
+        } else {
+            this.validateJoinUsers = false;
+        }
+        // if (this.filterCommunity.length) {
+        //     this.validateJoin = true;
+        // } else {
+        //     this.validateJoin = false;
+        // }
     }
 
     getAllInterests() {
@@ -266,11 +336,12 @@ export class PostsCommunityComponent implements OnInit {
                 )
                 .subscribe(
                     (res) => {
+                        form.reset();
+                        this.getCommunityDetail();
                         console.log('anadir al post');
                         this.getAllPosts();
                         // this.communityClicked.emit(this.community.id);
                         // this.getAllPosts();
-                        form.reset();
                         this.pushUser = [];
                         // alert('pOst Creada');
                     },

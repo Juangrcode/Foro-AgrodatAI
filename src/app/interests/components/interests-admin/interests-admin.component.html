@@ -1,0 +1,67 @@
+<div class="admin">
+    <div class="admin__container">
+        <form
+            class="form"
+            #interestForm="ngForm"
+            (ngSubmit)="addInterest(interestForm)"
+        >
+            <div class="form__group">
+                <input
+                    type="text"
+                    class="form__group--input-name"
+                    placeholder="Insetar el Nombre"
+                    name="name"
+                    [(ngModel)]="interestsService.selectInterest.name"
+                />
+            </div>
+            <div class="form__group">
+                <input
+                    type="text"
+                    class="form__group--input-activity"
+                    placeholder="Inserta la Actividad"
+                    name="activities"
+                    [(ngModel)]="interestsService.selectInterest.activities"
+                />
+            </div>
+            <button class="btn btn-secondary-1">Guardar</button>
+        </form>
+    </div>
+    <div class="admin__container">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Actividad</th>
+                    <th>Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="
+                        let interest of interestsService.interests;
+                        index as i
+                    "
+                >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ interest.name }}</td>
+                    <td>{{ interest.activities }}</td>
+                    <td>
+                        <button
+                            class="btn btn-secondary"
+                            (click)="editInterest(interest)"
+                        >
+                            Editar
+                        </button>
+                        <button
+                            class="btn btn-delete"
+                            (click)="deleteInterest(interest.id)"
+                        >
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

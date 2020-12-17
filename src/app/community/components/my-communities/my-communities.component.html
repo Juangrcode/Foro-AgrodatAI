@@ -42,11 +42,11 @@
                             {{ community.name }}</a
                         >
                     </h3>
-                    <h2 *ngIf="community.activities == 1">Agricola</h2>
-                    <h2 *ngIf="community.activities == 2">Bovino</h2>
-                    <h2 *ngIf="community.activities == 3">Porcino</h2>
-                    <h2 *ngIf="community.activities == 4">Avicola</h2>
-                    <h2 *ngIf="community.activities == 5">Acuicola - Pesca</h2>
+                    <h4 *ngIf="community.activity.id == 1">Agricola</h4>
+                    <h4 *ngIf="community.activity.id == 2">Bovino</h4>
+                    <h4 *ngIf="community.activity.id == 3">Porcino</h4>
+                    <h4 *ngIf="community.activity.id == 4">Avicola</h4>
+                    <h4 *ngIf="community.activity.id == 5">Acuicola - Pesca</h4>
                     <p>{{ community.created | amTimeAgo }}</p>
                 </div>
             </div>

@@ -13,7 +13,14 @@
         <div class="joinUsers__container">
             <div class="joinUsers__container--image">
                 <img
+                    *ngIf="user.profile.picture"
                     [src]="user.profile.picture"
+                    alt="profile-picture"
+                    class="joinUsers__image"
+                />
+                <img
+                    *ngIf="!user.profile.picture"
+                    src="assets/images/borde-logo.png"
                     alt="profile-picture"
                     class="joinUsers__image"
                 />

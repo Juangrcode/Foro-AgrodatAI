@@ -10,13 +10,21 @@
                     destacadas = false
                 "
                 [ngStyle]="{
-                    'background-color': foro ? '#b3e6cc' : '#ffffff'
+                    'background-color': foro ? '#01936B' : '#ffffff',
+                    color: foro ? '#ffffff' : '#01936B'
                 }"
                 class="module"
             >
                 <img
+                    *ngIf="foro"
                     class="comunidad__image"
-                    src="assets/iconos/crear-comunidad.svg"
+                    src="assets/iconos/foro-w.svg"
+                    alt="crear-comunidad"
+                />
+                <img
+                    *ngIf="!foro"
+                    class="comunidad__image"
+                    src="assets/iconos/foro.svg"
                     alt="crear-comunidad"
                 />
                 <h3 class="module__title">Foro</h3>
@@ -30,16 +38,24 @@
                     destacadas = false
                 "
                 [ngStyle]="{
-                    'background-color': crear ? '#b3e6cc' : '#ffffff'
+                    'background-color': crear ? '#01936B' : '#ffffff',
+                    color: crear ? '#ffffff' : '#01936B'
                 }"
                 class="module"
             >
                 <img
+                    *ngIf="!crear"
                     class="comunidad__image"
-                    src="assets/iconos/crear-comunidad.svg"
+                    src="assets/iconos/foro-n.svg"
                     alt="crear-comunidad"
                 />
-                <h3 class="module__title">Crear Comunidad</h3>
+                <img
+                    *ngIf="crear"
+                    class="comunidad__image"
+                    src="assets/iconos/foro-n-w.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Crear comunidad</h3>
                 <p class="module__text">Nueva comunidad</p>
             </div>
 
@@ -51,13 +67,21 @@
                     destacadas = false
                 "
                 [ngStyle]="{
-                    'background-color': comunidades ? '#b3e6cc' : '#ffffff'
+                    'background-color': comunidades ? '#01936B' : '#ffffff',
+                    color: comunidades ? '#ffffff' : '#01936B'
                 }"
                 class="module"
             >
                 <img
+                    *ngIf="!comunidades"
                     class="comunidad__image"
-                    src="assets/iconos/crear-comunidad.svg"
+                    src="assets/iconos/comunidad.svg"
+                    alt="crear-comunidad"
+                />
+                <img
+                    *ngIf="comunidades"
+                    class="comunidad__image"
+                    src="assets/iconos/comunidad-w.svg"
                     alt="crear-comunidad"
                 />
                 <h3 class="module__title">Mis comunidades</h3>
@@ -73,18 +97,27 @@
                     comunidades = false
                 "
                 [ngStyle]="{
-                    'background-color': destacadas ? '#b3e6cc' : '#ffffff'
+                    'background-color': destacadas ? '#01936B' : '#ffffff',
+                    color: destacadas ? '#ffffff' : '#01936B'
                 }"
                 class="module"
             >
                 <img
+                    *ngIf="!destacadas"
                     class="comunidad__image"
-                    src="assets/iconos/crear-comunidad.svg"
+                    src="assets/iconos/destacados.svg"
                     alt="crear-comunidad"
                 />
-                <h3 class="module__title">Comunidades Destacadas</h3>
+                <img
+                    *ngIf="destacadas"
+                    class="comunidad__image"
+                    src="assets/iconos/destacados-w.svg"
+                    alt="crear-comunidad"
+                />
+                <h3 class="module__title">Comunidades destacadas</h3>
                 <span class="module__text"
-                    >Administrar actididades agropecuarias</span
+                    >Administrar las comunidades mas activas relacionadas a los
+                    temas de intereses</span
                 >
             </div>
         </div>

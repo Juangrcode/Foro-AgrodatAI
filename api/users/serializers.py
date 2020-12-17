@@ -11,6 +11,7 @@ from users.models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
     user = serializers.ReadOnlyField(source='user.username')
     email = serializers.ReadOnlyField(source='user.email')
+    is_staff = serializers.ReadOnlyField(source='user.is_staff')
     # profile = ProfileSerializer(read_only=True)
     # profileId = serializers.PrimaryKeyRelatedField(write_only=True, queryset=Profile.objects.all(), source='profile')
     # interests_name = serializers.ReadOnlyField(source='interests.name')
@@ -28,4 +29,4 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ['url', 'id', 'username', 'profile', 'email']
+        fields = ['url', 'id', 'username', 'profile', 'email', 'is_staff']

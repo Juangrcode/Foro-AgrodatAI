@@ -4,6 +4,9 @@ import { JoinUserService } from '../../services/join-user.service';
 import { takeUntil } from 'rxjs/operators';
 import { PostsService } from '../../services/posts.service';
 import { EventEmitter } from 'protractor';
+import { CommunityService } from '../../services/community.service';
+import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
     selector: 'app-join-users',
@@ -14,7 +17,7 @@ export class JoinUsersComponent implements OnInit {
     private unsubscribe = new Subject<void>();
     filterCommunity;
     @Input() community; // Enviar  datos
-    profile; // Enviar  datos
+    @Input() profile; // Enviar  datos
     joinUsers; // Enviar  datos
     // Enviar  datos
     @ViewChild('busca')
@@ -22,16 +25,34 @@ export class JoinUsersComponent implements OnInit {
     filter: string = '';
     editCommunityAdmin: boolean = false;
     dataUser;
+    id;
 
     constructor(
         public joinuserService: JoinUserService,
-        public postsService: PostsService
+        public postsService: PostsService,
+        private activateRoute: ActivatedRoute,
+        private router: Router,
+        public communityService: CommunityService
     ) {}
 
     ngOnInit(): void {
-        this.dataUser = localStorage.getItem('dataUser');
-        this.getProfile(this.dataUser);
-        this.getAllJoinUser();
+        this.getCommunityDetail();
+    }
+
+    async getCommunityDetail() {
+        await this.activateRoute.params.subscribe((params: Params) => {
+            this.id = params['id'];
+            this.communityService.getCommunity(this.id).subscribe(
+                (res) => {
+                    this.community = res;
+                    console.log(this.community);
+                    this.dataUser = localStorage.getItem('dataUser');
+                    this.getProfile(this.dataUser);
+                    this.getAllJoinUser();
+                },
+                (err) => console.log(err)
+            );
+        });
     }
 
     async getAllJoinUser() {
@@ -52,17 +73,17 @@ export class JoinUsersComponent implements OnInit {
     // // Profiles
 
     async getProfile(user_id) {
-        await this.postsService
-            .getProfile(user_id)
-            .pipe(takeUntil(this.unsubscribe))
-            .subscribe(
-                (res) => {
-                    this.profile = res;
-                },
-                (err) => {
-                    console.log(err);
-                }
-            );
+        // await this.postsService
+        //     .getProfile(user_id)
+        //     .pipe(takeUntil(this.unsubscribe))
+        //     .subscribe(
+        //         (res) => {
+        //             this.profile = res;
+        //         },
+        //         (err) => {
+        //             console.log(err);
+        //         }
+        //     );
     }
 
     validateProfileAdmin() {
@@ -86,6 +107,7 @@ export class JoinUsersComponent implements OnInit {
         this.joinuserService.deleteJoinUser(id).subscribe(
             (res) => {
                 console.log(res);
+                this.getCommunityDetail();
             },
             (err) => {
                 console.log(err);

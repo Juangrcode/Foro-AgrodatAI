@@ -1,0 +1,55 @@
+.admin {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+}
+
+.admin__container {
+    padding: 20px;
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.form__group {
+    margin: 20px;
+    width: 50%;
+}
+.form__group input {
+    width: 100%;
+    margin-bottom: 30px;
+    height: 42px;
+    padding-left: 20px;
+    border: 1px solid #019a78;
+    border-radius: 50px;
+    outline: none;
+}
+
+.admin__container table {
+    width: 100%;
+}
+
+.btn {
+    height: 25px;
+    width: 115px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 60px;
+    border: 1px solid #502975;
+    background-color: #502975;
+    color: #fff;
+    outline: none;
+}
+
+td {
+    text-align: center;
+}
+.btn-secondary-1 {
+    height: 30px;
+    font-size: 16px;
+}

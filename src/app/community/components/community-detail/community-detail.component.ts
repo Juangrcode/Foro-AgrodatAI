@@ -82,6 +82,7 @@ export class CommunityDetailComponent implements OnInit, OnDestroy {
                     .subscribe(
                         (res) => {
                             this.community = res;
+                            console.log(this.community);
                         },
                         (err) => console.log(err)
                     );
@@ -199,6 +200,7 @@ export class CommunityDetailComponent implements OnInit, OnDestroy {
                 (res) => {
                     this.joinUsers = res;
                     this.validateProfileAdmin();
+                    console.log(this.joinUsers);
                 },
                 (err) => {
                     console.log(err);

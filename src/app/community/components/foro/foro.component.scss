@@ -109,9 +109,10 @@ p {
     text-align: end;
 }
 .posts__image {
+    width: 40px;
     height: 40px;
     border-radius: 20px;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .posts__container-info {

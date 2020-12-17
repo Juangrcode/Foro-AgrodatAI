@@ -9,9 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from '../shared/pipes/filter/filter.pipe';
+import { InterestsAdminComponent } from './components/interests-admin/interests-admin.component';
 
 @NgModule({
-    declarations: [InterestsComponent, FilterPipe],
+    declarations: [InterestsComponent, FilterPipe, InterestsAdminComponent],
     imports: [
         CommonModule,
         InterestsRoutingModule,

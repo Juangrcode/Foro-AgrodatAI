@@ -1,7 +1,7 @@
 export interface Community {
     id?: number;
     profile: any;
-    activity?: number;
+    activity?: any;
     joinusers?: any[];
     name: string;
     picture: string;

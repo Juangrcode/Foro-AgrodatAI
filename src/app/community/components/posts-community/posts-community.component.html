@@ -1,4 +1,4 @@
-<div class="foro">
+<div class="foro" *ngIf="validateJoinUsers">
     <!-- <form
         method="POST"
         #postForm="ngForm"
@@ -150,7 +150,10 @@
     <!--  -->
     <div
         class="posts"
-        *ngFor="let post of this.postsCommunities | filterActivities: filter"
+        *ngFor="
+            let post of this.community.postscommunities
+                | filterActivities: filter
+        "
     >
         <div class="posts__container">
             <div class="posts__container-user">

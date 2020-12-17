@@ -28,6 +28,9 @@
 
 <div class="interests">
     <h1 class="interests__title">Lista de Intereses</h1>
+    <a *ngIf="this.profile.is_staff" class="btn" routerLink="/intereses/admin"
+        >Añade Intereses</a
+    >
     <div class="interests__container">
         <div class="interests__container--search">
             <h2 class="interests__search--title">Búsqueda</h2>

@@ -1,6 +1,7 @@
 import { ConstantPool } from '@angular/compiler';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { PostsService } from 'src/app/community/services/posts.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { Interest } from '../../../models/interests';
 import { InterestsService } from '../../services/interests.service';
@@ -24,7 +25,8 @@ export class InterestsComponent implements OnInit {
     found: any;
 
     todoListArray: any[];
-
+    dataUser;
+    profile;
     // Contiene todos los intereses que la persona le dio checklist
     filterInterests: any[];
 
@@ -32,15 +34,29 @@ export class InterestsComponent implements OnInit {
     constructor(
         public interestsService: InterestsService,
         public authService: AuthService,
-        public router: Router
+        public router: Router,
+        public postsService: PostsService
     ) {}
 
     ngOnInit(): void {
         if (!this.authService.isLoggedIn()) {
             this.router.navigate(['login']);
         }
+        this.dataUser = localStorage.getItem('dataUser');
+        this.getProfile(this.dataUser);
         this.getAllInterests();
         this.saveInterests();
+    }
+    getProfile(user_id: number) {
+        this.postsService.getProfile(user_id).subscribe(
+            (res) => {
+                this.profile = res;
+                console.log(this.profile);
+            },
+            (err) => {
+                console.log(err);
+            }
+        );
     }
 
     getAllInterests() {
@@ -52,7 +68,7 @@ export class InterestsComponent implements OnInit {
                 this.filterInterests = this.temaInteres.filter((item) => {
                     return item.completed == true;
                 });
-                console.log(this.filterInterests);
+                console.log(this.interestsService.interests);
             },
             (err) => console.error(err)
         );

@@ -64,7 +64,7 @@ export class ForoComponent implements OnInit {
                         return item.completed == true;
                     }
                 );
-                // console.log(this.filterInterests);
+                console.log(this.filterInterests);
             },
             (err) => {
                 if (err instanceof HttpErrorResponse) {
